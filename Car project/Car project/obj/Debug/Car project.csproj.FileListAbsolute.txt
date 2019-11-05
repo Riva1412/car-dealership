@@ -40,3 +40,26 @@ F:\Github\Cars-dealership-management-system\Car project\Car project\obj\Debug\Ca
 F:\Github\Cars-dealership-management-system\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
 F:\Github\Cars-dealership-management-system\Car project\Car project\obj\Debug\Car project.exe
 F:\Github\Cars-dealership-management-system\Car project\Car project\obj\Debug\Car project.pdb
+F:\Github\car-dealership\Car project\Car project\bin\Debug\Car project.exe.config
+F:\Github\car-dealership\Car project\Car project\bin\Debug\Car project.exe
+F:\Github\car-dealership\Car project\Car project\bin\Debug\Car project.pdb
+F:\Github\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.dll
+F:\Github\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\Github\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.pdb
+F:\Github\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\Github\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project.csprojAssemblyReference.cache
+F:\Github\car-dealership\Car project\Car project\obj\Debug\MainWindow.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\App.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.cache
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.lref
+F:\Github\car-dealership\Car project\Car project\obj\Debug\App.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\MainWindow.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project.g.resources
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car_project.Properties.Resources.resources
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.GenerateResource.cache
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project.exe
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Car project.pdb
+F:\Github\car-dealership\Car project\Car project\obj\Debug\User.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\User.baml

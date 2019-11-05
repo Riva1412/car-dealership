@@ -18,9 +18,9 @@ namespace Car_project
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class User : Window
     {
-        public MainWindow()
+        public User()
         {
             InitializeComponent();
         }
@@ -45,7 +45,7 @@ namespace Car_project
 
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)

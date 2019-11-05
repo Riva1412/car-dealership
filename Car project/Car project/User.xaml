@@ -1,4 +1,4 @@
-﻿<Window x:Class="Car_project.MainWindow"
+﻿<Window x:Class="Car_project.User"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Car_project"
      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1200"  Foreground="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="User" Height="700" Width="1200"  Foreground="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" >
@@ -33,6 +33,7 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid Background="#FFF0EAEA" >
+
         <Grid Height="70" VerticalAlignment="Top" Background="#FF444546">
             <TextBlock Text="cars online shopping" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
@@ -60,66 +61,38 @@
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListViewItem Height="60" Selected="ListViewItem_Selected_2">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Margin="10" Kind="ViewDashboard" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Margin="10" Kind="Home" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
 
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" Selected="ListViewItem_Selected_1">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Margin="10" Kind="PersonAdd" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Add a user" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
 
-                        </StackPanel>
-
-
-                    </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Margin="10" Kind="Ban" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Ban a user" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-
+                            <materialDesign:PackIcon  Margin="10" Kind="User" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <TextBlock Text="Profile" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
-
-
                     </ListViewItem>
 
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon   Margin="10" Kind="Pencil" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Manage products" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-
+                            <materialDesign:PackIcon  Margin="10" Kind="Car" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <TextBlock Text="My products" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
-
-
                     </ListViewItem>
 
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Margin="10" Kind="Feedback" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Feedback" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-
+                            <materialDesign:PackIcon  Margin="10" Kind="Cart" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <TextBlock Text="Cart" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
-
-
                     </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Margin="10" Kind="Settings" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Settings" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
 
-                        </StackPanel>
-
-
-                    </ListViewItem>
                     <ListViewItem Height="60" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Logout" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Logout" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-
                         </StackPanel>
-
-
                     </ListViewItem>
 
 
@@ -127,5 +100,6 @@
 
             </StackPanel>
         </Grid>
+        
     </Grid>
 </Window>
