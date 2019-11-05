@@ -61,9 +61,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,7 +115,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="imgs\cars.jpg" />
+    <Resource Include="imgs\fb.png" />
+    <Resource Include="imgs\G+2.png" />
+    <Resource Include="imgs\google.jpg" />
+    <Resource Include="imgs\greycolor.jpg" />
+    <Resource Include="imgs\login.png" />
+    <Resource Include="imgs\twitter.jpg" />
+    <Resource Include="imgs\woodenColor.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.png" />
   </ItemGroup>
