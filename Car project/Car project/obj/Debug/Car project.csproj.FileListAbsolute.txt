@@ -88,3 +88,5 @@ D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.g.resou
 D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car_project.Properties.Resources.resources
 D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.GenerateResource.cache
 D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Login.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\Login.baml
