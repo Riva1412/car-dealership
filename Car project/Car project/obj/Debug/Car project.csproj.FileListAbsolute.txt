@@ -114,3 +114,4 @@ C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.cs
 C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
 C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.exe
 C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.pdb
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csprojAssemblyReference.cache

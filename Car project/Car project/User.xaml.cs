@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -45,25 +46,38 @@ namespace Car_project
 
         private void Home(object sender, RoutedEventArgs e)
         {
+            MyProducts.Visibility = Visibility.Hidden;
             MessageBox.Show("Home");
-           
+            
         }
         private void Profile(object sender, RoutedEventArgs e)
         {
+            MyProducts.Visibility = Visibility.Hidden;
             MessageBox.Show("Profile");
         }
+      
         private void Products(object sender, RoutedEventArgs e)
         {
+            
             MessageBox.Show("Products");
+            MyProducts.Visibility = Visibility.Visible;
+            for (int i = 0; i < 5; i++)
+            {
+                MaterialDesignThemes.Wpf.Flipper flip = new MaterialDesignThemes.Wpf.Flipper();
+                flip = orgflipper;
+                flip.Height=400;
+
+            }
         }
         private void Cart(object sender, RoutedEventArgs e)
         {
-            
+            MyProducts.Visibility = Visibility.Hidden;
             MessageBox.Show("Cart");
         }
 
         private void Logout(object sender, RoutedEventArgs e)
         {
+            MyProducts.Visibility = Visibility.Hidden;
             MessageBox.Show("Logout");
         }
     }
