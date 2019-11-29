@@ -59,7 +59,7 @@
                     </Button>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60" Selected="ListViewItem_Selected_2">
+                    <ListViewItem Height="60" Selected="Home">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Margin="10" Kind="Home" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
@@ -67,28 +67,28 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="Profile">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="User" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Profile" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="Products">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Car" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="My products" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="Cart">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Cart" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Cart" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60" Selected="ListViewItem_Selected">
+                    <ListViewItem Height="60" Selected="Logout">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Logout" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Logout" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
@@ -100,6 +100,6 @@
 
             </StackPanel>
         </Grid>
-        
     </Grid>
+
 </Window>

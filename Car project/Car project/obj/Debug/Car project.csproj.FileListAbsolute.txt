@@ -90,3 +90,27 @@ D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.
 D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
 F:\Github\car-dealership\Car project\Car project\obj\Debug\Login.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\Login.baml
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\Car project.exe.config
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\Car project.exe
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\Car project.pdb
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.dll
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Login.g.cs
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\MainWindow.g.cs
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\User.g.cs
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\App.g.cs
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.cache
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.lref
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\App.baml
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Login.baml
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\MainWindow.baml
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\User.baml
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.g.resources
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car_project.Properties.Resources.resources
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.GenerateResource.cache
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.exe
+C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.pdb

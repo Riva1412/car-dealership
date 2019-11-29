@@ -43,20 +43,28 @@ namespace Car_project
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
         }
 
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        private void Home(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Home");
+           
+        }
+        private void Profile(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Profile");
+        }
+        private void Products(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Products");
+        }
+        private void Cart(object sender, RoutedEventArgs e)
+        {
+            
+            MessageBox.Show("Cart");
         }
 
-        private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)
+        private void Logout(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Helllo");
-
-        }
-
-        private void ListViewItem_Selected_2(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Helllo");
+            MessageBox.Show("Logout");
         }
     }
 }
