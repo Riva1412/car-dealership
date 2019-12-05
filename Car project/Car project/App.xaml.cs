@@ -14,4 +14,9 @@ namespace Car_project
     public partial class App : Application
     {
     }
+    public static class GlobalVars
+
+    {
+        public static int userid = 1;
+    }
 }

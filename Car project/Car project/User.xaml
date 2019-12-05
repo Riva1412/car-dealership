@@ -110,7 +110,7 @@
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="Account"/>
                 </Button>
-                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonFechar_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
             </StackPanel>
@@ -134,7 +134,7 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60" Selected="Profile">
+<ListViewItem   Height="60" Selected="ProfileBtn_Click">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="User" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Profile" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
@@ -167,8 +167,56 @@
 
             </StackPanel>
         </Grid>
-      
 
+        <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Hidden">
+            <Grid  Margin="30,20,701,323">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="First Name :"       VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="1" Content="Second Name :"      VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="2" Content="Phone number :"      VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="3" Content="Email :"            VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="4" Content="New Password :"     VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="5" Content="Confirm Password :" VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="6" Content="Address :" VerticalContentAlignment="Center"      FontSize="14"/>
+
+                </Grid>
+                <Grid Grid.Column="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                        <RowDefinition  Height="40" />
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="FirstNameText" Grid.Row="0"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
+                    <TextBox x:Name="SecondNameText" Grid.Row="1"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
+                    <TextBox x:Name="PhoneText" Grid.Row="2"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
+                    <TextBox x:Name="EmailText" Grid.Row="3"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
+                    <PasswordBox x:Name="Newpass" Grid.Row="4" Margin="0,0,0,10" Foreground="Black"  FontSize="14"/>
+                    <PasswordBox x:Name="ConfPass" Grid.Row="5" Margin="0,0,0,10" Foreground="Black"  FontSize="14"/>
+                    <TextBox x:Name="AddressText" Grid.Row="6"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
+                </Grid>
+            </Grid>
+            <Button  Click="savebtn_click" Content="Save" HorizontalAlignment="Left" Margin="30,416,0,0" VerticalAlignment="Top" Width="75" />
+            <Button  Click="cancelbtn_click" Content="Cancel" HorizontalAlignment="Left" Margin="246,416,0,0" VerticalAlignment="Top" Width="74"/>
+
+        </Grid>
     </Grid>
-
+    
 </Window>
