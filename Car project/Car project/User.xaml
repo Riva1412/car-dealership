@@ -31,7 +31,7 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
-    
+
     <Grid Background="#FFF0EAEA" >
         <Grid x:Name="MyProducts" HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="60,75,0,0" Visibility="Visible">
             <StackPanel Orientation="Horizontal">
@@ -228,5 +228,5 @@
 
         </Grid>
     </Grid>
-    
+
 </Window>

@@ -65,7 +65,7 @@ namespace Car_project
         {
             MyProducts.Visibility = Visibility.Hidden;
             MessageBox.Show("Home");
-            
+
         }
         /// profile begin
 
@@ -113,7 +113,7 @@ namespace Car_project
                 updatedata("Phone", PhoneText.Text, GlobalVars.userid);
                 updatedata("Address", AddressText.Text, GlobalVars.userid);
                 if (Newpass.Password.Length > 0)
-                updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
+                    updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
             }
 
             catch (Exception ex)

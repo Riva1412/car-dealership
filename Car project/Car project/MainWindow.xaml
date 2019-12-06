@@ -35,14 +35,14 @@
     <Grid Background="#FFF0EAEA" >
         <Grid Height="70" VerticalAlignment="Top" Background="#FF444546">
             <TextBlock Text="cars online shopping" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="Bell"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button Click="ButtonMinimize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="Account"/>
+                <Button Click="ButtonMaximize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="WindowMaximize"/>
                 </Button>
-                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button Click="Buttonclose_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" >
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
             </StackPanel>
@@ -74,7 +74,7 @@
 
 
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected_3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Ban" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Ban a user" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
@@ -127,5 +127,36 @@
 
             </StackPanel>
         </Grid>
+
+        <Grid x:Name="ban_page" Visibility="Collapsed" HorizontalAlignment="Center" Background="#FFF0EAEA" Width="800" Margin="0,70,0,0">
+
+            <TextBox Margin="20,10,566,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="76" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" >
+                <materialDesign:HintAssist.Hint >
+                    <TextBlock Foreground="Gray" FontSize="18" Width="66"  >Search</TextBlock>
+                </materialDesign:HintAssist.Hint>
+            </TextBox>
+            <Grid Margin="0,119,566,0" Height="44" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="0" Click="Button_Click_4" Margin="0,6">
+                    <materialDesign:PackIcon Kind="People" Height="22" Width="69" Foreground="Black" />
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="1" Click="Button_Click_5" Margin="0,6">
+                    <materialDesign:PackIcon Kind="Ban" Height="22" Width="69" Foreground="Black"/>
+                </Button>
+            </Grid>
+            <Grid Margin="0,168,0,0" x:Name="here" >
+                <local:one_user_control x:Name="all_users"  />
+                <local:one_banned_user_control x:Name="banned_users"  Visibility="Collapsed"/>
+            </Grid>
+
+        </Grid>
+
     </Grid>
+
 </Window>

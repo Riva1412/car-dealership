@@ -90,28 +90,46 @@ D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.
 D:\Projects\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
 F:\Github\car-dealership\Car project\Car project\obj\Debug\Login.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\Login.baml
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\Car project.exe.config
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\Car project.exe
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\Car project.pdb
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.dll
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.pdb
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\Youssef\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Login.g.cs
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\MainWindow.g.cs
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\User.g.cs
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\App.g.cs
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.cache
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.lref
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\App.baml
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Login.baml
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\MainWindow.baml
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\User.baml
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.g.resources
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car_project.Properties.Resources.resources
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.GenerateResource.cache
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.exe
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.pdb
-C:\Users\Youssef\car-dealership\Car project\Car project\obj\Debug\Car project.csprojAssemblyReference.cache
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\Car project.exe.config
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\Car project.exe
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\Car project.pdb
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\MaterialDesignColors.dll
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.dll
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\MaterialDesignColors.pdb
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.pdb
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.xml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Login.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\MainWindow.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\User.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\App.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project_MarkupCompile.cache
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project_MarkupCompile.lref
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\App.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Login.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\MainWindow.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\User.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project.g.resources
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car_project.Properties.Resources.resources
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project.csproj.GenerateResource.cache
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project.exe
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project.pdb
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\UserControl1.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\UserControl1.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\one user control.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\one user control.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\banned user control.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\one banned user control.g.cs
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\banned user control.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\user control\all users\one banned user control.baml
+E:\is project\car-dealership-master\car-dealership-master\Car project\Car project\obj\Debug\Car project.csprojAssemblyReference.cache
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\banned user control.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\one banned user control.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\one user control.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\UserControl1.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\banned user control.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\one banned user control.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\one user control.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\all users\UserControl1.baml
