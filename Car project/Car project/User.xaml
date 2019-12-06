@@ -20,7 +20,6 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
             </DoubleAnimationUsingKeyFrames>
-
         </Storyboard>
 
     </Window.Resources>
@@ -35,82 +34,94 @@
     
     <Grid Background="#FFF0EAEA" >
         <Grid x:Name="MyProducts" HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="60,75,0,0" Visibility="Visible">
-            <materialDesign:Flipper x:Name="orgflipper" Style="{StaticResource MaterialDesignCardFlipper}" Margin="56,90,0,0">
-                <materialDesign:Flipper.FrontContent>
-                  <Grid Height="256" Width="200">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="160" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
-                            <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </materialDesign:ColorZone>
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock>
-        James Willock
-                            </TextBlock>
-                            <Button Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
-                                EDIT
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </materialDesign:Flipper.FrontContent>
-                <materialDesign:Flipper.BackContent>
-                    <Grid Height="256" Width="200">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Mode="Accent" Padding="6">
-                            <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
-                                    <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
-                                </Button>
-                                <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">
-          EDIT USER
-                                </TextBlock>
-                            </StackPanel>
-                        </materialDesign:ColorZone>
-                        <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="56,98,0,0" Height="444">
+                    <materialDesign:Flipper.FrontContent >
+                        <Grid Height="500" Width="300">
                             <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
+                                <RowDefinition Height="260" />
+                                <RowDefinition Height="150" />
                             </Grid.RowDefinitions>
-                            <TextBox materialDesign:HintAssist.Hint="First name" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
-                                James
-                            </TextBox>
-                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Last name" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
-                                Willock
-                            </TextBox>
-                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
-                                <TextBlock VerticalAlignment="Center">
-          Email Contact
-                                </TextBlock>
-                                <ToggleButton Margin="8 0 0 0"></ToggleButton>
-                            </StackPanel>
-                            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
-                                <TextBlock VerticalAlignment="Center">
-          Telephone Contact
-                                </TextBlock>
-                                <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                            <Image Margin="-20 0 0 0" Source="/imgs/nissan.jpg" Width="500"/>
+                            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock FontSize="30" x:Name="search1"><Run Text="Nissan"/></TextBlock>
+                                <TextBlock Foreground="Gold" FontSize="30" x:Name="search102"><Run Text="50000$"/></TextBlock>
+                                <Button Foreground="GreenYellow" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="-12 5 0 0" Content="See More"/>
                             </StackPanel>
                         </Grid>
-                    </Grid>
-                </materialDesign:Flipper.BackContent>
-            </materialDesign:Flipper>
+                    </materialDesign:Flipper.FrontContent>
+                    <materialDesign:Flipper.BackContent>
+                        <Grid Height="500" Width="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <materialDesign:ColorZone Mode="Dark" Padding="6">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                        <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                                    </Button>
+                                    <TextBlock Margin="8 0 0 0" VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
+                                </StackPanel>
+                            </materialDesign:ColorZone>
+
+                            <Grid Grid.Row="1"  HorizontalAlignment="Center" >
+
+                                <Grid >
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Model :</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">Nissan Sunny</TextBlock>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Speed :</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">500 Km/h</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Tank Capacity :</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">50 L</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Exteriro Colour:</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">White</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Interio Colour:</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">Black</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Warranty:</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1"> 2 Years</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Price:</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">50000$</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  >
+                                            <TextBlock Foreground="DimGray" FontSize="30">Seller:</TextBlock>
+                                            <TextBlock FontSize="30" Grid.Column="1">Isaac Moris</TextBlock>
+                                        </StackPanel>
+                                        <Button Width="200" Foreground="Black" Margin="0 20 0 0" >BUY</Button>
+                                    </StackPanel>
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+                    </materialDesign:Flipper.BackContent>
+                </materialDesign:Flipper>
+            </StackPanel>
         </Grid>
         <Grid Height="70" VerticalAlignment="Top" Background="#FF444546">
             <TextBlock Text="cars online shopping" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="Bell"/>
+                <Button Click="ButtonMinimize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="Account"/>
+                <Button Click="ButtonMaximize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="WindowMaximize"/>
                 </Button>
-                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonFechar_Click">
+                <Button Click="Buttonclose_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" >
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
             </StackPanel>
@@ -118,7 +129,7 @@
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
             <StackPanel>
                 <Grid Height="200" VerticalAlignment="Top" Background="White">
-                    <Button x:Name="ButtonCloseMenu" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Collapsed" BorderBrush="{x:Null}" Background="{x:Null}" Click="ButtonCloseMenu_Click" >
+                    <Button x:Name="ButtonCloseMenu" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden" BorderBrush="{x:Null}" Background="{x:Null}" Click="ButtonCloseMenu_Click" >
                         <materialDesign:PackIcon Width="25" Height="25" Kind="ArrowLeft" Foreground="Black" />
                     </Button>
                     <Button x:Name="ButtonOpenMenu" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Click="ButtonOpenMenu_Click">
@@ -130,11 +141,10 @@
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Margin="10" Kind="Home" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-
                         </StackPanel>
                     </ListViewItem>
 
-<ListViewItem   Height="60" Selected="ProfileBtn_Click">
+                    <ListViewItem   Height="60" Selected="ProfileBtn_Click">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="User" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Profile" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
@@ -185,13 +195,13 @@
                         <RowDefinition  Height="40" />
 
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Content="First Name :"       VerticalContentAlignment="Center"      FontSize="14"/>
-                    <Label Grid.Row="1" Content="Second Name :"      VerticalContentAlignment="Center"      FontSize="14"/>
-                    <Label Grid.Row="2" Content="Phone number :"      VerticalContentAlignment="Center"      FontSize="14"/>
-                    <Label Grid.Row="3" Content="Email :"            VerticalContentAlignment="Center"      FontSize="14"/>
-                    <Label Grid.Row="4" Content="New Password :"     VerticalContentAlignment="Center"      FontSize="14"/>
-                    <Label Grid.Row="5" Content="Confirm Password :" VerticalContentAlignment="Center"      FontSize="14"/>
-                    <Label Grid.Row="6" Content="Address :" VerticalContentAlignment="Center"      FontSize="14"/>
+                    <Label Grid.Row="0" Content="First Name :"       VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
+                    <Label Grid.Row="1" Content="Second Name :"      VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
+                    <Label Grid.Row="2" Content="Phone number :"     VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
+                    <Label Grid.Row="3" Content="Email :"            VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
+                    <Label Grid.Row="4" Content="New Password :"     VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
+                    <Label Grid.Row="5" Content="Confirm Password :" VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
+                    <Label Grid.Row="6" Content="Address :"          VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
 
                 </Grid>
                 <Grid Grid.Column="1" >
@@ -204,13 +214,13 @@
                         <RowDefinition  Height="40" />
                         <RowDefinition  Height="40" />
                     </Grid.RowDefinitions>
-                    <TextBox x:Name="FirstNameText" Grid.Row="0"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
-                    <TextBox x:Name="SecondNameText" Grid.Row="1"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
-                    <TextBox x:Name="PhoneText" Grid.Row="2"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
-                    <TextBox x:Name="EmailText" Grid.Row="3"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
-                    <PasswordBox x:Name="Newpass" Grid.Row="4" Margin="0,0,0,10" Foreground="Black"  FontSize="14"/>
-                    <PasswordBox x:Name="ConfPass" Grid.Row="5" Margin="0,0,0,10" Foreground="Black"  FontSize="14"/>
-                    <TextBox x:Name="AddressText" Grid.Row="6"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14"/>
+                    <TextBox     x:Name="FirstNameText"  Grid.Row="0"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
+                    <TextBox     x:Name="SecondNameText" Grid.Row="1"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
+                    <TextBox     x:Name="PhoneText"      Grid.Row="2"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
+                    <TextBox     x:Name="EmailText"      Grid.Row="3"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
+                    <PasswordBox x:Name="Newpass"        Grid.Row="4"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
+                    <PasswordBox x:Name="ConfPass"       Grid.Row="5"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
+                    <TextBox     x:Name="AddressText"    Grid.Row="6"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
                 </Grid>
             </Grid>
             <Button  Click="savebtn_click" Content="Save" HorizontalAlignment="Left" Margin="30,416,0,0" VerticalAlignment="Top" Width="75" />

@@ -67,6 +67,8 @@ namespace Car_project
             MessageBox.Show("Home");
             
         }
+        /// profile begin
+
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
             MyProducts.Visibility = Visibility.Hidden;
@@ -88,9 +90,19 @@ namespace Car_project
             }
 
         }
-        /// profile begin
+
         private void savebtn_click(object sender, RoutedEventArgs e)
         {
+            if (Newpass.Password.Length > 0 && Newpass.Password != ConfPass.Password)
+            {
+                MessageBox.Show("Password does not match");
+                return;
+            }
+            if (PhoneText.Text.Length != 11)
+            {
+                MessageBox.Show("Invalid phone number");
+                return;
+            }
             try
             {
                 if (sqlcon.State == System.Data.ConnectionState.Closed)
@@ -100,10 +112,8 @@ namespace Car_project
                 updatedata("Email", EmailText.Text, GlobalVars.userid);
                 updatedata("Phone", PhoneText.Text, GlobalVars.userid);
                 updatedata("Address", AddressText.Text, GlobalVars.userid);
-                if (Newpass.Password == ConfPass.Password)
-                    updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
-                else
-                    MessageBox.Show("Password does not match");
+                if (Newpass.Password.Length > 0)
+                updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
             }
 
             catch (Exception ex)
@@ -121,16 +131,9 @@ namespace Car_project
         /// profile end
         private void Products(object sender, RoutedEventArgs e)
         {
-            
-            MessageBox.Show("Products");
             MyProducts.Visibility = Visibility.Visible;
-            for (int i = 0; i < 5; i++)
-            {
-                MaterialDesignThemes.Wpf.Flipper flip = new MaterialDesignThemes.Wpf.Flipper();
-                flip = orgflipper;
-                flip.Height=400;
-
-            }
+            Profile.Visibility = Visibility.Hidden;
+            MessageBox.Show("Products");
         }
         private void Cart(object sender, RoutedEventArgs e)
         {
@@ -138,14 +141,36 @@ namespace Car_project
             MessageBox.Show("Cart");
         }
 
+
+        /// logout
         private void Logout(object sender, RoutedEventArgs e)
         {
+            Login.MainWindow loginwinow = new Login.MainWindow();
+            loginwinow.Show();
             this.Close();
         }
 
-        private void ButtonFechar_Click(object sender, RoutedEventArgs e)
+        /// close maxmisze minimize
+        private void Buttonclose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
+        }
+        private void ButtonMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == System.Windows.WindowState.Normal)
+            {
+                this.WindowState = System.Windows.WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = System.Windows.WindowState.Normal;
+            }
+        }
+
+        private void ButtonMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
         }
     }
 }

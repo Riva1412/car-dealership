@@ -55,18 +55,19 @@ namespace Login
         }
 
 
-        private int check_Login(string email, string password)
+
+        string userDataItem(string item)
         {
             try
             {
                 if (sqlcon.State == System.Data.ConnectionState.Closed)
                     sqlcon.Open();
 
-                string query = "select count(1) from UserData where Email=@usermail and UserPassword=@password";
+                string query = "select " + item + " from UserData where Email=@usermail and UserPassword=@password";
                 SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
-                sqlcmd.Parameters.AddWithValue("@usermail", email);
-                sqlcmd.Parameters.AddWithValue("@password", password);
-                return Convert.ToInt32(sqlcmd.ExecuteScalar());
+                sqlcmd.Parameters.AddWithValue("@usermail", loginMail.Text);
+                sqlcmd.Parameters.AddWithValue("@password", loginPassword.Password);
+                return Convert.ToString(sqlcmd.ExecuteScalar());
             }
 
             catch (Exception ex)
@@ -74,23 +75,23 @@ namespace Login
                 MessageBox.Show(ex.Message);
             }
 
-            return 0;
-
+            return "";
         }
+
 
         private void signInBtn_Function()
         {
-            int count = check_Login(loginMail.Text, loginPassword.Password);
+            int count = Convert.ToInt32(userDataItem("count(*)"));
             if (count == 1)
             {
-                string query = "select FirstName from UserData where Email=@usermail and UserPassword=@password";
-                SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
-
-                sqlcmd = new SqlCommand(query, sqlcon);
-                sqlcmd.Parameters.AddWithValue("@usermail", loginMail.Text);
-                sqlcmd.Parameters.AddWithValue("@password", loginPassword.Password);
-                string userName = Convert.ToString(sqlcmd.ExecuteScalar());
+                string userName = userDataItem("FirstName");
                 MessageBox.Show("Welcome " + userName);
+
+                // open user window //
+                Car_project.GlobalVars.userid = Convert.ToInt32(userDataItem("userID"));
+                Car_project.User userwindow = new Car_project.User();
+                this.Close();
+                userwindow.Show();
             }
             else MessageBox.Show("Wrong username or password");
 
@@ -131,7 +132,7 @@ namespace Login
             //------------------------------//
 
 
-            int count = check_Login(emailSignUpTxt.Text, passwordSignUpTxt.Password);
+            int count = Convert.ToInt32(userDataItem("count(*)"));
             if (count == 1)
                 MessageBox.Show("This account is already registered");
 
@@ -175,7 +176,7 @@ namespace Login
             {
                 signInBtn_Function();
             }
-            
+
         }
 
 
