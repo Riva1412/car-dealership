@@ -146,7 +146,7 @@ namespace Car_project
         {
             Profile.Visibility = Visibility.Collapsed;
         }
-        /// profile end
+        // profile end
         private void Products(object sender, RoutedEventArgs e)
         {
             Profile.Visibility = Visibility.Hidden;

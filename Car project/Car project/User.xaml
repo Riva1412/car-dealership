@@ -7,6 +7,7 @@
      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="User" Height="700" Width="1200"  Foreground="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" >
@@ -195,51 +196,94 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Hidden">
-            <Grid  Margin="30,20,701,323">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="250"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
+        <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Visible">
+            <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" Foreground="Black">
+                <StackPanel>
+                    <Expander HorizontalAlignment="Stretch"   Header="Name">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}"   Margin="24,8,24,16">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="FirstNameText" materialDesign:HintAssist.Hint="First Name" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <TextBox x:Name="SecondNameText" materialDesign:HintAssist.Hint="Last Name" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <Button Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}" Click="ButtonBase_OnClick" ToolTip="MaterialDesignFlatButton">
+                                    CONFIRM</Button>
+                                <Button Grid.Row="2" HorizontalAlignment="Right"
+    Style="{StaticResource MaterialDesignFlatButton}"
+    ToolTip="MaterialDesignFlatButton">
+                                    CANCEL
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                    <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                    <Expander
+      HorizontalAlignment="Stretch"
+      Header="Password">
+                        <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <PasswordBox x:Name="Newpass" Grid.Row="0" materialDesign:HintAssist.Hint="New Password" materialDesign:HintAssist.Foreground="Black"  materialDesign:TextFieldAssist.UnderlineBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                                <PasswordBox x:Name="ConfPass" Grid.Row="1" materialDesign:HintAssist.Hint="Confirm Password" materialDesign:HintAssist.Foreground="Black"  materialDesign:TextFieldAssist.UnderlineBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                                <Button Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}" Click="ButtonBase_OnClick" ToolTip="MaterialDesignFlatButton">
+                                    CONFIRM</Button>
+                                <Button Grid.Row="2" HorizontalAlignment="Right"
+    Style="{StaticResource MaterialDesignFlatButton}"
+    ToolTip="MaterialDesignFlatButton">
+                                    CANCEL
+                                </Button>
+                            </Grid>
 
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Content="First Name :"       VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-                    <Label Grid.Row="1" Content="Second Name :"      VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-                    <Label Grid.Row="2" Content="Phone number :"     VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-                    <Label Grid.Row="3" Content="Email :"            VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-                    <Label Grid.Row="4" Content="New Password :"     VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-                    <Label Grid.Row="5" Content="Confirm Password :" VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-                    <Label Grid.Row="6" Content="Address :"          VerticalContentAlignment="Center"      FontSize="14" FontWeight="Bold"/>
-
-                </Grid>
-                <Grid Grid.Column="1" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                        <RowDefinition  Height="40" />
-                    </Grid.RowDefinitions>
-                    <TextBox     x:Name="FirstNameText"  Grid.Row="0"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                    <TextBox     x:Name="SecondNameText" Grid.Row="1"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                    <TextBox     x:Name="PhoneText"      Grid.Row="2"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                    <TextBox     x:Name="EmailText"      Grid.Row="3"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                    <PasswordBox x:Name="Newpass"        Grid.Row="4"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                    <PasswordBox x:Name="ConfPass"       Grid.Row="5"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                    <TextBox     x:Name="AddressText"    Grid.Row="6"     Margin="0,0,0,10"    Foreground="Black"  FontSize="14" FontWeight="Black"/>
-                </Grid>
-            </Grid>
+                        </StackPanel>
+                    </Expander>
+                    <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                    <Expander
+      HorizontalAlignment="Stretch"
+      Header="Information">
+                        <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="PhoneText" materialDesign:HintAssist.Hint="Phone" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <TextBox x:Name="EmailText" materialDesign:HintAssist.Hint="Email" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <TextBox x:Name="AddressText" materialDesign:HintAssist.Hint="Address" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <Button Grid.Row="3" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}" Click="ButtonBase_OnClick" ToolTip="MaterialDesignFlatButton">
+                                    CONFIRM</Button>
+                                <Button Grid.Row="3" HorizontalAlignment="Right"
+    Style="{StaticResource MaterialDesignFlatButton}"
+    ToolTip="MaterialDesignFlatButton">
+                                    CANCEL
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </materialDesign:Card>
             <Button  Click="savebtn_click" Content="Save" HorizontalAlignment="Left" Margin="30,416,0,0" VerticalAlignment="Top" Width="75" />
             <Button  Click="cancelbtn_click" Content="Cancel" HorizontalAlignment="Left" Margin="246,416,0,0" VerticalAlignment="Top" Width="74"/>
 

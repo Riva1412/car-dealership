@@ -8,14 +8,14 @@ namespace Car_project
 {
     public class Product
     {
-        public string Name { get; set; }
-        public double Value { get; set; }
+     ///   public string Name { get; set; }
+     ///   public double Value { get; set; }
         public string Image { get; set; }
 
-        public Product(string name , string image , double value)
+        public Product(string image)
         {
-            Name = name;
-            Value = value;
+         ///   Name = name;
+         ///   Value = value;
             Image = image;
         }
     }
