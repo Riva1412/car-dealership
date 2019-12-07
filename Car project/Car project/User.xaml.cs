@@ -29,22 +29,34 @@ namespace Car_project
 
             
         }
-
-        private List<Product> GetProducts()
-        {
-            return new List<Product>()
-            {
-        new Product("/imgs/google.jpg"),
-        new Product("/imgs/nissan.jpg"),
-        new Product("/Assets/3.jpg"),
-        new Product("/Assets/4.jpg"),
-        new Product("/Assets/5.jpg"),
-        new Product( "/Assets/6.jpg"),
-        new Product( "/Assets/7.jpg"),
-        new Product( "/Assets/8.jpg")
-            };
-        }
         SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
+
+        private List<CarProduct> GetProducts()
+        {
+            List<CarProduct> products = new List<CarProduct>();
+            SqlCommand cmd = new SqlCommand("select * from Car", sqlcon);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            try
+            {
+                while (reader.Read())
+                {
+                    products.Add(new CarProduct((string)reader["Image"],
+                        (string)reader["CarID"], (string)reader["Price"],
+                        (string)reader["Speed"], (string)reader["ExtrerioColor"],
+                        (string)reader["InteriorColor"], (string)reader["TankCapacity"],
+                        (string)reader["Model"], (string)reader["Warranty"],
+                        (string)reader["SellerID"]));
+                }
+            }
+            finally
+            {
+                MessageBox.Show("Done reading all ...");
+                reader.Close();
+            }
+
+            return products;
+        }
 
         private string getdata(string colname, int userid)
         {
@@ -89,7 +101,7 @@ namespace Car_project
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            MyProducts.Visibility = Visibility.Hidden;
+         /*   MyProducts.Visibility = Visibility.Hidden;
             Profile.Visibility = Visibility.Visible;
             try
             {
@@ -105,11 +117,11 @@ namespace Car_project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            }*/
 
         }
 
-        private void savebtn_click(object sender, RoutedEventArgs e)
+       /* private void savebtn_click(object sender, RoutedEventArgs e)
         {
             if (Newpass.Password.Length > 0 && Newpass.Password != ConfPass.Password)
             {
@@ -140,20 +152,18 @@ namespace Car_project
             }
 
             Profile.Visibility = Visibility.Hidden;
-        }
+        }*/
 
-        private void cancelbtn_click(object sender, RoutedEventArgs e)
-        {
-            Profile.Visibility = Visibility.Collapsed;
-        }
         // profile end
         private void Products(object sender, RoutedEventArgs e)
         {
             Profile.Visibility = Visibility.Hidden;
             MyProducts.Visibility = Visibility.Visible;
-            var products = GetProducts();
-            if (products.Count > 0)
-                ListViewProducts.ItemsSource = products;
+
+            
+            var CarProducts = GetProducts();
+            if (CarProducts.Count > 0)
+                ListViewProducts.ItemsSource = CarProducts;
         }
         private void Cart(object sender, RoutedEventArgs e)
         {
