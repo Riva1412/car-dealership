@@ -33,85 +33,101 @@
     </Window.Triggers>
 
     <Grid Background="#FFF0EAEA" >
-        <Grid x:Name="MyProducts" HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="60,75,0,0" Visibility="Visible">
-            <StackPanel Orientation="Horizontal">
-                <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="56,98,0,0" Height="444">
-                    <materialDesign:Flipper.FrontContent >
-                        <Grid Height="500" Width="300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="260" />
-                                <RowDefinition Height="150" />
-                            </Grid.RowDefinitions>
-                            <Image Margin="-20 0 0 0" Source="/imgs/nissan.jpg" Width="500"/>
-                            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock FontSize="30" x:Name="search1"><Run Text="Nissan"/></TextBlock>
-                                <TextBlock Foreground="Gold" FontSize="30" x:Name="search102"><Run Text="50000$"/></TextBlock>
-                                <Button Foreground="GreenYellow" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="-12 5 0 0" Content="See More"/>
-                            </StackPanel>
-                        </Grid>
-                    </materialDesign:Flipper.FrontContent>
-                    <materialDesign:Flipper.BackContent>
-                        <Grid Height="500" Width="300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <materialDesign:ColorZone Mode="Dark" Padding="6">
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
-                                        <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
-                                    </Button>
-                                    <TextBlock Margin="8 0 0 0" VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
-                                </StackPanel>
-                            </materialDesign:ColorZone>
-
-                            <Grid Grid.Row="1"  HorizontalAlignment="Center" >
-
-                                <Grid >
-                                    <StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Model :</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">Nissan Sunny</TextBlock>
-                                        </StackPanel>
-
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Speed :</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">500 Km/h</TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Tank Capacity :</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">50 L</TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Exteriro Colour:</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">White</TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Interio Colour:</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">Black</TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Warranty:</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1"> 2 Years</TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Price:</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">50000$</TextBlock>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"  >
-                                            <TextBlock Foreground="DimGray" FontSize="30">Seller:</TextBlock>
-                                            <TextBlock FontSize="30" Grid.Column="1">Isaac Moris</TextBlock>
-                                        </StackPanel>
-                                        <Button Width="200" Foreground="Black" Margin="0 20 0 0" >BUY</Button>
+        
+        <Grid x:Name="MyProducts" HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="60,75,0,0" Visibility="Collapsed">
+            <ScrollViewer Grid.Column="1" Grid.Row="1" Background="#FFF1F1F1">
+                <StackPanel >
+                    <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Product}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="56,98,0,0" Height="444">
+                            <materialDesign:Flipper.FrontContent >
+                                <Grid Height="500" Width="300">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="260" />
+                                        <RowDefinition Height="150" />
+                                    </Grid.RowDefinitions>
+                                            <Image Margin="-20 0 0 0" Source="{Binding Image}" Width="500"/>
+                                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontSize="30" x:Name="search1"><Run Text="Nissan"/></TextBlock>
+                                        <TextBlock Foreground="Gold" FontSize="30" x:Name="search102"><Run Text="50000$"/></TextBlock>
+                                        <Button Foreground="GreenYellow" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="-12 5 0 0" Content="See More"/>
                                     </StackPanel>
                                 </Grid>
+                            </materialDesign:Flipper.FrontContent>
+                            <materialDesign:Flipper.BackContent>
+                                <Grid Height="500" Width="300">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <materialDesign:ColorZone Mode="Dark" Padding="6">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                                            </Button>
+                                            <TextBlock Margin="8 0 0 0" VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
+                                        </StackPanel>
+                                    </materialDesign:ColorZone>
 
-                            </Grid>
-                        </Grid>
-                    </materialDesign:Flipper.BackContent>
-                </materialDesign:Flipper>
-            </StackPanel>
+                                    <Grid Grid.Row="1"  HorizontalAlignment="Center" >
+
+                                        <Grid >
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Model :</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">Nissan Sunny</TextBlock>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Speed :</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">500 Km/h</TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Tank Capacity :</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">50 L</TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Exteriro Colour:</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">White</TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Interio Colour:</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">Black</TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Warranty:</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1"> 2 Years</TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Price:</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">50000$</TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal"  >
+                                                    <TextBlock Foreground="DimGray" FontSize="30">Seller:</TextBlock>
+                                                    <TextBlock FontSize="30" Grid.Column="1">Isaac Moris</TextBlock>
+                                                </StackPanel>
+                                                <Button Width="200" Foreground="Black" Margin="0 20 0 0" >BUY</Button>
+                                            </StackPanel>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+                            </materialDesign:Flipper.BackContent>
+                        </materialDesign:Flipper>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+
         </Grid>
+        
         <Grid Height="70" VerticalAlignment="Top" Background="#FF444546">
             <TextBlock Text="cars online shopping" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
@@ -126,6 +142,7 @@
                 </Button>
             </StackPanel>
         </Grid>
+        
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
             <StackPanel>
                 <Grid Height="200" VerticalAlignment="Top" Background="White">
@@ -227,6 +244,7 @@
             <Button  Click="cancelbtn_click" Content="Cancel" HorizontalAlignment="Left" Margin="246,416,0,0" VerticalAlignment="Top" Width="74"/>
 
         </Grid>
+        
     </Grid>
 
 </Window>

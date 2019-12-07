@@ -71,6 +71,7 @@
     <Compile Include="models\design model\UserDesignModel.cs" />
     <Compile Include="models\for data binding\listforUsers.cs" />
     <Compile Include="model for each one.cs" />
+    <Compile Include="product.cs" />
     <Compile Include="user control\all users\banned user control.xaml.cs">
       <DependentUpon>banned user control.xaml</DependentUpon>
     </Compile>

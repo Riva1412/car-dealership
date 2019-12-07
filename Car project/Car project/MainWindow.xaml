@@ -128,7 +128,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="ban_page" Visibility="Collapsed" HorizontalAlignment="Center" Background="#FFF0EAEA" Width="800" Margin="0,70,0,0">
+        <Grid x:Name="ban_page" Visibility="Visible" HorizontalAlignment="Center" Background="#FFF0EAEA" Width="800" Margin="0,70,0,0">
 
             <TextBox Margin="20,10,566,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="76" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" >
                 <materialDesign:HintAssist.Hint >
@@ -137,11 +137,8 @@
             </TextBox>
             <Grid Margin="0,119,566,0" Height="44" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
-
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-
-
                 </Grid.ColumnDefinitions>
                 <Button Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="0" Click="Button_Click_4" Margin="0,6">
                     <materialDesign:PackIcon Kind="People" Height="22" Width="69" Foreground="Black" />

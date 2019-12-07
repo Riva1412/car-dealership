@@ -23,11 +23,29 @@ namespace Car_project
     /// </summary>
     public partial class User : Window
     {
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
         public User()
         {
             InitializeComponent();
+
+            
         }
+
+        private List<Product> GetProducts()
+        {
+            return new List<Product>()
+            {
+        new Product("/imgs/google.jpg"),
+        new Product("/imgs/nissan.jpg"),
+        new Product("/Assets/3.jpg"),
+        new Product("/Assets/4.jpg"),
+        new Product("/Assets/5.jpg"),
+        new Product( "/Assets/6.jpg"),
+        new Product( "/Assets/7.jpg"),
+        new Product( "/Assets/8.jpg")
+            };
+        }
+        SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
+
         private string getdata(string colname, int userid)
         {
             string query = "select " + colname + " from UserData where UserID=" +
@@ -131,9 +149,11 @@ namespace Car_project
         /// profile end
         private void Products(object sender, RoutedEventArgs e)
         {
-            MyProducts.Visibility = Visibility.Visible;
             Profile.Visibility = Visibility.Hidden;
-            MessageBox.Show("Products");
+            MyProducts.Visibility = Visibility.Visible;
+            var products = GetProducts();
+            if (products.Count > 0)
+                ListViewProducts.ItemsSource = products;
         }
         private void Cart(object sender, RoutedEventArgs e)
         {

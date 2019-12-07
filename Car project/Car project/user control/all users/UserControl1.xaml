@@ -23,7 +23,8 @@
             </Border>
             
         </Border>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" >
+            
             <TextBlock  Text="{Binding name}" FontSize="20" Foreground="#FF444546"/>
             <TextBlock Text="{Binding email}" Foreground="DarkGray" Padding="4" />
 
@@ -39,8 +40,6 @@
             <Button  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray" VerticalAlignment="Center" Click="Button_Click">
                 <materialDesign:PackIcon Kind="Ban" x:Name="banSign"/>
             </Button>
-           
-
         </StackPanel>
     </Grid>
    
