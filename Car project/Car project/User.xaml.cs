@@ -33,12 +33,15 @@ namespace Car_project
 
         private List<CarProduct> GetProducts()
         {
+            if (sqlcon.State == System.Data.ConnectionState.Closed)
+                sqlcon.Open();
             List<CarProduct> products = new List<CarProduct>();
             SqlCommand cmd = new SqlCommand("select * from Car", sqlcon);
             SqlDataReader reader = cmd.ExecuteReader();
 
             try
             {
+
                 while (reader.Read())
                 {
                     products.Add(new CarProduct((string)reader["Image"],
@@ -48,6 +51,10 @@ namespace Car_project
                         (string)reader["Model"], (string)reader["Warranty"],
                         (string)reader["SellerID"]));
                 }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
             finally
             {
@@ -101,7 +108,7 @@ namespace Car_project
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-         /*   MyProducts.Visibility = Visibility.Hidden;
+            MyProducts.Visibility = Visibility.Hidden;
             Profile.Visibility = Visibility.Visible;
             try
             {
@@ -117,7 +124,7 @@ namespace Car_project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
 
         }
 

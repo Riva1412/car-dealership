@@ -196,7 +196,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Visible">
+        <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Collapsed">
             <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" Foreground="Black">
                 <StackPanel>
                     <Expander HorizontalAlignment="Stretch"   Header="Name">
