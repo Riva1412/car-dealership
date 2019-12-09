@@ -44,12 +44,12 @@ namespace Car_project
 
                 while (reader.Read())
                 {
-                    products.Add(new CarProduct((string)reader["Image"],
-                        (string)reader["CarID"], (string)reader["Price"],
-                        (string)reader["Speed"], (string)reader["ExtrerioColor"],
-                        (string)reader["InteriorColor"], (string)reader["TankCapacity"],
-                        (string)reader["Model"], (string)reader["Warranty"],
-                        (string)reader["SellerID"]));
+                    products.Add(new CarProduct(reader["Image"].ToString(),
+                        reader["CarID"].ToString(), reader["Price"].ToString(),
+                        reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
+                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
+                        reader["Model"].ToString(), reader["Warranty"].ToString(),
+                        reader["SellerID"].ToString()));
                 }
             }
             catch (Exception e)
