@@ -108,7 +108,7 @@
                                                     <TextBlock Foreground="DimGray" FontSize="30">Seller:</TextBlock>
                                                     <TextBlock FontSize="30" Grid.Column="1">Isaac Moris</TextBlock>
                                                 </StackPanel>
-                                                        <Button Width="200" Foreground="Black" Margin="0 20 0 0" Content="BUY" />
+                                                        <Button Click="buy_click" Width="200" Foreground="Black" Margin="0 20 0 0" Content="BUY" />
                                                     </StackPanel>
                                         </Grid>
 
@@ -157,8 +157,8 @@
                                 </Grid.RowDefinitions>
                                 <TextBox x:Name="FirstNameText" materialDesign:HintAssist.Hint="First Name" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
                                 <TextBox x:Name="SecondNameText" materialDesign:HintAssist.Hint="Last Name" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
-                                <Button  Click="Nameconfirm_click" Grid.Row="2" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"  ToolTip="MaterialDesignFlatButton" Content="CONFIRM" Margin="400,0,0,0" />
-                                <Button  Click="Namecancel_click" Grid.Row="2" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Content="CANCEL" Margin="0,0,400,0" />
+                                <Button  Click="Nameconfirm_click" Grid.Row="2" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"   Content="CONFIRM" Margin="400,0,0,0" />
+                                <Button  Click="Namecancel_click" Grid.Row="2" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"  Content="CANCEL" Margin="0,0,400,0" />
                             </Grid>
                         </StackPanel>
                     </Expander>
@@ -177,8 +177,8 @@
                                 </Grid.RowDefinitions>
                                 <PasswordBox x:Name="Newpass" Grid.Row="0" materialDesign:HintAssist.Hint="New Password" materialDesign:HintAssist.Foreground="Black"  materialDesign:TextFieldAssist.UnderlineBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                                 <PasswordBox x:Name="ConfPass" Grid.Row="1" materialDesign:HintAssist.Hint="Confirm Password" materialDesign:HintAssist.Foreground="Black"  materialDesign:TextFieldAssist.UnderlineBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                                <Button Click="passconfirm_click" Grid.Row="2" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"  ToolTip="MaterialDesignFlatButton" Content="CONFIRM" Margin="400,0,0,0" />
-                                <Button Click="passcancel_click" Grid.Row="2" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Content="CANCEL" Margin="0,0,400,0" />
+                                <Button Click="passconfirm_click" Grid.Row="2" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"   Content="CONFIRM" Margin="400,0,0,0" />
+                                <Button Click="passcancel_click" Grid.Row="2" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"  Content="CANCEL" Margin="0,0,400,0" />
                             </Grid>
 
                         </StackPanel>
@@ -200,8 +200,8 @@
                                 <TextBox x:Name="PhoneText" materialDesign:HintAssist.Hint="Phone" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
                                 <TextBox x:Name="EmailText" materialDesign:HintAssist.Hint="Email" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
                                 <TextBox x:Name="AddressText" materialDesign:HintAssist.Hint="Address" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
-                                <Button Click="infoconfrim_click" Grid.Row="3" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"  ToolTip="MaterialDesignFlatButton" Content="CONFIRM" Margin="400,0,0,0" />
-                                <Button Click="infocancel_click" Grid.Row="3" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Content="CANCEL" Margin="0,0,400,0" />
+                                <Button Click="infoconfrim_click" Grid.Row="3" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"   Content="CONFIRM" Margin="400,0,0,0" />
+                                <Button Click="infocancel_click" Grid.Row="3" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"  Content="CANCEL" Margin="0,0,400,0" />
                             </Grid>
                         </StackPanel>
                     </Expander>

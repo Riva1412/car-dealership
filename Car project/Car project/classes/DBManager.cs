@@ -19,34 +19,36 @@ using System.Text.RegularExpressions;
 
 namespace Car_project
 {
-    public class DBManager
+    public static class DBManager
     {
-        private SqlConnection con = new SqlConnection("Data Source=(.);Initial Catalog=Cars_db;Integrated Security=true");
-        DBManager()
-        {
-            con.Open();
-        }
+        public static SqlConnection con = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
 
-        public string getUserData(string colname, int userid)
+
+        public static string getUserData(string colname, int userid)
         {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             string query = "select " + colname + " from UserData where UserID=" +
                 Convert.ToString(userid);
             SqlCommand userdata = new SqlCommand(query, con);
             return Convert.ToString(userdata.ExecuteScalar());
         }
-        public void updateUserData(string colname, string val, int userid)
+        public static void updateUserData(string colname, string val, int userid)
         {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             string query = "update UserData set " + colname + " = '" + val + "' where UserID = " +
                 Convert.ToString(userid);
             SqlCommand updatecmd = new SqlCommand(query, con);
             updatecmd.ExecuteNonQuery();
-
         }
 
-        private int check_Login(string email, string password)
+        public static int check_Login(string email, string password)
         {
             try
             {
+                if (con.State == System.Data.ConnectionState.Closed)
+                    con.Open();
                 string query = "select count(1) from UserData where Email=@usermail and UserPassword=@password";
                 SqlCommand sqlcmd = new SqlCommand(query, con);
                 sqlcmd.Parameters.AddWithValue("@usermail", email);
@@ -61,8 +63,10 @@ namespace Car_project
             return 0;
         }
 
-        public void signInBtn_Function(TextBox loginMail, PasswordBox loginPassword)
+        public static void signInBtn_Function(TextBox loginMail, PasswordBox loginPassword)
         {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             int count = check_Login(loginMail.Text, loginPassword.Password);
             if (count == 1)
             {
@@ -77,8 +81,10 @@ namespace Car_project
             }
             else MessageBox.Show("Wrong username or password");
         }
-        public void addNewUser(TextBox emailSignUpTxt, PasswordBox passwordSignUpTxt, TextBox firstNameTxt, TextBox secondNameTxt, TextBox phoneTxt, TextBox adressTxt)
+        public static void addNewUser(TextBox emailSignUpTxt, PasswordBox passwordSignUpTxt, TextBox firstNameTxt, TextBox secondNameTxt, TextBox phoneTxt, TextBox adressTxt)
         {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             string query = "insert into userdata(Email, UserPassword,  FirstName, SecondName, Phone, Address)" +
                     "values(@email, @password,  @FirstName, @SecondName, @Phone, @Address)";
 
@@ -97,36 +103,36 @@ namespace Car_project
         //producs Fns
         /// </summary>
 
-        public  List<CarProduct> getAllProducts()
+        public static  List<CarProduct> getAllProducts()
         {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
             List<CarProduct> products = new List<CarProduct>();
             SqlCommand cmd = new SqlCommand("select * from Car", con);
             SqlDataReader reader = cmd.ExecuteReader();
-
             try
             {
                 while (reader.Read())
                 {
-                    products.Add(new CarProduct((string)reader["Image"], 
-                        (string)reader["CarID"], (string)reader["Price"], 
-                        (string)reader["Speed"], (string)reader["ExtrerioColor"], 
-                        (string)reader["InteriorColor"], (string)reader["TankCapacity"], 
-                        (string)reader["Model"], (string)reader["Warranty"], 
-                        (string)reader["SellerID"]));
+                    products.Add(new CarProduct(reader["Image"].ToString(),
+                        reader["CarID"].ToString(), reader["Price"].ToString(),
+                        reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
+                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
+                        reader["Model"].ToString(), reader["Warranty"].ToString(),
+                        reader["SellerID"].ToString()));
                 }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
             finally
             {
-                MessageBox.Show("Done reading all ...");
                 reader.Close();
             }
 
             return products;
         }
 
-        ~DBManager()
-        {
-            con.Close();
-        }
     }
 }

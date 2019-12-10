@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,68 +24,17 @@ namespace Car_project
         public User()
         {
             InitializeComponent();
-            if (sqlcon.State == System.Data.ConnectionState.Closed)
-                sqlcon.Open();
-
-        }
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
-
-        private List<CarProduct> GetProducts()
-        {
-            List<CarProduct> products = new List<CarProduct>();
-            SqlCommand cmd = new SqlCommand("select * from Car", sqlcon);
-            SqlDataReader reader = cmd.ExecuteReader();
-            try
-            {
-
-                while (reader.Read())
-                {
-                    products.Add(new CarProduct(reader["Image"].ToString(),
-                        reader["CarID"].ToString(), reader["Price"].ToString(),
-                        reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
-                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
-                        reader["Model"].ToString(), reader["Warranty"].ToString(),
-                        reader["SellerID"].ToString()));
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                MessageBox.Show("Done reading all ...");
-                reader.Close();
-            }
-
-            return products;
-        }
-
-        private string getdata(string colname, int userid)
-        {
-            string query = "select " + colname + " from UserData where UserID=" +
-                Convert.ToString(userid);
-            SqlCommand userdata = new SqlCommand(query, sqlcon);
-            return Convert.ToString(userdata.ExecuteScalar());
-        }
-        private void updatedata(string colname, string val, int userid)
-        {
-            string query = "update UserData set " + colname + " = '" + val + "' where UserID = " +
-                Convert.ToString(userid);
-            SqlCommand updatecmd = new SqlCommand(query, sqlcon);
-            updatecmd.ExecuteNonQuery();
-
         }
         private void shownamedate()
         {
-            FirstNameText.Text = getdata("FirstName", GlobalVars.userid);
-            SecondNameText.Text = getdata("SecondName", GlobalVars.userid);
+            FirstNameText.Text =  DBManager.getUserData("FirstName", GlobalVars.userid);
+            SecondNameText.Text = DBManager.getUserData("SecondName", GlobalVars.userid);
         }
         private void showinfodate()
         {
-            PhoneText.Text = getdata("Phone", GlobalVars.userid);
-            EmailText.Text = getdata("Email", GlobalVars.userid);
-            AddressText.Text = getdata("Address", GlobalVars.userid);
+            PhoneText.Text = DBManager.getUserData("Phone", GlobalVars.userid);
+            EmailText.Text = DBManager.getUserData("Email", GlobalVars.userid);
+            AddressText.Text = DBManager.getUserData("Address", GlobalVars.userid);
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -128,8 +75,8 @@ namespace Car_project
         // name expander
         private void Nameconfirm_click(object sender, RoutedEventArgs e)
         {
-            updatedata("FirstName", FirstNameText.Text, GlobalVars.userid);
-            updatedata("SecondName", SecondNameText.Text, GlobalVars.userid);
+            DBManager.updateUserData("FirstName", FirstNameText.Text, GlobalVars.userid);
+            DBManager.updateUserData("SecondName", SecondNameText.Text, GlobalVars.userid);
             Nameexpander.IsExpanded = false;
         }
         private void Namecancel_click(object sender, RoutedEventArgs e)
@@ -151,9 +98,9 @@ namespace Car_project
                 MessageBox.Show("type at least one character");
                 return;
             }
-            updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
+            DBManager.updateUserData("UserPassword", Newpass.Password, GlobalVars.userid);
             Newpass.Password = ConfPass.Password= "";
-            Nameexpander.IsExpanded = false;
+            passwordexpander.IsExpanded = false;
         }
         private void passcancel_click(object sender, RoutedEventArgs e)
         {
@@ -169,10 +116,10 @@ namespace Car_project
                 MessageBox.Show("Invalid phone number");
                 return;
             }
-            updatedata("Email", EmailText.Text, GlobalVars.userid);
-            updatedata("Phone", PhoneText.Text, GlobalVars.userid);
-            updatedata("Address", AddressText.Text, GlobalVars.userid);
-            Nameexpander.IsExpanded = false;
+            DBManager.updateUserData("Email", EmailText.Text, GlobalVars.userid);
+            DBManager.updateUserData("Phone", PhoneText.Text, GlobalVars.userid);
+            DBManager.updateUserData("Address", AddressText.Text, GlobalVars.userid);
+            infoexpander.IsExpanded = false;
         }
 
         private void infocancel_click(object sender, RoutedEventArgs e)
@@ -188,7 +135,7 @@ namespace Car_project
             MyProducts.Visibility = Visibility.Visible;
 
             
-            var CarProducts = GetProducts();
+            var CarProducts = DBManager.getAllProducts();
             if (CarProducts.Count > 0)
                 ListViewProducts.ItemsSource = CarProducts;
         }
@@ -211,7 +158,6 @@ namespace Car_project
         private void Buttonclose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            sqlcon.Close();
         }
         private void ButtonMaximize_Click(object sender, RoutedEventArgs e)
         {
@@ -228,6 +174,10 @@ namespace Car_project
         private void ButtonMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
+        }
+        private void buy_click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
