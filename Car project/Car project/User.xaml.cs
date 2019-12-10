@@ -26,19 +26,17 @@ namespace Car_project
         public User()
         {
             InitializeComponent();
+            if (sqlcon.State == System.Data.ConnectionState.Closed)
+                sqlcon.Open();
 
-            
         }
         SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
 
         private List<CarProduct> GetProducts()
         {
-            if (sqlcon.State == System.Data.ConnectionState.Closed)
-                sqlcon.Open();
             List<CarProduct> products = new List<CarProduct>();
             SqlCommand cmd = new SqlCommand("select * from Car", sqlcon);
             SqlDataReader reader = cmd.ExecuteReader();
-
             try
             {
 
@@ -80,9 +78,16 @@ namespace Car_project
             updatecmd.ExecuteNonQuery();
 
         }
-        private void LogoutButtonPopUpMenu_Click(object sender, RoutedEventArgs e)
+        private void shownamedate()
         {
-            Application.Current.Shutdown();
+            FirstNameText.Text = getdata("FirstName", GlobalVars.userid);
+            SecondNameText.Text = getdata("SecondName", GlobalVars.userid);
+        }
+        private void showinfodate()
+        {
+            PhoneText.Text = getdata("Phone", GlobalVars.userid);
+            EmailText.Text = getdata("Email", GlobalVars.userid);
+            AddressText.Text = getdata("Address", GlobalVars.userid);
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -104,63 +109,78 @@ namespace Car_project
             MessageBox.Show("Home");
 
         }
-        /// profile begin
 
+        /// profile begin
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
             MyProducts.Visibility = Visibility.Hidden;
             Profile.Visibility = Visibility.Visible;
             try
             {
-                if (sqlcon.State == System.Data.ConnectionState.Closed)
-                    sqlcon.Open();
-                FirstNameText.Text = getdata("FirstName", GlobalVars.userid);
-                SecondNameText.Text = getdata("SecondName", GlobalVars.userid);
-                PhoneText.Text = getdata("Phone", GlobalVars.userid);
-                EmailText.Text = getdata("Email", GlobalVars.userid);
-                AddressText.Text = getdata("Address", GlobalVars.userid);
+                shownamedate();
+                showinfodate();
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
-
-       /* private void savebtn_click(object sender, RoutedEventArgs e)
+        // name expander
+        private void Nameconfirm_click(object sender, RoutedEventArgs e)
+        {
+            updatedata("FirstName", FirstNameText.Text, GlobalVars.userid);
+            updatedata("SecondName", SecondNameText.Text, GlobalVars.userid);
+            Nameexpander.IsExpanded = false;
+        }
+        private void Namecancel_click(object sender, RoutedEventArgs e)
+        {
+            Nameexpander.IsExpanded = false;
+            shownamedate();
+        }
+        //-------------------------------
+        // pass expander
+        private void passconfirm_click(object sender, RoutedEventArgs e)
         {
             if (Newpass.Password.Length > 0 && Newpass.Password != ConfPass.Password)
             {
                 MessageBox.Show("Password does not match");
                 return;
             }
+            if (Newpass.Password.Length==0)
+            {
+                MessageBox.Show("type at least one character");
+                return;
+            }
+            updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
+            Newpass.Password = ConfPass.Password= "";
+            Nameexpander.IsExpanded = false;
+        }
+        private void passcancel_click(object sender, RoutedEventArgs e)
+        {
+            passwordexpander.IsExpanded = false;
+            Newpass.Password = ConfPass.Password = "";
+        }
+        //-------------------------------------------------------------
+        // info expander
+        private void infoconfrim_click(object sender, RoutedEventArgs e)
+        {
             if (PhoneText.Text.Length != 11)
             {
                 MessageBox.Show("Invalid phone number");
                 return;
             }
-            try
-            {
-                if (sqlcon.State == System.Data.ConnectionState.Closed)
-                    sqlcon.Open();
-                updatedata("FirstName", FirstNameText.Text, GlobalVars.userid);
-                updatedata("SecondName", SecondNameText.Text, GlobalVars.userid);
-                updatedata("Email", EmailText.Text, GlobalVars.userid);
-                updatedata("Phone", PhoneText.Text, GlobalVars.userid);
-                updatedata("Address", AddressText.Text, GlobalVars.userid);
-                if (Newpass.Password.Length > 0)
-                    updatedata("UserPassword", Newpass.Password, GlobalVars.userid);
-            }
+            updatedata("Email", EmailText.Text, GlobalVars.userid);
+            updatedata("Phone", PhoneText.Text, GlobalVars.userid);
+            updatedata("Address", AddressText.Text, GlobalVars.userid);
+            Nameexpander.IsExpanded = false;
+        }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            Profile.Visibility = Visibility.Hidden;
-        }*/
-
+        private void infocancel_click(object sender, RoutedEventArgs e)
+        {
+            infoexpander.IsExpanded = false;
+            showinfodate();
+        }
+        //----------------------------
         // profile end
         private void Products(object sender, RoutedEventArgs e)
         {
@@ -191,7 +211,7 @@ namespace Car_project
         private void Buttonclose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
+            sqlcon.Close();
         }
         private void ButtonMaximize_Click(object sender, RoutedEventArgs e)
         {

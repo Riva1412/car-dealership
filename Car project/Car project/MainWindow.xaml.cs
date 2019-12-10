@@ -106,7 +106,6 @@ namespace Car_project
         private void Buttonclose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-
         }
         private void ButtonMaximize_Click(object sender, RoutedEventArgs e)
         {
