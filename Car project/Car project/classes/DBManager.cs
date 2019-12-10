@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -114,7 +115,13 @@ namespace Car_project
             {
                 while (reader.Read())
                 {
-                    products.Add(new CarProduct(reader["Image"].ToString(),
+                    byte[] data = (byte[])reader["Image"];
+                    /*
+                     UPDATE Car 
+                     SET [Image] = (SELECT MyImage.* from Openrowset(Bulk 'C:\Delete\B.bmp', Single_Blob) MyImage) 
+                     where CarID = 1 
+                     */
+                    products.Add(new CarProduct(data,
                         reader["CarID"].ToString(), reader["Price"].ToString(),
                         reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
                         reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),

@@ -48,7 +48,7 @@
                                         <RowDefinition Height="260" />
                                         <RowDefinition Height="150" />
                                     </Grid.RowDefinitions>
-                                            <Image Margin="-20 0 0 0" Source="{Binding Image}" Width="500"/>
+                                            <Image  Margin="-20 0 0 0" Source="{Binding Image}" Width="500"/>
                                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <TextBlock FontSize="30" x:Name="search1"><Run Text="{Binding Name}" /></TextBlock>
                                         <TextBlock Foreground="Gold" FontSize="30" x:Name="search102"><Run Text="{Binding Price}"/></TextBlock>

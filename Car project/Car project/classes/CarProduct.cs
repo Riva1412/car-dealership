@@ -7,7 +7,7 @@ namespace Car_project
 {
     public class CarProduct
     {
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
         public string CarID { get; set; }
         public string Price { get; set; }
         public string Speed { get; set; }
@@ -17,7 +17,7 @@ namespace Car_project
         public string Model { get; set; }
         public string Warranty { get; set; }
         public string SellerID { get; set; }
-        public CarProduct(string image ,String carid, String price, String speed, 
+        public CarProduct(byte[] image ,String carid, String price, String speed, 
          String extreriocolor, String interiorcolor, String tankcapacity, 
          String model, String warranty, String sellerid)
         {

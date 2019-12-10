@@ -71,6 +71,7 @@ namespace Car_project
             {
                 MessageBox.Show(ex.Message);
             }
+      
         }
         // name expander
         private void Nameconfirm_click(object sender, RoutedEventArgs e)
@@ -138,6 +139,8 @@ namespace Car_project
             var CarProducts = DBManager.getAllProducts();
             if (CarProducts.Count > 0)
                 ListViewProducts.ItemsSource = CarProducts;
+            else
+                MessageBox.Show("No Avaiable Products");
         }
         private void Cart(object sender, RoutedEventArgs e)
         {
