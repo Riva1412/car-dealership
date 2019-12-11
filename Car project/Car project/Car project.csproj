@@ -92,6 +92,9 @@
     <Compile Include="UserWindow_Classes\AllProducts.xaml.cs">
       <DependentUpon>AllProducts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserWindow_Classes\CarCard.xaml.cs">
+      <DependentUpon>CarCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow_Classes\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow_Classes\AllProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\CarCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

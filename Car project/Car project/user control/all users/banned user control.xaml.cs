@@ -15,24 +15,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 
-
 namespace Car_project
 {
-    /// <summary>
-    /// Interaction logic for banned_user_control.xaml
-    /// </summary>
     public partial class banned_user_control : UserControl
     {
         SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
         public class please_connect: listDesignModel
         {
-
         }
         public banned_user_control()
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
            
@@ -45,12 +39,6 @@ namespace Car_project
             sqlcmd.ExecuteNonQuery();
             undo.Foreground = new SolidColorBrush(Colors.Blue);
             listDesignModel ob = new listDesignModel();
-           
-          
-
-           
-
-           
         }
     }
     }

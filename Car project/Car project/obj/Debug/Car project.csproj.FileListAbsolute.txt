@@ -149,3 +149,5 @@ F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Us
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\UserProfile.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\AllProducts.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\AllProducts.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarCard.baml

@@ -29,9 +29,6 @@ namespace Car_project
             else
                 MessageBox.Show("No Avaiable Products");
         }
-       private void buy_click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
     }
 }

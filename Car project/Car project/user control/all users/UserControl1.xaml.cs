@@ -17,23 +17,13 @@ using System.Text.RegularExpressions;
 
 namespace Car_project
 {
-    /// <summary>
-    /// Interaction logic for UserControl1.xaml
-    /// </summary>
     public partial class UserControl1 
     {
         SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
-       
-
         public UserControl1()
         {
-           
-
             InitializeComponent();
-          
-
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (sqlcon.State == System.Data.ConnectionState.Closed)

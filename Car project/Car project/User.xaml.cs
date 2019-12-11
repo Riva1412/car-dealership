@@ -92,7 +92,6 @@ namespace Car_project
         private void Cars_btn_click(object sender, RoutedEventArgs e)
         {
             userprofile_obj.Visibility = Visibility.Hidden;
-
             AllProducts_obj.Visibility = Visibility.Visible;
         }
         

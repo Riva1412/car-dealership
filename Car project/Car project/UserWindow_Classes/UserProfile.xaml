@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Car_project"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="1200">
         <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Visible">
             <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" Foreground="Black">
                 <StackPanel>
