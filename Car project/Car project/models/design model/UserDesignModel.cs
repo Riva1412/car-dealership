@@ -1,6 +1,4 @@
-﻿
-
-namespace Car_project
+﻿namespace Car_project
 {
    public class UserDesignModel:model_for_each_one
     {
