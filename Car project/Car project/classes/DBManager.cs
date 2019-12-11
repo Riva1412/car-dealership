@@ -109,7 +109,8 @@ namespace Car_project
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
             List<CarProduct> products = new List<CarProduct>();
-            SqlCommand cmd = new SqlCommand("select * from Car", con);
+            SqlCommand cmd = new SqlCommand("select * from Car left join UserData on Car.SellerID=" +
+                "UserData.UserID", con);
             SqlDataReader reader = cmd.ExecuteReader();
             try
             {
@@ -126,7 +127,8 @@ namespace Car_project
                         reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
                         reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
                         reader["Model"].ToString(), reader["Warranty"].ToString(),
-                        reader["SellerID"].ToString()));
+                         reader["FirstName"].ToString() + " " + reader["SecondName"].ToString()
+                        ));
                 }
             }
             catch (Exception e)

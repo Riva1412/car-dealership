@@ -106,8 +106,8 @@
                                                         </StackPanel>
                                                 <StackPanel Orientation="Horizontal"  >
                                                     <TextBlock Foreground="DimGray" FontSize="30">Seller:</TextBlock>
-                                                    <TextBlock FontSize="30" Grid.Column="1">Isaac Moris</TextBlock>
-                                                </StackPanel>
+                                                            <TextBlock FontSize="30" Grid.Column="1" Text="{Binding SellerName}"/>
+                                                        </StackPanel>
                                                         <Button Click="buy_click" Width="200" Foreground="Black" Margin="0 20 0 0" Content="BUY" />
                                                     </StackPanel>
                                         </Grid>
