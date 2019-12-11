@@ -7,7 +7,70 @@
              xmlns:local="clr-namespace:Car_project"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  Background="#FFF0EAEA">
-            
-    </Grid>
+        <Grid x:Name="Profile"  Margin="65,75,0,0" Visibility="Visible">
+            <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" Foreground="Black">
+                <StackPanel>
+                    <Expander x:Name="Nameexpander" HorizontalAlignment="Stretch"   Header="Name">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}"   Margin="24,8,24,16">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="FirstNameText" materialDesign:HintAssist.Hint="First Name" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <TextBox x:Name="SecondNameText" materialDesign:HintAssist.Hint="Last Name" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <Button  Click="Nameconfirm_click" Grid.Row="2" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"   Content="CONFIRM" Margin="400,0,0,0" />
+                                <Button  Click="Namecancel_click" Grid.Row="2" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"  Content="CANCEL" Margin="0,0,400,0" />
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                    <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                    <Expander x:Name="passwordexpander" HorizontalAlignment="Stretch"    Header="Password">
+                        <StackPanel Orientation="Vertical"  TextBlock.Foreground="{DynamicResource MaterialDesignBody}"    Margin="24,8,24,16">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <PasswordBox x:Name="Newpass" Grid.Row="0" materialDesign:HintAssist.Hint="New Password" materialDesign:HintAssist.Foreground="Black"  materialDesign:TextFieldAssist.UnderlineBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                                <PasswordBox x:Name="ConfPass" Grid.Row="1" materialDesign:HintAssist.Hint="Confirm Password" materialDesign:HintAssist.Foreground="Black"  materialDesign:TextFieldAssist.UnderlineBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                                <Button Click="passconfirm_click" Grid.Row="2" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"   Content="CONFIRM" Margin="400,0,0,0" />
+                                <Button Click="passcancel_click" Grid.Row="2" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"  Content="CANCEL" Margin="0,0,400,0" />
+                            </Grid>
+
+                        </StackPanel>
+                    </Expander>
+                    <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                    <Expander x:Name="infoexpander" HorizontalAlignment="Stretch"  Header="Information">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}"   Margin="24,8,24,16">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <TextBox x:Name="PhoneText" materialDesign:HintAssist.Hint="Phone" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <TextBox x:Name="EmailText" materialDesign:HintAssist.Hint="Email" Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <TextBox x:Name="AddressText" materialDesign:HintAssist.Hint="Address" Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                                <Button Click="infoconfrim_click" Grid.Row="3" HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignFlatButton}"   Content="CONFIRM" Margin="400,0,0,0" />
+                                <Button Click="infocancel_click" Grid.Row="3" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"  Content="CANCEL" Margin="0,0,400,0" />
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </materialDesign:Card>
+
+        </Grid>
+
 </UserControl>
