@@ -142,6 +142,43 @@ namespace Car_project
 
             return products;
         }
+        // Get my Cars Products
+        public static List<CarProduct> GetMyCarsProducts()
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            List<CarProduct> products = new List<CarProduct>();
+
+            SqlCommand cmd = new SqlCommand("select * from Car left join UserData on Car.SellerID=" +
+                "UserData.UserID" +
+                " where SellerID=" + Convert.ToString(GlobalVars.userid), con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            try
+            {
+
+                while (reader.Read())
+                {
+                    byte[] data = (byte[])reader["Image"];
+                    products.Add(new CarProduct(data,
+                        reader["CarID"].ToString(), reader["Price"].ToString(),
+                        reader["Speed"].ToString(), reader["ExtreriorColor"].ToString(),
+                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
+                        reader["Model"].ToString(), reader["Warranty"].ToString(),
+                        reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
+                        ));
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                reader.Close();
+            }
+            return products;
+        }
+
         public static void AddCarProduct(byte[] image , string Price , string Speed ,string ExColour , string InColour , string TankCapacity ,
             string Model , string Warranty , string quantity)
         {
@@ -176,6 +213,31 @@ namespace Car_project
                 {
                     MessageBox.Show("Product Added Successfully");
                 }
+        }
+
+        public static void Add_CarPart_Fn(string bFCPPrice, string bFCPName, string bFCPColour, string bFCPQuantity, string bFCPWarranty)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            if (bFCPPrice == "" || bFCPName == "" || bFCPColour == "" || bFCPQuantity == "" || bFCPWarranty == "")
+            { MessageBox.Show("Please Fill All Details"); }
+            else
+            {
+                string query = "INSERT INTO [CarPart](Name,color,Warranty,Price,Quantity,SellerID,carPartOrNot)" +
+                        "values(@Name,@Color,@Warranty,@Price,@Quantity,@SellerID,@carPartOrNot)";
+
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+                sqlcmd.Parameters.AddWithValue("@Name", bFCPName);
+                sqlcmd.Parameters.AddWithValue("@Color", bFCPColour);
+                sqlcmd.Parameters.AddWithValue("@Warranty", bFCPWarranty);
+                sqlcmd.Parameters.AddWithValue("@Price", bFCPPrice);
+                sqlcmd.Parameters.AddWithValue("@Quantity", bFCPQuantity);
+                sqlcmd.Parameters.AddWithValue("@SellerID", Convert.ToString(GlobalVars.userid));
+                sqlcmd.Parameters.AddWithValue("@carPartOrNot", 1);
+                MessageBox.Show("Product Added Successfully");
+                sqlcmd.ExecuteNonQuery();
+            }
+
         }
 
     }

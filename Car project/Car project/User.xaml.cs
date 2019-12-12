@@ -21,8 +21,7 @@ namespace Car_project
     public partial class User : Window
     {
         UserProfile userprofile_obj = new UserProfile();
-        All_Car_Products AllCarsProducts_obj = new All_Car_Products();
-        Add_Car add_car_obg = new Add_Car() ;
+
         public User()
         {
             InitializeComponent();
@@ -30,14 +29,17 @@ namespace Car_project
             UserWindow.Children.Insert(1,userprofile_obj);
             userprofile_obj.Visibility = Visibility.Hidden;
             // add all cars object
-            CarsGrid.Children.Add(AllCarsProducts_obj);
-            AllCarsProducts_obj.Visibility = Visibility.Hidden;
-            // add car
-            CarsGrid.Children.Add(add_car_obg);
-            add_car_obg.Visibility = Visibility.Hidden;
+            CarsGrid.Children.Add(new All_Car_Products());
+        }
+        void hideGrids()
+        {
+            userprofile_obj.Visibility = Visibility.Hidden;
+            CarsGrid.Visibility = Visibility.Hidden;
+            PartsGrid.Visibility = Visibility.Hidden;
         }
 
-        // left bar 
+        //---------------------------------------------Top Menu---------------------------------------------------------
+
         private void Buttonclose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -60,7 +62,7 @@ namespace Car_project
             this.WindowState = System.Windows.WindowState.Minimized;
         }
 
-        // close and open menu
+        //---------------------------------------------Left Menu-----------------------------------------------------
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -75,42 +77,74 @@ namespace Car_project
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
         }
 
-        // Home
+        //---------------------------------------------Home---------------------------------------------------------
 
         private void Home(object sender, RoutedEventArgs e)
         {
+            hideGrids();
             MessageBox.Show("Home");
         }
 
-        // Profile
+        //-------------------------------------------Profile---------------------------------------------------------
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            CarsGrid.Visibility = Visibility.Hidden;
+            hideGrids();
             userprofile_obj.Visibility = Visibility.Visible;
         }
 
-       // Cars
+        //-----------------------------------------------Cars---------------------------------------------------------
 
         private void Cars_btn_click(object sender, RoutedEventArgs e)
         {
-            userprofile_obj.Visibility = Visibility.Hidden;
+            hideGrids();
             CarsGrid.Visibility = Visibility.Visible;
         }
+        private void AllCars_Products(object sender, RoutedEventArgs e)
+        {
+            CarsGrid.Children.RemoveAt(1);
+            CarsGrid.Children.Add (new All_Car_Products());
+        }
 
-        // Car Parts
+        private void MyCars_Products(object sender, RoutedEventArgs e)
+        {
+           
+        }
+        private void AddCar_Products(object sender, RoutedEventArgs e)
+        {
+            CarsGrid.Children.RemoveAt(1);
+            CarsGrid.Children.Add(new Add_Car());
+        }
+
+        //-------------------------------------------Car Parts---------------------------------------------------------
+
         private void CarsParts_btn_click(object sender, RoutedEventArgs e)
+        {
+            hideGrids();
+            PartsGrid.Visibility = Visibility.Visible;
+        }
+        private void AllParts_Products(object sender, RoutedEventArgs e)
         {
 
         }
-        // Cart
+        private void MyParts_Products(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddPart_Products(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //---------------------------------------------------Cart---------------------------------------------------------
 
         private void Cart_click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Cart");
         }
 
-        // logout
+        //---------------------------------------------------log out---------------------------------------------------------
 
         private void Logout_clcik(object sender, RoutedEventArgs e)
         {
@@ -120,60 +154,6 @@ namespace Car_project
         }
 
 
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
-
-       
-        private List<CarProduct> GetMyProducts()
-        {
-            List<CarProduct> products = new List<CarProduct>();
-            SqlCommand cmd = new SqlCommand("select * from Car left join UserData on Car.SellerID=" +
-                "UserData.UserID" +
-                " where SellerID=" + Convert.ToString(GlobalVars.userid), sqlcon);
-            SqlDataReader reader = cmd.ExecuteReader();
-            try
-            {
-
-                while (reader.Read())
-                {
-                    byte[] data = (byte[])reader["Image"];
-                    products.Add(new CarProduct(data,
-                        reader["CarID"].ToString(), reader["Price"].ToString(),
-                        reader["Speed"].ToString(), reader["ExtreriorColor"].ToString(),
-                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
-                        reader["Model"].ToString(), reader["Warranty"].ToString(),
-                        reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
-                        ));
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                MessageBox.Show("Done reading all ...");
-                reader.Close();
-            }
-
-            return products;
-        }
-
-        private void AllCars_Products(object sender, RoutedEventArgs e)
-        {
-            add_car_obg.Visibility = Visibility.Hidden;
-            AllCarsProducts_obj.Visibility = Visibility.Visible;
-        }
-
-        private void MyCars_Products(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AddCar_Products(object sender, RoutedEventArgs e)
-        {
-            AllCarsProducts_obj.Visibility = Visibility.Hidden;
-            add_car_obg.Visibility = Visibility.Visible;
-        }
         /*  private void My_Products(object sender, RoutedEventArgs e)
 {
 ProductsGrid.Visibility = Visibility.Hidden;

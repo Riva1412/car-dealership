@@ -147,9 +147,13 @@ F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\De
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\User.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\UserProfile.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\UserProfile.baml
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\CarCard.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\CarCard.baml
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\All_Car_Products.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\All_Car_Products.baml
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add_Car.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add_Car.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add Car\Add_Car.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\All_Car_Products.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\CarCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarsProducts.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add Car\Add_Car.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\All_Car_Products.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\CarCard.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarsProducts.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.baml

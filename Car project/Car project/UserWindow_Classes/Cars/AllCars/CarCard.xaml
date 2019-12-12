@@ -10,7 +10,7 @@
     <Grid>
         <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="34,28,0,0" Height="468">
             <materialDesign:Flipper.FrontContent >
-                <Grid Height="500" Width="300">
+                <Grid Height="468" Width="300">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="260" />
                         <RowDefinition Height="150" />
@@ -79,7 +79,7 @@
                                     <TextBlock  x:Name="available_quantity" FontSize="20" Grid.Column="1" Text="{Binding Quantity}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" >
-                                    <TextBox x:Name="required_quantity" Foreground="DimGray" FontSize="20" materialDesign:HintAssist.Hint= " Enter Quantity" Height="80" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="required_quantity" Foreground="DimGray" FontSize="20" materialDesign:HintAssist.Hint= " Enter Quantity" Height="50" HorizontalAlignment="Center"/>
                                     <Button Click="Add_to_Cart_click" Width="200" Foreground="Black" Margin="0 20 0 0" Content="ADD TO Cart" />
                                 </StackPanel>
                                 <TextBlock x:Name="Carid" Text="{Binding CarID}" Visibility="Hidden" />

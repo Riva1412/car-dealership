@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="Car_project.AddCarPart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Car_project"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1200">
+    <Grid x:Name="AddProductPart" HorizontalAlignment="Left" Height="582" Margin="376,108,0,0" VerticalAlignment="Top" Width="452" Visibility="Visible">
+        <materialDesign:Flipper x:Name="flipper2" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Height="542" Width="366" Margin="41,10,0,0">
+            <materialDesign:Flipper.FrontContent >
+                <Grid Height="500" Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="260" />
+                        <RowDefinition Height="250" />
+                    </Grid.RowDefinitions>
+                    <Image Margin="-10 0 0 0" Source="{Binding Image}" Width="500"/>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Name="fFCPName" FontSize="30" MinWidth="280"  Text="Car Part Name" TextAlignment="Center" />
+                        <TextBlock Name="fFCPPrice" Foreground="Gold" FontSize="30" MinWidth="280" Text="Car Part Cost" TextAlignment="Center"/>
+                        <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
+
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Flipper.FrontContent>
+            <materialDesign:Flipper.BackContent>
+                <Grid Height="500" Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="Dark" Padding="6" Margin="-35 0 -35 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Click="Update_Flipper" Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                            </Button>
+                            <TextBlock Margin="0 0 0 0" VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+
+                    <Grid Grid.Row="1" >
+
+                        <Grid Margin="-20 45 0 0 ">
+                            <StackPanel HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock  Margin="0 0 0 0 "  Foreground="DimGray" FontSize="30" Text="Name : " />
+                                    <ComboBox Name="bFCPName" FontSize="20" Width="200" materialDesign:ComboBoxAssist.ClassicMode="{Binding ElementName=ClassicModeCheckBox, Path=IsChecked}" Margin="0 0 0 8 " HorizontalAlignment="Left">
+                                        <ComboBoxItem   IsSelected="True">
+                                            Tire
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Seats
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Window
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Hood
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Wheel
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Door
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Bumpers
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Engine
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Mirrors
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            HeadLights
+                                        </ComboBoxItem>
+                                        <ComboBoxItem>
+                                            Boot
+                                        </ComboBoxItem>
+                                    </ComboBox>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock  Foreground="DimGray" FontSize="30" Text="colour : "  />
+                                    <TextBox Name="bFCPColour" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex.Red" ></TextBox>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="30" Text="Quanitiy : "/>
+                                    <TextBox Name="bFCPQuantity" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex.30" ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="30" Text="Warranty : " />
+                                    <TextBox Name="bFCPWarranty"  FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex. 2025" ></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock  Foreground="DimGray" FontSize="30" Text="Price : "/>
+                                    <TextBox Name="bFCPPrice" FontSize="30" Grid.Column="1" MinWidth="280" materialDesign:HintAssist.Hint="$$$$"></TextBox>
+                                </StackPanel>
+                                <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 20 0 0" Content="ADD" Click="Add_CarPart"/>
+
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </materialDesign:Flipper.BackContent>
+        </materialDesign:Flipper>
+    </Grid>
+</UserControl>

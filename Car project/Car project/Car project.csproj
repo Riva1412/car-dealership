@@ -89,14 +89,20 @@
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\Cars\Add_Car.xaml.cs">
+    <Compile Include="UserWindow_Classes\CarParts\Add Carpart\AddCarPart.xaml.cs">
+      <DependentUpon>AddCarPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\Cars\Add Car\Add_Car.xaml.cs">
       <DependentUpon>Add_Car.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\Cars\All_Car_Products.xaml.cs">
+    <Compile Include="UserWindow_Classes\Cars\AllCars\All_Car_Products.xaml.cs">
       <DependentUpon>All_Car_Products.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\Cars\CarCard.xaml.cs">
+    <Compile Include="UserWindow_Classes\Cars\AllCars\CarCard.xaml.cs">
       <DependentUpon>CarCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\Cars\MyCars\MyCarsProducts.xaml.cs">
+      <DependentUpon>MyCarsProducts.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow_Classes\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
@@ -137,15 +143,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\Cars\Add_Car.xaml">
+    <Page Include="UserWindow_Classes\CarParts\Add Carpart\AddCarPart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\Cars\All_Car_Products.xaml">
+    <Page Include="UserWindow_Classes\Cars\Add Car\Add_Car.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\Cars\CarCard.xaml">
+    <Page Include="UserWindow_Classes\Cars\AllCars\All_Car_Products.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\Cars\AllCars\CarCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\Cars\MyCars\MyCarsProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

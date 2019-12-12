@@ -37,7 +37,7 @@ namespace Login
             loginMail.Focus();
             loginShowBtn.Foreground = Brushes.Black;
             loginShowBtn.Background = Brushes.White;
-            signUpShowBtn.Background = (Brush)new BrushConverter().ConvertFrom("#FF9C27B0");
+            signUpShowBtn.Background = (Brush)new BrushConverter().ConvertFrom("#9E9E9E");
             signUpShowBtn.Foreground = Brushes.White;
             loginPanel.Visibility = Visibility.Visible;
             signUpPanel.Visibility = Visibility.Hidden;
@@ -48,7 +48,7 @@ namespace Login
             emailSignUpTxt.Focus();
             signUpShowBtn.Foreground = Brushes.Black;
             signUpShowBtn.Background = Brushes.White;
-            loginShowBtn.Background = (Brush)new BrushConverter().ConvertFrom("#FF9C27B0");
+            loginShowBtn.Background = (Brush)new BrushConverter().ConvertFrom("#9E9E9E");
             loginShowBtn.Foreground = Brushes.White;
             loginPanel.Visibility = Visibility.Hidden;
             signUpPanel.Visibility = Visibility.Visible;
@@ -106,21 +106,28 @@ namespace Login
                 MessageBox.Show("You must fill in all fields");
                 return;
             }
+            if (passwordSignUpTxt.Password.Length < 8)  //check password length
+            {
+                MessageBox.Show("Password Minimum is 8 Characters");
+
+                return;
+            }
 
             if (passwordSignUpTxt.Password != confPasswordSignUpTxt.Password)
             {
                 MessageBox.Show("Password does not match");
+
                 return;
             }
 
 
-            if (phoneTxt.Text.Length != 11)
+            if (!Regex.IsMatch(phoneTxt.Text, @"^([0-9]{11})$")) // Validate Phone Number
             {
+
                 MessageBox.Show("Invalid phone number");
                 return;
             }
-
-            // Regular expression
+            //Regular expression
             Regex regex = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
             bool isValid = regex.IsMatch(emailSignUpTxt.Text.Trim());
             if (!isValid)
@@ -152,6 +159,17 @@ namespace Login
             }
 
             MessageBox.Show("You have registered successfully");
+            //Empty The Signup After Success Registration
+            emailSignUpTxt.Text = ""; passwordSignUpTxt.Password = ""; firstNameTxt.Text = ""; secondNameTxt.Text = ""; phoneTxt.Text = ""; adressTxt.Text = "";
+
+            //Return to Login
+            loginMail.Focus();
+            loginShowBtn.Foreground = Brushes.Black;
+            loginShowBtn.Background = Brushes.White;
+            signUpShowBtn.Background = (Brush)new BrushConverter().ConvertFrom("#9E9E9E");
+            signUpShowBtn.Foreground = Brushes.White;
+            loginPanel.Visibility = Visibility.Visible;
+            signUpPanel.Visibility = Visibility.Hidden;
             sqlcon.Close();
         }
 
@@ -175,7 +193,7 @@ namespace Login
             {
                 signInBtn_Function();
             }
-            
+
         }
 
 

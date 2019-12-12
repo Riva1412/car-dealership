@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="#FF410A66">
-    <Grid>
+        mc:Ignorable="d" Height="600" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Gray">
+    <Grid >
+        <Border BorderBrush="Black" BorderThickness="4" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="400"/>
+
         <StackPanel Margin="50">
-            <Image Source="/imgs/login.png" Width="150" Height="96" Stretch="Fill"/>
+            <materialDesign:PackIcon Kind="AccountOutline" Width="150" Height="118" HorizontalAlignment="Center" Margin="75,0"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="loginShowBtn" Margin="0" Content="Login" Width="140" HorizontalAlignment="Left" Background="White" Foreground="Black" AutomationProperties.Name="loginBtn" Click="loginShowBtn_Click"/>
@@ -25,11 +27,11 @@
                         <Button Name="signInBtn" Margin="15 30" Content="Sign in" VerticalAlignment="Bottom" TabIndex="2" Click="signInBtn_Click" KeyDown="signInBtn_KeyDown"/>
 
 
-                        <TextBlock Margin="10"  HorizontalAlignment="Center" Foreground="#FFAE8989">Or sign up using</TextBlock>
+                        <TextBlock Margin="72,10,71.4,10"  HorizontalAlignment="Center" >Or sign up using</TextBlock>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Image Margin="10 0" Source="/imgs/fb.png" Height="30" Width="30"/>
-                            <Image Margin="10 0" Source="/imgs/twitter.jpg" Height="30" Width="30"/>
-                            <Image Margin="10 0" Source="/imgs/google.jpg" Height="30" Width="30"/>
+                            <materialDesign:PackIcon Kind="Facebook" Margin="10 0"  Height="30" Width="30"/>
+                            <materialDesign:PackIcon Kind="Twitter" Margin="10 0"  Height="30" Width="30"/>
+                            <materialDesign:PackIcon Kind="Google" Margin="10 0"  Height="30" Width="30"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -54,14 +56,14 @@
                             <PasswordBox Name="passwordSignUpTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" Width="100"/>
                             <PasswordBox  Name="confPasswordSignUpTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Confirm Password" Width="100"/>
                         </StackPanel>
-                        <Button Name="signUpBtn" Margin="15 10" Content="Sign up" Click="SignUpBtn_Click" KeyDown="signUpBtn_KeyDown"/>
+                        <Button Name="signUpBtn" Margin="0" Content="Sign up" Click="SignUpBtn_Click" KeyDown="signUpBtn_KeyDown"/>
 
                     </StackPanel>
                 </Grid>
             </Border>
         </StackPanel>
 
-        <Button x:Name="cancelBtn" Margin="150 10" Content="Cancel" VerticalAlignment="Bottom" Background="#FF560C63" Click="cancelBtn_Click"/>
+        <Button x:Name="cancelBtn" Margin="150 10" Content="Cancel" VerticalAlignment="Bottom"  Click="cancelBtn_Click"/>
 
     </Grid>
 </Window>

@@ -7,9 +7,9 @@
              xmlns:local="clr-namespace:Car_project"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid x:Name="ShowProducts" HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="60,75,0,0" Visibility="Visible">
-        <ScrollViewer Grid.Column="1" Grid.Row="1" >
-            <StackPanel >
+    <Grid x:Name="ShowProducts" HorizontalAlignment="Left" Height="592" VerticalAlignment="Top" Width="1140" Margin="60,108,0,0" Visibility="Visible">
+        <ScrollViewer>
+            <StackPanel>
                 <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Product}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>

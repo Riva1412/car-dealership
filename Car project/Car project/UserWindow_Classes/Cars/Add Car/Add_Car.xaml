@@ -17,7 +17,7 @@
                     </Grid.RowDefinitions>
                     <Image Grid.Row="0" x:Name="imagebox" Margin="0 0 0 0"  Width="500"/>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button Click="AddImage_click" Content="Add Image" Background="Black"/>
+                        <Button Click="AddImage_click" Content="Add Image" />
                         <TextBox FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Name" />
                         <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
                     </StackPanel>
