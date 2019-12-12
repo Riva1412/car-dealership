@@ -104,7 +104,7 @@ namespace Car_project
         //producs Fns
         /// </summary>
 
-        public static  List<CarProduct> getAllProducts()
+        public static  List<CarProduct> getAllCar_Products()
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
@@ -124,10 +124,10 @@ namespace Car_project
                      */
                     products.Add(new CarProduct(data,
                         reader["CarID"].ToString(), reader["Price"].ToString(),
-                        reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
+                        reader["Speed"].ToString(), reader["ExtreriorColor"].ToString(),
                         reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
                         reader["Model"].ToString(), reader["Warranty"].ToString(),
-                         reader["FirstName"].ToString() + " " + reader["SecondName"].ToString()
+                         reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
                         ));
                 }
             }
@@ -141,6 +141,41 @@ namespace Car_project
             }
 
             return products;
+        }
+        public static void AddCarProduct(byte[] image , string Price , string Speed ,string ExColour , string InColour , string TankCapacity ,
+            string Model , string Warranty , string quantity)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+
+
+                string query = "INSERT INTO [Car]" +
+                "(Quantity , Image , Price,Speed,ExtreriorColor,InteriorColor,TankCapacity,Model,Warranty,SellerID,carPartOrNot)" +
+                 "values(@Quantity , @image , @Price,@Speed,@ExtreriorColor,@InteriorColor,@TankCapacity,@Model,@Warranty,@SellerID,@carPartOrNot)";
+                try
+                {
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+                sqlcmd.Parameters.AddWithValue("@Quantity", quantity);
+                sqlcmd.Parameters.AddWithValue("@image", image);
+                sqlcmd.Parameters.AddWithValue("@Price", Price);
+                sqlcmd.Parameters.AddWithValue("@Speed", Speed);
+                sqlcmd.Parameters.AddWithValue("@ExtreriorColor", ExColour);
+                sqlcmd.Parameters.AddWithValue("@InteriorColor", InColour);
+                sqlcmd.Parameters.AddWithValue("@TankCapacity", TankCapacity);
+                sqlcmd.Parameters.AddWithValue("@Model", Model);
+                sqlcmd.Parameters.AddWithValue("@Warranty", Warranty);
+                sqlcmd.Parameters.AddWithValue("@SellerID", Convert.ToString(GlobalVars.userid));
+                sqlcmd.Parameters.AddWithValue("@carPartOrNot", 0);
+                sqlcmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                MessageBox.Show(e.ToString());
+                }
+                finally
+                {
+                    MessageBox.Show("Product Added Successfully");
+                }
         }
 
     }

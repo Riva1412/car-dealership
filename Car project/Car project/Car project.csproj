@@ -89,10 +89,13 @@
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\AllProducts.xaml.cs">
-      <DependentUpon>AllProducts.xaml</DependentUpon>
+    <Compile Include="UserWindow_Classes\Cars\Add_Car.xaml.cs">
+      <DependentUpon>Add_Car.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\CarCard.xaml.cs">
+    <Compile Include="UserWindow_Classes\Cars\All_Car_Products.xaml.cs">
+      <DependentUpon>All_Car_Products.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\Cars\CarCard.xaml.cs">
       <DependentUpon>CarCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow_Classes\UserProfile.xaml.cs">
@@ -134,11 +137,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\AllProducts.xaml">
+    <Page Include="UserWindow_Classes\Cars\Add_Car.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\CarCard.xaml">
+    <Page Include="UserWindow_Classes\Cars\All_Car_Products.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\Cars\CarCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

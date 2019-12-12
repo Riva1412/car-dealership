@@ -49,83 +49,18 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="AddProduct" HorizontalAlignment="Left" Height="582" Margin="376,108,0,0" VerticalAlignment="Top" Width="452" Visibility="Hidden">
-            <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Height="542" Width="366" Margin="41,10,0,0">
-                <materialDesign:Flipper.FrontContent >
-                    <Grid Height="500" Width="300">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="260" />
-                            <RowDefinition Height="250" />
-                        </Grid.RowDefinitions>
-                        <Image Margin="-10 0 0 0" Source="{Binding Image}" Width="500"/>
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBox FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Name" />
-                            <TextBox Foreground="Gold" FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Price"/>
-                            <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
-
-                        </StackPanel>
-                    </Grid>
-                </materialDesign:Flipper.FrontContent>
-                <materialDesign:Flipper.BackContent>
-                    <Grid Height="500" Width="300">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Mode="Dark" Padding="6" Margin="-35 0 -35 0">
-                            <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
-                                    <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
-                                </Button>
-                                <TextBlock Margin="0 0 0 0" VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
-                            </StackPanel>
-                        </materialDesign:ColorZone>
-
-                        <Grid Grid.Row="1" >
-
-                            <Grid Margin="-20 45 0 0 ">
-                                <StackPanel HorizontalAlignment="Left">
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock  Margin="0 0 0 0 "  Foreground="DimGray" FontSize="30" Text="Model : " />
-                                        <TextBox FontSize="30" Name="Model" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex. Nissan"  ></TextBox>
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock  Foreground="DimGray" FontSize="30" Text="Speed : " />
-                                        <TextBox Name="Speed" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="Km per Hour" ></TextBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock Foreground="DimGray" FontSize="30" Text="Tank Capacity : " />
-                                        <TextBox Name="TankCapacity" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="in Liters"  ></TextBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock Foreground="DimGray" FontSize="30" Text="Exteriro Colour : "/>
-                                        <TextBox Name="ExColour" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex.Red" ></TextBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock Foreground="DimGray" FontSize="30" Text="Interio Colour : "/>
-                                        <TextBox Name="InColour" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex.Black" ></TextBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock Foreground="DimGray" FontSize="30" Text="Warranty : " />
-                                        <TextBox Name="Warranty" FontSize="30" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex. 2025" ></TextBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock Foreground="DimGray" FontSize="30" Text="Price : "/>
-                                        <TextBox Name="Price" FontSize="30" Grid.Column="1" MinWidth="280" materialDesign:HintAssist.Hint="$$$$"></TextBox>
-                                    </StackPanel>
-                                    <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 20 0 0" Content="ADD" Click="Add_Product"/>
-
-                                </StackPanel>
-                            </Grid>
-
-                        </Grid>
-                    </Grid>
-                </materialDesign:Flipper.BackContent>
-            </materialDesign:Flipper>
-
+        <Grid x:Name="CarsGrid" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1140" Margin="60,70,0,0" Visibility="Hidden">
+            <Grid HorizontalAlignment="Left"  Height="38" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button  Background="#FFF0EAEA" Foreground="Black" Grid.Column="0" FontSize="18" Height="Auto" Click="AllCars_Products"  Content="All Products" BorderBrush="#FFF0EAEA" />
+                <Button  Background="#FFF0EAEA" Foreground="Black" Grid.Column="1" FontSize="18" Height="Auto"  Click="MyCars_Products"  Content="My Products"  BorderBrush="#FFF0EAEA" />
+                <Button  Background="#FFF0EAEA" Foreground="Black" Grid.Column="2" FontSize="18" Height="Auto"  Click="AddCar_Products" Content="Add Products" BorderBrush="#FFF0EAEA" />
+            </Grid>
         </Grid>
-
 
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
             <StackPanel>

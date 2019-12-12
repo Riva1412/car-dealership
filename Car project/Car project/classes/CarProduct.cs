@@ -11,26 +11,28 @@ namespace Car_project
         public string CarID { get; set; }
         public string Price { get; set; }
         public string Speed { get; set; }
-        public string ExtrerioColor { get; set; }
+        public string ExtreriorColor { get; set; }
         public string InteriorColor { get; set; }
         public string TankCapacity { get; set; }
         public string Model { get; set; }
         public string Warranty { get; set; }
         public string SellerName { get; set; }
+        public string Quantity { get; set; }
         public CarProduct(byte[] image ,String carid, String price, String speed, 
-         String extreriocolor, String interiorcolor, String tankcapacity, 
-         String model, String warranty, String sellername)
+         String extreriorcolor, String interiorcolor, String tankcapacity, 
+         String model, String warranty, String sellername , string quantity)
         {
             Image = image;
             CarID = carid;
             Price = price;
             Speed = speed;
-            ExtrerioColor = extreriocolor;
+            ExtreriorColor = extreriorcolor;
             InteriorColor = interiorcolor;
             TankCapacity = tankcapacity;
             Model = model;
             Warranty = warranty;
             SellerName = sellername;
+            Quantity = quantity;
         }
     }
 }

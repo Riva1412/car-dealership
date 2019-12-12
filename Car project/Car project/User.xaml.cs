@@ -21,16 +21,20 @@ namespace Car_project
     public partial class User : Window
     {
         UserProfile userprofile_obj = new UserProfile();
-        AllProducts AllProducts_obj = new AllProducts();
+        All_Car_Products AllCarsProducts_obj = new All_Car_Products();
+        Add_Car add_car_obg = new Add_Car() ;
         public User()
         {
             InitializeComponent();
             // add profile object
             UserWindow.Children.Insert(1,userprofile_obj);
             userprofile_obj.Visibility = Visibility.Hidden;
-            // add all products object
-            UserWindow.Children.Insert(1,AllProducts_obj);
-            AllProducts_obj.Visibility = Visibility.Hidden;
+            // add all cars object
+            CarsGrid.Children.Add(AllCarsProducts_obj);
+            AllCarsProducts_obj.Visibility = Visibility.Hidden;
+            // add car
+            CarsGrid.Children.Add(add_car_obg);
+            add_car_obg.Visibility = Visibility.Hidden;
         }
 
         // left bar 
@@ -82,8 +86,7 @@ namespace Car_project
 
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            AllProducts_obj.Visibility = Visibility.Hidden;
-
+            CarsGrid.Visibility = Visibility.Hidden;
             userprofile_obj.Visibility = Visibility.Visible;
         }
 
@@ -92,9 +95,9 @@ namespace Car_project
         private void Cars_btn_click(object sender, RoutedEventArgs e)
         {
             userprofile_obj.Visibility = Visibility.Hidden;
-            AllProducts_obj.Visibility = Visibility.Visible;
+            CarsGrid.Visibility = Visibility.Visible;
         }
-        
+
         // Car Parts
         private void CarsParts_btn_click(object sender, RoutedEventArgs e)
         {
@@ -119,34 +122,7 @@ namespace Car_project
 
         SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
 
-        private void Add_Product(object sender, RoutedEventArgs e)
-        {
-            if (sqlcon.State == System.Data.ConnectionState.Closed)
-                sqlcon.Open();
-            if (Price.Text == "" || Speed.Text == "" || ExColour.Text == "" || TankCapacity.Text == "" || Model.Text == "" || Model.Text == "" || Warranty.Text == "" || InColour.Text == "")
-            { MessageBox.Show("Please Fill All Details"); }
-            else
-            {
-                string query = "INSERT INTO [Car](Price,Speed,ExtrerioColor,InteriorColor,TankCapacity,Model,Warranty,SellerID,carPartOrNot)" +
-                        "values(@Price,@Speed,@ExtrerioColor,@InteriorColor,@TankCapacity,@Model,@Warranty,@SellerID,@carPartOrNot)";
-
-                SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
-                sqlcmd.Parameters.AddWithValue("@Price", Price.Text);
-                sqlcmd.Parameters.AddWithValue("@Speed", Speed.Text);
-                sqlcmd.Parameters.AddWithValue("@ExtrerioColor", ExColour.Text);
-                sqlcmd.Parameters.AddWithValue("@InteriorColor", InColour.Text);
-                sqlcmd.Parameters.AddWithValue("@TankCapacity", TankCapacity.Text);
-                sqlcmd.Parameters.AddWithValue("@Model", Model.Text);
-                sqlcmd.Parameters.AddWithValue("@Warranty", Warranty.Text);
-                sqlcmd.Parameters.AddWithValue("@SellerID", Convert.ToString(GlobalVars.userid));
-                sqlcmd.Parameters.AddWithValue("@carPartOrNot", 0);
-                MessageBox.Show("Product Added Successfully");
-                sqlcmd.ExecuteNonQuery();
-                //  sqlcon.Close();
-                Price.Text = ""; Speed.Text = ""; ExColour.Text = ""; InColour.Text = ""; TankCapacity.Text = ""; Model.Text = ""; Warranty.Text = "";
-            }
-
-        }
+       
         private List<CarProduct> GetMyProducts()
         {
             List<CarProduct> products = new List<CarProduct>();
@@ -162,10 +138,10 @@ namespace Car_project
                     byte[] data = (byte[])reader["Image"];
                     products.Add(new CarProduct(data,
                         reader["CarID"].ToString(), reader["Price"].ToString(),
-                        reader["Speed"].ToString(), reader["ExtrerioColor"].ToString(),
+                        reader["Speed"].ToString(), reader["ExtreriorColor"].ToString(),
                         reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
                         reader["Model"].ToString(), reader["Warranty"].ToString(),
-                        reader["FirstName"].ToString() + " " + reader["SecondName"].ToString()
+                        reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
                         ));
                 }
             }
@@ -181,20 +157,32 @@ namespace Car_project
 
             return products;
         }
-      /*  private void My_Products(object sender, RoutedEventArgs e)
-        {
-            ProductsGrid.Visibility = Visibility.Hidden;
-            var CarProducts = GetMyProducts();
-            if (CarProducts.Count > 0)
-                ListViewProducts.ItemsSource = CarProducts;
-            ShowProducts.Visibility = Visibility.Visible;
 
-        }*/
-
-        private void Add_Products(object sender, RoutedEventArgs e)
+        private void AllCars_Products(object sender, RoutedEventArgs e)
         {
-            AddProduct.Visibility = Visibility.Visible;
+            add_car_obg.Visibility = Visibility.Hidden;
+            AllCarsProducts_obj.Visibility = Visibility.Visible;
+        }
+
+        private void MyCars_Products(object sender, RoutedEventArgs e)
+        {
 
         }
+
+        private void AddCar_Products(object sender, RoutedEventArgs e)
+        {
+            AllCarsProducts_obj.Visibility = Visibility.Hidden;
+            add_car_obg.Visibility = Visibility.Visible;
+        }
+        /*  private void My_Products(object sender, RoutedEventArgs e)
+{
+ProductsGrid.Visibility = Visibility.Hidden;
+var CarProducts = GetMyProducts();
+if (CarProducts.Count > 0)
+ListViewProducts.ItemsSource = CarProducts;
+ShowProducts.Visibility = Visibility.Visible;
+
+}*/
+
     }
 }
