@@ -23,6 +23,11 @@ namespace Car_project
         public MyCarsProducts()
         {
             InitializeComponent();
+            var myCarProducts = DBManager.GetMyCarsProducts();
+            if (myCarProducts.Count > 0)
+                ListViewProducts.ItemsSource = myCarProducts;
+            else
+                MessageBox.Show("No Avaiable Products");
         }
     }
 }

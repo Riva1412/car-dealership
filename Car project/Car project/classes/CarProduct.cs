@@ -9,6 +9,7 @@ namespace Car_project
     {
         public byte[] Image { get; set; }
         public string CarID { get; set; }
+        public string Name { get; set; }
         public string Price { get; set; }
         public string Speed { get; set; }
         public string ExtreriorColor { get; set; }
@@ -20,7 +21,7 @@ namespace Car_project
         public string Quantity { get; set; }
         public CarProduct(byte[] image ,String carid, String price, String speed, 
          String extreriorcolor, String interiorcolor, String tankcapacity, 
-         String model, String warranty, String sellername , string quantity)
+         String model, String warranty, String sellername , string quantity , string name)
         {
             Image = image;
             CarID = carid;
@@ -33,6 +34,7 @@ namespace Car_project
             Warranty = warranty;
             SellerName = sellername;
             Quantity = quantity;
+            Name = name; 
         }
     }
 }

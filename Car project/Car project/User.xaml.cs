@@ -30,6 +30,8 @@ namespace Car_project
             userprofile_obj.Visibility = Visibility.Hidden;
             // add all cars object
             CarsGrid.Children.Add(new All_Car_Products());
+            // add all car parts object
+            PartsGrid.Children.Add(new AddCarPart());
         }
         void hideGrids()
         {
@@ -100,6 +102,7 @@ namespace Car_project
             hideGrids();
             CarsGrid.Visibility = Visibility.Visible;
         }
+
         private void AllCars_Products(object sender, RoutedEventArgs e)
         {
             CarsGrid.Children.RemoveAt(1);
@@ -108,7 +111,8 @@ namespace Car_project
 
         private void MyCars_Products(object sender, RoutedEventArgs e)
         {
-           
+            CarsGrid.Children.RemoveAt(1);
+            CarsGrid.Children.Add(new MyCarsProducts());
         }
         private void AddCar_Products(object sender, RoutedEventArgs e)
         {
@@ -134,7 +138,8 @@ namespace Car_project
 
         private void AddPart_Products(object sender, RoutedEventArgs e)
         {
-
+            PartsGrid.Children.RemoveAt(1);
+            PartsGrid.Children.Add(new AddCarPart());
         }
 
         //---------------------------------------------------Cart---------------------------------------------------------
@@ -152,17 +157,5 @@ namespace Car_project
             this.Close();
             loginwinow.Show();
         }
-
-
-        /*  private void My_Products(object sender, RoutedEventArgs e)
-{
-ProductsGrid.Visibility = Visibility.Hidden;
-var CarProducts = GetMyProducts();
-if (CarProducts.Count > 0)
-ListViewProducts.ItemsSource = CarProducts;
-ShowProducts.Visibility = Visibility.Visible;
-
-}*/
-
     }
 }

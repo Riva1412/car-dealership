@@ -101,10 +101,13 @@
     <Compile Include="UserWindow_Classes\Cars\AllCars\CarCard.xaml.cs">
       <DependentUpon>CarCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserWindow_Classes\Cars\MyCars\MyCarCard.xaml.cs">
+      <DependentUpon>MyCarCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow_Classes\Cars\MyCars\MyCarsProducts.xaml.cs">
       <DependentUpon>MyCarsProducts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\UserProfile.xaml.cs">
+    <Compile Include="UserWindow_Classes\Profile\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
@@ -159,11 +162,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserWindow_Classes\Cars\MyCars\MyCarCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserWindow_Classes\Cars\MyCars\MyCarsProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\UserProfile.xaml">
+    <Page Include="UserWindow_Classes\Profile\UserProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,17 +6,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Car_project"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid x:Name="AddProductPart" HorizontalAlignment="Left" Height="582" Margin="376,108,0,0" VerticalAlignment="Top" Width="452" Visibility="Visible">
-        <materialDesign:Flipper x:Name="flipper2" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Height="542" Width="366" Margin="41,10,0,0">
+             d:DesignHeight="600" d:DesignWidth="1140">
+    <Grid  HorizontalAlignment="Left" Height="570" VerticalAlignment="Top" Width="1140"  Visibility="Visible" Margin="0,30,0,0">
+        <materialDesign:Flipper x:Name="flipper2" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Height="542" Width="366" HorizontalAlignment="Center">
             <materialDesign:Flipper.FrontContent >
                 <Grid Height="500" Width="300">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="260" />
                         <RowDefinition Height="250" />
                     </Grid.RowDefinitions>
-                    <Image Margin="-10 0 0 0" Source="{Binding Image}" Width="500"/>
+                    <Image x:Name="imagebox"  Source="{Binding Image}" Width="500"/>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Click="AddImage_click" Content="Add Image" />
                         <TextBlock Name="fFCPName" FontSize="30" MinWidth="280"  Text="Car Part Name" TextAlignment="Center" />
                         <TextBlock Name="fFCPPrice" Foreground="Gold" FontSize="30" MinWidth="280" Text="Car Part Cost" TextAlignment="Center"/>
                         <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
@@ -35,7 +36,7 @@
                             <Button Click="Update_Flipper" Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
                                 <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
                             </Button>
-                            <TextBlock Margin="0 0 0 0" VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
+                            <TextBlock  VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
                         </StackPanel>
                     </materialDesign:ColorZone>
 

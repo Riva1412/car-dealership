@@ -145,8 +145,6 @@ F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\De
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.cache
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\Car project_MarkupCompile.lref
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\User.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\UserProfile.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\UserProfile.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add Car\Add_Car.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\All_Car_Products.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\CarCard.g.cs
@@ -157,3 +155,7 @@ F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Ca
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarsProducts.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Profile\UserProfile.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Profile\UserProfile.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarCard.baml

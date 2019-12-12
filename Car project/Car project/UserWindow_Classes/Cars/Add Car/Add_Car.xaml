@@ -6,8 +6,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Car_project"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid x:Name="AddProduct" HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="0,38,0,0" Visibility="Visible">
+             d:DesignHeight="600" d:DesignWidth="1140">
+    <Grid HorizontalAlignment="Left" Height="570" VerticalAlignment="Top" Width="1140"  Visibility="Visible" Margin="0,30,0,0">
         <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Height="542" Width="366" HorizontalAlignment="Center">
             <materialDesign:Flipper.FrontContent >
                 <Grid Height="500" Width="300">
@@ -18,7 +18,7 @@
                     <Image Grid.Row="0" x:Name="imagebox" Margin="0 0 0 0"  Width="500"/>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Click="AddImage_click" Content="Add Image" />
-                        <TextBox FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Name" />
+                        <TextBox x:Name="CarName" FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Name" Text="{Binding Name}" />
                         <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
                     </StackPanel>
                 </Grid>

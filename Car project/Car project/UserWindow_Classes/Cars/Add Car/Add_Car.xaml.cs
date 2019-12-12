@@ -30,6 +30,8 @@ namespace Car_project
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.ShowDialog();
+            if (dlg.FileName == "")
+                return;
             FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
             byte[] data = new byte[fs.Length];
             fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
@@ -41,14 +43,15 @@ namespace Car_project
         }
         private void Add_Product(object sender, RoutedEventArgs e)
         {
-            if (Price.Text == "" || Speed.Text == "" || ExColour.Text == "" || TankCapacity.Text == "" 
-     || Model.Text == "" || Model.Text == "" || Warranty.Text == "" || InColour.Text == "" || quantity.Text=="")
+            if (CarImage==null || CarImage.Length==0 || Price.Text == "" || Speed.Text == "" || ExColour.Text == "" || TankCapacity.Text == "" 
+                || Model.Text == "" || Model.Text == "" || Warranty.Text == "" || InColour.Text == "" 
+                || quantity.Text=="" || CarName.Text=="")
             {
                 MessageBox.Show("Please Fill All Details");
                 return;
             }
             DBManager.AddCarProduct(CarImage, Price.Text, Speed.Text, ExColour.Text, 
-                InColour.Text, TankCapacity.Text, Model.Text, Warranty.Text, quantity.Text);
+                InColour.Text, TankCapacity.Text, Model.Text, Warranty.Text, quantity.Text, CarName.Text);
            quantity.Text= Price.Text = Speed.Text = ExColour.Text =  InColour.Text = TankCapacity.Text =  Model.Text =  Warranty.Text = "";
         }
     }

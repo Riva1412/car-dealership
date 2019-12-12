@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Car_project.MyCarCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Car_project"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1140">
+    <Grid>
+        <materialDesign:Flipper x:Name="flipper1" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="34,28,0,0" Height="500">
+            <materialDesign:Flipper.FrontContent >
+                <Grid Height="500" Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="260" />
+                        <RowDefinition Height="250" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" x:Name="imagebox" Margin="0 0 0 0"  Width="500" Source="{Binding Image}" />
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Click="EditImage_click" Content="Edit Image" />
+                        <TextBox x:Name="CarName" FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Name"  Text="{Binding Name}" />
+                        <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Flipper.FrontContent>
+            <materialDesign:Flipper.BackContent>
+                <Grid Height="500" Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="Dark" Padding="6" >
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                            </Button>
+                            <TextBlock  VerticalAlignment="Center"><Run Text="More Details"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+                    <Grid Grid.Row="1" >
+                        <Grid Margin="5 0 0 0 ">
+                            <StackPanel HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock  Margin="0 0 0 0 "  Foreground="DimGray" FontSize="25" Text="Model : " />
+                                    <TextBox FontSize="25" Name="Model" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex. Nissan" Text="{Binding Model}" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock  Foreground="DimGray" FontSize="25" Text="Speed : " />
+                                    <TextBox Name="Speed" FontSize="25" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="Km per Hour" Text="{Binding Speed}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="25" Text="Tank Capacity : " />
+                                    <TextBox Name="TankCapacity" FontSize="25" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="in Liters"  Text="{Binding TankCapacity}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="25" Text="Exteriror color : "/>
+                                    <TextBox Name="ExColour" FontSize="25" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex.Red"  Text="{Binding ExtreriorColor}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="25" Text="Interior color : "/>
+                                    <TextBox Name="InColour" FontSize="25" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex.Black"  Text="{Binding InteriorColor}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="25" Text="Warranty : " />
+                                    <TextBox Name="Warranty" FontSize="25" Grid.Column="1"  MinWidth="280" materialDesign:HintAssist.Hint="ex. 2025" Text="{Binding Warranty}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Foreground="DimGray" FontSize="25" Text="Price : "/>
+                                    <TextBox Name="Price" FontSize="25" Grid.Column="1" MinWidth="280" materialDesign:HintAssist.Hint="$$$$" Text="{Binding Price}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock   Foreground="DimGray" FontSize="25" Text="Quantity : "/>
+                                    <TextBox x:Name="quantity" FontSize="25" Grid.Column="1" MinWidth="280" materialDesign:HintAssist.Hint="set 0 to remove" Text="{Binding Quantity}"/>
+                                </StackPanel>
+                                <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 20 0 0" Content="Done" Click="Done_click"/>
+                                <TextBlock x:Name="Carid" Text="{Binding CarID}" Visibility="Hidden" />
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </materialDesign:Flipper.BackContent>
+        </materialDesign:Flipper>
+
+    </Grid>
+
+</UserControl>

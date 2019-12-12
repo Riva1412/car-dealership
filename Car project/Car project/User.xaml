@@ -50,7 +50,7 @@
         </Grid>
 
         <Grid x:Name="CarsGrid" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1140" Margin="60,70,0,0" Visibility="Hidden">
-            <Grid HorizontalAlignment="Left"  Height="38" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
+            <Grid HorizontalAlignment="Left"  Height="30" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -62,8 +62,8 @@
             </Grid>
         </Grid>
 
-        <Grid x:Name="PartsGrid" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1140" Margin="60,70,0,0" Visibility="Visible">
-            <Grid HorizontalAlignment="Left"  Height="38" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
+        <Grid x:Name="PartsGrid" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1140" Margin="60,70,0,0" Visibility="Hidden">
+            <Grid HorizontalAlignment="Left"  Height="30" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
