@@ -295,6 +295,37 @@ namespace Car_project
                }
 
         }
+        public static List<CartProducts> CartProducts()
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            List<CartProducts> products = new List<CartProducts>();
+            SqlCommand cmd = new SqlCommand("SELECT OrderID,Name,Cart.Quantity,Price "
+            +"From Car JOIN Cart on Cart.ProductID = Car.CarID", con);
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                          
+                    products.Add(new CartProducts(
+                        reader["OrderID"].ToString(), reader["Name"].ToString(),
+                        reader["Quantity"].ToString(), reader["Price"].ToString()));
+                }
+                reader.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+            }
+
+            return products;
+        }
 
     }
 }

@@ -34,6 +34,7 @@
     </Window.Triggers>
 
     <Grid Background="#FFF0EAEA" x:Name="UserWindow" >
+
         <Grid x:Name="topbar" Height="70" VerticalAlignment="Top" Background="#FF444546">
             <TextBlock Text="cars online shopping" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
@@ -73,6 +74,7 @@
                 <Button   Foreground="Black" Grid.Column="1" FontSize="18" Height="Auto"  Click="MyParts_Products"  Content="My Products"  />
                 <Button   Foreground="Black" Grid.Column="2" FontSize="18" Height="Auto"  Click="AddPart_Products" Content="Add Product"  />
             </Grid>
+
         </Grid>
 
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
@@ -132,6 +134,7 @@
 
             </StackPanel>
         </Grid>
+       
 
     </Grid>
 

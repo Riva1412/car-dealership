@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="classes\CarProduct.cs" />
+    <Compile Include="classes\CartProducts.cs" />
     <Compile Include="classes\DBManager.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -106,6 +107,9 @@
     </Compile>
     <Compile Include="UserWindow_Classes\Cars\MyCars\MyCarsProducts.xaml.cs">
       <DependentUpon>MyCarsProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\Cart\Cart.xaml.cs">
+      <DependentUpon>Cart.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow_Classes\Profile\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
@@ -167,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow_Classes\Cars\MyCars\MyCarsProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\Cart\Cart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,13 +21,16 @@ namespace Car_project
     public partial class User : Window
     {
         UserProfile userprofile_obj = new UserProfile();
-
+        Cart cart_obj = new Cart() ;
         public User()
         {
             InitializeComponent();
             // add profile object
             UserWindow.Children.Insert(1,userprofile_obj);
             userprofile_obj.Visibility = Visibility.Hidden;
+            // add cart
+            UserWindow.Children.Insert(1, cart_obj);
+            cart_obj.Visibility = Visibility.Hidden;
             // add all cars object
             CarsGrid.Children.Add(new All_Car_Products());
             // add all car parts object
@@ -38,6 +41,7 @@ namespace Car_project
             userprofile_obj.Visibility = Visibility.Hidden;
             CarsGrid.Visibility = Visibility.Hidden;
             PartsGrid.Visibility = Visibility.Hidden;
+            cart_obj.Visibility = Visibility.Hidden;
         }
 
         //---------------------------------------------Top Menu---------------------------------------------------------
@@ -146,7 +150,8 @@ namespace Car_project
 
         private void Cart_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Cart");
+                hideGrids();
+            cart_obj.Visibility = Visibility.Visible;
         }
 
         //---------------------------------------------------log out---------------------------------------------------------

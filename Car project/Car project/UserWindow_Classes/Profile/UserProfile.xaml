@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:Car_project"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-        <Grid x:Name="Profile"  Margin="65,70,0,0" Visibility="Visible">
+        <Grid x:Name="Profile"  Margin="60,70,0,0" Visibility="Visible">
             <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}" Foreground="Black">
                 <StackPanel>
                     <Expander x:Name="Nameexpander" HorizontalAlignment="Stretch"   Header="Name">
