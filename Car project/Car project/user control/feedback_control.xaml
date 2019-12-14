@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Car_project.feedback_control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Car_project"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid Height="300" Width="500">
+        <Border Background="#FF444546" CornerRadius="50" Margin="10">
+
+        </Border>
+
+        <Grid d:DataContext="{x:Static local:feedback_design.instance}">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Border Padding="5" Grid.Column="0" Grid.RowSpan="2">
+                <Border Background="white" Width="50" Height="50" CornerRadius="100" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height">
+                    <TextBlock  FontSize="24" Text="{Binding initials}" Foreground="#FF444546" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+
+            </Border>
+            <StackPanel Grid.Column="1"   Margin="0,10,38,10" Width="Auto" Grid.RowSpan="2">
+                <TextBlock  Text="{Binding name}" FontSize="22" Foreground="white" VerticalAlignment="Top" Margin="10,40,107,0" Height="34"/>
+                <TextBlock Text="{Binding feedback_time}" Padding="4" Foreground="DarkGray" FontSize="12" Height="24"  VerticalAlignment="Top" Grid.Column="1" Margin="0,-5,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="88" d:LayoutOverrides="HorizontalAlignment"/>
+                <TextBlock Text="{Binding email}" Foreground="LightGray" Padding="4" Width="128" FontSize="13" Margin="10,0,0,0" HorizontalAlignment="Left" Height="33" d:LayoutOverrides="HorizontalAlignment" />
+                <Border  Height="143" Padding="10" CornerRadius="25" Margin="0,0,66,0" BorderThickness="1" BorderBrush="DarkGray">
+                    <TextBlock Text="{Binding message}" Foreground="White" TextWrapping="Wrap"/>
+
+                </Border>
+            </StackPanel>
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

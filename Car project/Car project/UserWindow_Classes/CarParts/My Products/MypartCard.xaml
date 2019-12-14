@@ -8,9 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1140">
     <Grid>
-        <materialDesign:Flipper x:Name="flipper2" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="34,28,0,0" Height="500" Width="366">
+        <materialDesign:Flipper x:Name="flipper2" Foreground="Black" Style="{StaticResource MaterialDesignCardFlipper}" Margin="34,28,0,0" Height="500" Width="300">
             <materialDesign:Flipper.FrontContent >
-                <Grid Height="500" Width="366">
+                <Grid Height="500" Width="300">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="300" />
                         <RowDefinition Height="200" />
@@ -28,7 +28,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <materialDesign:ColorZone Mode="Dark" Padding="6" Margin="-35 0 -35 0">
+                    <materialDesign:ColorZone Mode="Dark" Padding="6" Margin="0 0 -35 0">
                         <StackPanel Orientation="Horizontal">
                             <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
                                 <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
@@ -39,7 +39,7 @@
 
                     <Grid Grid.Row="1" >
 
-                        <Grid Margin="-20 45 0 0 ">
+                        <Grid Margin="5 45 0 0 ">
                             <StackPanel HorizontalAlignment="Left">
                                 <StackPanel Orientation="Horizontal"  >
                                     <TextBlock  Margin="0 0 0 0 "  Foreground="DimGray" FontSize="30" Text="Name : " />

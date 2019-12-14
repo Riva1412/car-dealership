@@ -77,6 +77,42 @@
 
         </Grid>
 
+        <Grid x:Name="feedback"  HorizontalAlignment="Left" Height="625" VerticalAlignment="Top" Width="1140" Margin="60,75,0,0" Visibility="Hidden" >
+
+
+            <TextBlock Text="Feedback" FontSize="45"  Foreground="Black"  Height="53" VerticalAlignment="Top" Margin="526,10,418,0"/>
+            <TextBlock Text="Did you face any problem? feel free to contact us. " FontSize="25"  Foreground="#FF444546" Height="41" VerticalAlignment="Top" Margin="328,68,210,0"/>
+            <Border Background="#FF444546" BorderBrush="White" CornerRadius="25" BorderThickness="5" Margin="225,151,143,53"/>
+            <Grid  Margin="225,151,143,53">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="39*"/>
+                    <ColumnDefinition Width="347*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Kind="PersonOutline" Height="44" Width="29" Margin="0,42,10,0" HorizontalAlignment="Right"/>
+                <materialDesign:PackIcon Kind="FeedbackOutline" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="39,170,10,207" VerticalAlignment="Stretch"/>
+                <TextBox x:Name="name_text" Grid.Column="1" BorderBrush="DarkGray" Margin="10,10,129,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="76" VerticalAlignment="Top"  d:LayoutOverrides="HorizontalAlignment, TopMargin, BottomMargin" >
+
+                    <materialDesign:HintAssist.Hint >
+                        <TextBlock Foreground="DarkGray" FontSize="18" Width="66"  >Name</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+
+                </TextBox>
+                <TextBox x:Name="email_text" Grid.Column="1" BorderBrush="DarkGray"  Margin="10,114,129,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="42" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Top" >
+                    <materialDesign:HintAssist.Hint >
+                        <TextBlock Foreground="DarkGray" FontSize="18" Width="66"  >Email</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+
+                </TextBox>
+                <TextBox x:Name="message" AcceptsReturn="True" TextWrapping="Wrap" Grid.Column="1" BorderBrush="#FF444546"  Margin="10,170,213,207" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  d:LayoutOverrides="HorizontalAlignment" >
+                    <materialDesign:HintAssist.Hint  >
+                        <TextBlock Foreground="DarkGray" FontSize="18" Width="80"  >Message</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+
+                </TextBox>
+                <Button Grid.Column="1" Height="50" Content="send message" VerticalAlignment="Bottom" Margin="202,0,342,65" Click="Button_Click" />
+            </Grid>
+        </Grid>
+        
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
             <StackPanel>
                 <Grid Height="200" VerticalAlignment="Top" Background="White">
@@ -118,6 +154,12 @@
                     <ListViewItem Height="60" Selected="Cart_click">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Cart" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <TextBlock Text="Cart" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" Selected="write_feedback">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  Margin="10" Kind="Feedback" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Cart" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>

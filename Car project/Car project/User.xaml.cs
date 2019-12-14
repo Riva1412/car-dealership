@@ -42,6 +42,7 @@ namespace Car_project
             CarsGrid.Visibility = Visibility.Hidden;
             PartsGrid.Visibility = Visibility.Hidden;
             cart_obj.Visibility = Visibility.Hidden;
+            feedback.Visibility = Visibility.Hidden;
         }
 
         //---------------------------------------------Top Menu---------------------------------------------------------
@@ -155,6 +156,28 @@ namespace Car_project
                 hideGrids();
             cart_obj.Visibility = Visibility.Visible;
         }
+        //---------------------------------------------------Feedback ---------------------------------------------------------
+
+        private void write_feedback(object sender, RoutedEventArgs e)
+        {
+            hideGrids();
+            feedback.Visibility = Visibility.Visible;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string Thename = name_text.Text;
+            string mail = email_text.Text;
+            string messages = message.Text;
+            if(Thename == ""  ||  mail == "" || messages == "")
+            {
+                MessageBox.Show("Please,fill in all textboxes.");
+                return;
+            }
+            DBManager.sendfeedback(Thename, mail, messages);
+            
+            name_text.Text = "";  email_text.Text = "";     message.Text = "";
+        }
+
 
         //---------------------------------------------------log out---------------------------------------------------------
 
@@ -164,5 +187,7 @@ namespace Car_project
             this.Close();
             loginwinow.Show();
         }
+
+
     }
 }

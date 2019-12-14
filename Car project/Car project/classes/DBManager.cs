@@ -351,5 +351,29 @@ namespace Car_project
             return products;
         }
 
+        // feedback
+        public static void sendfeedback(string Thename , string mail , string messages)
+        {
+            DateTime localDate = DateTime.Now;
+            try
+            {
+                    if (con.State == System.Data.ConnectionState.Closed)
+                        con.Open();
+
+                    string query = "give_feedBack";
+                    SqlCommand sqlcmd = new SqlCommand(query, con);
+                    sqlcmd.CommandType = CommandType.StoredProcedure;
+                    sqlcmd.Parameters.Add(new SqlParameter("@name", Thename));
+                    sqlcmd.Parameters.Add(new SqlParameter("@email", mail));
+                    sqlcmd.Parameters.Add(new SqlParameter("@message", messages));
+                    sqlcmd.Parameters.Add(new SqlParameter("@date_time", localDate));
+                    sqlcmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+        }
     }
 }

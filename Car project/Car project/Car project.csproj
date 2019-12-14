@@ -68,6 +68,7 @@
     <Compile Include="classes\CarProduct.cs" />
     <Compile Include="classes\CartProducts.cs" />
     <Compile Include="classes\DBManager.cs" />
+    <Compile Include="classes\feedback_list.cs" />
     <Compile Include="classes\PartProduct.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -87,6 +88,12 @@
     </Compile>
     <Compile Include="user control\all users\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="user control\all_for_one_feedback_version.xaml.cs">
+      <DependentUpon>all_for_one_feedback_version.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="user control\feedback_control.xaml.cs">
+      <DependentUpon>feedback_control.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
@@ -127,6 +134,10 @@
     <Compile Include="UserWindow_Classes\Profile\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
+    <Page Include="button_dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +167,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="user control\all users\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user control\all_for_one_feedback_version.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user control\feedback_control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
