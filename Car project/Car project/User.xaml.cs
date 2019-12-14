@@ -123,7 +123,7 @@ namespace Car_project
             CarsGrid.Children.RemoveAt(1);
             CarsGrid.Children.Add(new Add_Car());
         }
-        
+
         //-------------------------------------------Car Parts---------------------------------------------------------
 
         private void CarsParts_btn_click(object sender, RoutedEventArgs e)
@@ -138,7 +138,8 @@ namespace Car_project
         }
         private void MyParts_Products(object sender, RoutedEventArgs e)
         {
-
+            PartsGrid.Children.RemoveAt(1);
+            PartsGrid.Children.Add(new UserWindow_Classes.CarParts.My_Products.MyPartsProducts());
         }
 
         private void AddPart_Products(object sender, RoutedEventArgs e)

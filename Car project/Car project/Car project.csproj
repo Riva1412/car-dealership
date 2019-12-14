@@ -100,6 +100,12 @@
     <Compile Include="UserWindow_Classes\CarParts\All Products\PartCard.xaml.cs">
       <DependentUpon>PartCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserWindow_Classes\CarParts\My Products\MypartCard.xaml.cs">
+      <DependentUpon>MypartCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\CarParts\My Products\MyPartsProducts.xaml.cs">
+      <DependentUpon>MyPartsProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow_Classes\Cars\Add Car\Add_Car.xaml.cs">
       <DependentUpon>Add_Car.xaml</DependentUpon>
     </Compile>
@@ -166,6 +172,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow_Classes\CarParts\All Products\PartCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\CarParts\My Products\MypartCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\CarParts\My Products\MyPartsProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,9 +255,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserWindow_Classes\CarParts\My Products\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="imgs\nissan.jpg" />
   </ItemGroup>

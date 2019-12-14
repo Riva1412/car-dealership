@@ -203,3 +203,7 @@ F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Ca
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Product\AddCarPart.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\AllParts.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\PartCard.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MypartCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MyPartsProducts.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MypartCard.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MyPartsProducts.baml

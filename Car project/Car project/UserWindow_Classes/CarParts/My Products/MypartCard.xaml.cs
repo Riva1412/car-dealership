@@ -14,18 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_project
+namespace Car_project.UserWindow_Classes.CarParts.My_Products
 {
     /// <summary>
-    /// Interaction logic for MyCarCard.xaml
+    /// Interaction logic for MypartCard.xaml
     /// </summary>
-    public partial class MyCarCard : UserControl
+    public partial class MypartCard : UserControl
     {
-        public byte[] CarImage { get; set; }
-        public MyCarCard()
+        public MypartCard()
         {
             InitializeComponent();
         }
+        public byte[] PartImage { get; set; }
         private void EditImage_click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -33,30 +33,26 @@ namespace Car_project
             if (dlg.FileName == "")
                 return;
             FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
-
             byte[] data = new byte[fs.Length];
             fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
             fs.Close();
-
             ImageSourceConverter imgs = new ImageSourceConverter();
-
             imagebox.SetValue(Image.SourceProperty, imgs.
             ConvertFromString(dlg.FileName.ToString()));
-            CarImage = data;
+            PartImage = data;
         }
         private void Done_click(object sender, RoutedEventArgs e)
         {
-            if(CarImage==null || CarImage.Length==0)
-                CarImage = DBManager.GetImage("Car","CarID",Carid.Text);
-            if ( Price.Text == "" || Speed.Text == "" || ExColour.Text == "" || TankCapacity.Text == ""
-            || Model.Text == "" || Model.Text == "" || Warranty.Text == "" || InColour.Text == "" 
-            || quantity.Text == "" || CarName.Text=="")
+            if (PartImage == null || PartImage.Length == 0)
+                PartImage = DBManager.GetImage("CarPart", "ProductID",partid.Text);
+            if (PartImage == null || PartImage.Length == 0 || bFCPPrice.Text == "" || bFCPName.Text == "" || bFCPColour.Text == "" ||
+                bFCPQuantity.Text == "" || bFCPWarranty.Text == "")
             {
                 MessageBox.Show("Please Fill All Details");
                 return;
             }
-            DBManager.UpdateCarProduct(CarImage , Price.Text, Speed.Text, ExColour.Text,
-                InColour.Text, TankCapacity.Text, Model.Text, Warranty.Text, quantity.Text ,CarName.Text, Carid.Text);
+            DBManager.Upate_CarPart(PartImage, bFCPPrice.Text, bFCPName.Text, bFCPColour.Text, bFCPQuantity.Text,
+                bFCPWarranty.Text , partid.Text);
         }
     }
 }

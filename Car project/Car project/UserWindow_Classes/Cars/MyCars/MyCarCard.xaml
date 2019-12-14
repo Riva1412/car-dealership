@@ -15,7 +15,7 @@
                         <RowDefinition Height="260" />
                         <RowDefinition Height="250" />
                     </Grid.RowDefinitions>
-                    <Image Grid.Row="0" x:Name="imagebox" Margin="0 0 0 0"  Width="500" Source="{Binding Image}" />
+                    <Image Grid.Row="0" x:Name="imagebox"   Width="500" Source="{Binding Image}" />
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Click="EditImage_click" Content="Edit Image" />
                         <TextBox x:Name="CarName" FontSize="30" MinWidth="280" materialDesign:HintAssist.Hint="Car Name"  Text="{Binding Name}" />

@@ -16,7 +16,11 @@
                         <RowDefinition Height="150" />
                     </Grid.RowDefinitions>
                     <Image x:Name="imagebox" Grid.Row="0" Source="{Binding Image}" Width="500" Margin="0 20 0 0"/>
-                   <Button Grid.Row="1" HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
+                    <StackPanel Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center" Foreground="Black" FontSize="30" Text="{Binding Name}" />
+                        <Button  HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
+                    </StackPanel>
+                    
                 </Grid>
             </materialDesign:Flipper.FrontContent>
             <materialDesign:Flipper.BackContent>
@@ -39,27 +43,37 @@
                             <StackPanel HorizontalAlignment="Left">
                                 <StackPanel Orientation="Horizontal"  >
                                     <TextBlock  Margin="0 0 0 0 "  Foreground="DimGray" FontSize="30" Text="Name : " />
-                                    <TextBlock  Margin="0 0 0 0 "  Foreground="DimGray" FontSize="30" Text="{Binding Name}" />
+                                    <TextBlock  Margin="0 0 0 0 "  Foreground="Black" FontSize="30" Text="{Binding Name}" />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal"  >
                                     <TextBlock  Foreground="DimGray" FontSize="30" Text="Color : "  />
-                                    <TextBlock  Foreground="DimGray" FontSize="30" Text="{Binding Color}"  />
+                                    <TextBlock  Foreground="Black" FontSize="30" Text="{Binding Color}"  />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal"  >
                                     <TextBlock Foreground="DimGray" FontSize="30" Text="Available Quanitiy : "/>
-                                    <TextBlock Foreground="DimGray" FontSize="30" Text="{Binding Quantity}" />
+                                    <TextBlock Foreground="Black" FontSize="30" Text="{Binding Quantity}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"  >
                                     <TextBlock Foreground="DimGray" FontSize="30" Text="Warranty : " />
-                                    <TextBlock Foreground="DimGray" FontSize="30" Text="{Binding Warranty}" />
+                                    <TextBlock Foreground="Black" FontSize="30" Text="{Binding Warranty}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock  Foreground="DimGray" FontSize="30" Text="Price : "/>
-                                        <TextBlock  Foreground="DimGray" FontSize="30" Text="{Binding Price}"/>
+                                    <TextBlock  Foreground="Black" FontSize="30" Text="{Binding Price}"/>
                                 </StackPanel>
-                                <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 20 0 0" Content="ADD TO CART"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock  Foreground="DimGray" FontSize="30" Text="Seller : "/>
+                                    <TextBlock  Foreground="Black" FontSize="30" Text="{Binding SellerName}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                <TextBlock   Foreground="DimGray" FontSize="28" Text="Available Quantity : "/>
+                                <TextBlock  x:Name="available_quantity" FontSize="30" Text="{Binding Quantity}"/>
+                                </StackPanel>
+                                <TextBox x:Name="required_quantity" Foreground="Black" FontSize="20" materialDesign:HintAssist.Hint= " Enter Quantity" Height="50" HorizontalAlignment="Center"/>
+                                <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Click="Add_to_Cart_click" Margin="0 20 0 0" Content="ADD TO CART"/>
+                                <TextBlock x:Name="partid" Text="{Binding PartID}" Visibility="Hidden" />
                             </StackPanel>
                         </Grid>
 

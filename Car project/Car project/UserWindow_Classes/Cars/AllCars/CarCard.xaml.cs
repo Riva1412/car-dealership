@@ -26,6 +26,11 @@ namespace Car_project
         }
         private void Add_to_Cart_click(object sender, RoutedEventArgs e)
         {
+            if (required_quantity.Text == "")
+            {
+                MessageBox.Show("Please Enter Quantity");
+                return;
+            }
             int av = Convert.ToInt32(available_quantity.Text);
             int re = Convert.ToInt32(required_quantity.Text);
 

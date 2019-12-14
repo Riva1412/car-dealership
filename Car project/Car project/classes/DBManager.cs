@@ -34,12 +34,11 @@ namespace Car_project
             SqlCommand userdata = new SqlCommand(query, con);
             return Convert.ToString(userdata.ExecuteScalar());
         }
-        public static byte[] GetCarImage(string carid)
+        public static byte[] GetImage(string table , string col ,string id)
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
-            string query = "select Image from Car where CarID=" +
-                Convert.ToString(carid);
+            string query = "select Image from " + table + " where " + col + " = " + id;
             SqlCommand carimg = new SqlCommand(query, con);
             return (byte[])carimg.ExecuteScalar();
         }
@@ -250,8 +249,9 @@ namespace Car_project
                         ,reader["Warranty"].ToString(), reader["FirstName"].ToString() + " " + reader["SecondName"].ToString() ,
                          reader["Quantity"].ToString(),reader["Name"].ToString()));
                 }
+                reader.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -286,6 +286,38 @@ namespace Car_project
                {
                 MessageBox.Show("Product Added Successfully");
                }
+
+        }
+
+        public static void Upate_CarPart(byte[] PartImage, string bFCPPrice, string bFCPName,
+           string bFCPColour, string bFCPQuantity, string bFCPWarranty , string partid)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+
+            string query = "Update [CarPart] set " +
+                "Image = @Image , Name =@Name,color=@Color,Warranty=@Warranty,Price=@Price,Quantity=@Quantity where ProductID =" +
+                "@PartID";
+            try
+            {
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+                sqlcmd.Parameters.AddWithValue("@Image", PartImage);
+                sqlcmd.Parameters.AddWithValue("@Name", bFCPName);
+                sqlcmd.Parameters.AddWithValue("@Color", bFCPColour);
+                sqlcmd.Parameters.AddWithValue("@Warranty", bFCPWarranty);
+                sqlcmd.Parameters.AddWithValue("@Price", bFCPPrice);
+                sqlcmd.Parameters.AddWithValue("@Quantity", bFCPQuantity);
+                sqlcmd.Parameters.AddWithValue("@PartID", partid);
+                sqlcmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                MessageBox.Show("Product Updated Successfully");
+            }
 
         }
         //
