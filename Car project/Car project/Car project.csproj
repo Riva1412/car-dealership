@@ -68,6 +68,7 @@
     <Compile Include="classes\CarProduct.cs" />
     <Compile Include="classes\CartProducts.cs" />
     <Compile Include="classes\DBManager.cs" />
+    <Compile Include="classes\PartProduct.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -92,6 +93,12 @@
     </Compile>
     <Compile Include="UserWindow_Classes\CarParts\Add Carpart\AddCarPart.xaml.cs">
       <DependentUpon>AddCarPart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\CarParts\All parts\AllParts.xaml.cs">
+      <DependentUpon>AllParts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow_Classes\CarParts\All parts\PartCard.xaml.cs">
+      <DependentUpon>PartCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow_Classes\Cars\Add Car\Add_Car.xaml.cs">
       <DependentUpon>Add_Car.xaml</DependentUpon>
@@ -151,6 +158,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow_Classes\CarParts\Add Carpart\AddCarPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\CarParts\All parts\AllParts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\CarParts\All parts\PartCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

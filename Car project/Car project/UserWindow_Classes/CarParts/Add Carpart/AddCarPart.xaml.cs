@@ -30,6 +30,8 @@ namespace Car_project
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.ShowDialog();
+            if (dlg.FileName == "")
+                return;
             FileStream fs = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
             byte[] data = new byte[fs.Length];
             fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
@@ -46,13 +48,13 @@ namespace Car_project
         }
         private void Add_CarPart(object sender, RoutedEventArgs e)
         {
-            if (bFCPPrice.Text == "" || bFCPName.Text == "" || bFCPColour.Text == "" ||
+            if (PartImage == null || PartImage.Length == 0 || bFCPPrice.Text == "" || bFCPName.Text == "" || bFCPColour.Text == "" ||
                 bFCPQuantity.Text == "" || bFCPWarranty.Text == "")
             { 
                 MessageBox.Show("Please Fill All Details");
                 return;
             }
-            DBManager.Add_CarPart_Fn(bFCPPrice.Text, bFCPName.Text, bFCPColour.Text, bFCPQuantity.Text, bFCPWarranty.Text);
+            DBManager.Add_CarPart_Fn(PartImage , bFCPPrice.Text, bFCPName.Text, bFCPColour.Text, bFCPQuantity.Text, bFCPWarranty.Text);
             bFCPPrice.Text = ""; bFCPColour.Text = ""; bFCPQuantity.Text = ""; bFCPWarranty.Text = "";
         }
     }

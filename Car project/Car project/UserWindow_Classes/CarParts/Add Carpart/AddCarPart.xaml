@@ -15,7 +15,7 @@
                         <RowDefinition Height="260" />
                         <RowDefinition Height="250" />
                     </Grid.RowDefinitions>
-                    <Image x:Name="imagebox"  Source="{Binding Image}" Width="500"/>
+                    <Image x:Name="imagebox"   Width="500"/>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Click="AddImage_click" Content="Add Image" />
                         <TextBlock Name="fFCPName" FontSize="30" MinWidth="280"  Text="Car Part Name" TextAlignment="Center" />

@@ -197,3 +197,9 @@ F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\De
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\Car project.exe
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\Car project.pdb
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\Cart.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\Cart.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\AllParts.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\AllParts.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\PartCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\PartCard.baml

@@ -34,7 +34,7 @@ namespace Car_project
             // add all cars object
             CarsGrid.Children.Add(new All_Car_Products());
             // add all car parts object
-            PartsGrid.Children.Add(new AddCarPart());
+            PartsGrid.Children.Add(new AllParts());
         }
         void hideGrids()
         {
@@ -133,7 +133,8 @@ namespace Car_project
         }
         private void AllParts_Products(object sender, RoutedEventArgs e)
         {
-
+            PartsGrid.Children.RemoveAt(1);
+            PartsGrid.Children.Add(new AllParts());
         }
         private void MyParts_Products(object sender, RoutedEventArgs e)
         {

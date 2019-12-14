@@ -23,7 +23,7 @@ namespace Car_project
         public MyCarsProducts()
         {
             InitializeComponent();
-            var myCarProducts = DBManager.GetMyCarsProducts();
+            var myCarProducts = DBManager.getCar_Products(GlobalVars.userid.ToString());
             if (myCarProducts.Count > 0)
                 ListViewProducts.ItemsSource = myCarProducts;
             else

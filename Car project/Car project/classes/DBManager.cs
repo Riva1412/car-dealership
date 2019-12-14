@@ -109,20 +109,21 @@ namespace Car_project
             sqlcmd.ExecuteNonQuery();
         }
 
-        /// <summary>
-        //producs Fns
-        /// </summary>
 
-        public static  List<CarProduct> getAllCar_Products()
+        //----------------------------------------------CAR-----------------------------------------------------------------------
+        public static  List<CarProduct> getCar_Products(string id)
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
             List<CarProduct> products = new List<CarProduct>();
-            SqlCommand cmd = new SqlCommand("select * from Car left join UserData on Car.SellerID=" +
-                "UserData.UserID", con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = "select * from Car  join UserData on Car.SellerID = UserData.UserID";
+            if (id != "")
+                query = query + " where Car.SellerID = " + id;
+           
             try
             {
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     byte[] data = (byte[])reader["Image"];
@@ -139,54 +140,16 @@ namespace Car_project
                          reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
                         , reader["Name"].ToString() ));
                 }
+                reader.Close();
+
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-            finally
-            {
-                reader.Close();
-            }
-
             return products;
         }
-        // Get my Cars Products
-        public static List<CarProduct> GetMyCarsProducts()
-        {
-            if (con.State == System.Data.ConnectionState.Closed)
-                con.Open();
-            List<CarProduct> products = new List<CarProduct>();
 
-            SqlCommand cmd = new SqlCommand("select * from Car left join UserData on Car.SellerID=" +
-                "UserData.UserID" +
-                " where SellerID=" + Convert.ToString(GlobalVars.userid), con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            try
-            {
-
-                while (reader.Read())
-                {
-                    byte[] data = (byte[])reader["Image"];
-                    products.Add(new CarProduct(data,
-                        reader["CarID"].ToString(), reader["Price"].ToString(),
-                        reader["Speed"].ToString(), reader["ExtreriorColor"].ToString(),
-                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
-                        reader["Model"].ToString(), reader["Warranty"].ToString(),
-                        reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
-                       , reader["Name"].ToString() ));
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                reader.Close();
-            }
-            return products;
-        }
 
         public static void AddCarProduct(byte[] image , string Price , string Speed ,string ExColour , string InColour , string TankCapacity ,
             string Model , string Warranty , string quantity , string carname)
@@ -224,6 +187,7 @@ namespace Car_project
                     MessageBox.Show("Product Added Successfully");
                 }
         }
+
 
         public static void UpdateCarProduct(byte[] image, string Price, string Speed, string ExColour, string InColour, string TankCapacity,
     string Model, string Warranty, string quantity ,string carname , string CarID)
@@ -264,19 +228,48 @@ namespace Car_project
             }
         }
 
-        public static void Add_CarPart_Fn(string bFCPPrice, string bFCPName, string bFCPColour, string bFCPQuantity, string bFCPWarranty)
+        //-----------------------------------------------Parts-------------------------------------------------------------
+        public static List<PartProduct> Get_CarParts(string id)
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
 
+            List<PartProduct> products = new List<PartProduct>();
 
-                string query = "INSERT INTO [CarPart](Name,color,Warranty,Price,Quantity,SellerID,carPartOrNot)" +
-                        "values(@Name,@Color,@Warranty,@Price,@Quantity,@SellerID,@carPartOrNot)";
+            string query = "select * from CarPart join UserData on CarPart.SellerID=UserData.UserID ";
+            if (id != "")
+                query =query + "where CarPart.SellerID = " + id;
+            try
+            {
+                SqlCommand  sqlcmd = new SqlCommand(query, con);
+                SqlDataReader reader = sqlcmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    byte[] data = (byte[])reader["Image"];
+                    products.Add(new PartProduct(data, reader["ProductID"].ToString(),reader["Price"].ToString(),reader["Color"].ToString()
+                        ,reader["Warranty"].ToString(), reader["FirstName"].ToString() + " " + reader["SecondName"].ToString() ,
+                         reader["Quantity"].ToString(),reader["Name"].ToString()));
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return products;
+        }
+        public static void Add_CarPart_Fn(byte[] PartImage, string bFCPPrice, string bFCPName, 
+            string bFCPColour, string bFCPQuantity, string bFCPWarranty)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
 
+                string query = "INSERT INTO [CarPart](Image , Name,color,Warranty,Price,Quantity,SellerID,carPartOrNot)" +
+                        "values(@Image , @Name,@Color,@Warranty,@Price,@Quantity,@SellerID,@carPartOrNot)";
                try
                {
                  SqlCommand sqlcmd = new SqlCommand(query, con);
-                 sqlcmd.Parameters.AddWithValue("@Name", bFCPName);
+                sqlcmd.Parameters.AddWithValue("@Image", PartImage);
+                sqlcmd.Parameters.AddWithValue("@Name", bFCPName);
                  sqlcmd.Parameters.AddWithValue("@Color", bFCPColour);
                  sqlcmd.Parameters.AddWithValue("@Warranty", bFCPWarranty);
                  sqlcmd.Parameters.AddWithValue("@Price", bFCPPrice);
@@ -295,6 +288,8 @@ namespace Car_project
                }
 
         }
+        //
+        // cart 
         public static List<CartProducts> CartProducts()
         {
             if (con.State == System.Data.ConnectionState.Closed)
@@ -319,9 +314,6 @@ namespace Car_project
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-            }
-            finally
-            {
             }
 
             return products;
