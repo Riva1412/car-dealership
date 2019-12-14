@@ -153,8 +153,6 @@ F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Ca
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\All_Car_Products.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\CarCard.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarsProducts.baml
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Profile\UserProfile.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Profile\UserProfile.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\MyCars\MyCarCard.g.cs
@@ -199,7 +197,9 @@ F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\De
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\Car project.pdb
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\Cart.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\Cart.baml
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\AllParts.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\AllParts.baml
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\PartCard.g.cs
-F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All parts\PartCard.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Product\AddCarPart.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\AllParts.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\PartCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Product\AddCarPart.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\AllParts.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\PartCard.baml

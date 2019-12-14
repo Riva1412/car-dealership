@@ -91,13 +91,13 @@
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\CarParts\Add Carpart\AddCarPart.xaml.cs">
+    <Compile Include="UserWindow_Classes\CarParts\Add Product\AddCarPart.xaml.cs">
       <DependentUpon>AddCarPart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\CarParts\All parts\AllParts.xaml.cs">
+    <Compile Include="UserWindow_Classes\CarParts\All Products\AllParts.xaml.cs">
       <DependentUpon>AllParts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow_Classes\CarParts\All parts\PartCard.xaml.cs">
+    <Compile Include="UserWindow_Classes\CarParts\All Products\PartCard.xaml.cs">
       <DependentUpon>PartCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow_Classes\Cars\Add Car\Add_Car.xaml.cs">
@@ -157,15 +157,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\CarParts\Add Carpart\AddCarPart.xaml">
+    <Page Include="UserWindow_Classes\CarParts\Add Product\AddCarPart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\CarParts\All parts\AllParts.xaml">
+    <Page Include="UserWindow_Classes\CarParts\All Products\AllParts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow_Classes\CarParts\All parts\PartCard.xaml">
+    <Page Include="UserWindow_Classes\CarParts\All Products\PartCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,7 +241,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserWindow_Classes\CarParts\My Products\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="imgs\nissan.jpg" />
   </ItemGroup>
