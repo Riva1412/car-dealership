@@ -5,65 +5,100 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Gray">
+        mc:Ignorable="d" Height="700" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Background="Gray">
     <Grid >
-        <Border BorderBrush="Black" BorderThickness="4" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="400"/>
+        <Border BorderBrush="Black" BorderThickness="4" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="400"/>
 
         <StackPanel Margin="50">
             <materialDesign:PackIcon Kind="AccountOutline" Width="150" Height="118" HorizontalAlignment="Center" Margin="75,0"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="loginShowBtn" Margin="0" Content="Login" Width="140" HorizontalAlignment="Left" Background="White" Foreground="Black" AutomationProperties.Name="loginBtn" Click="loginShowBtn_Click"/>
-                <Button x:Name="signUpShowBtn" Margin="0" Content="Sign up" Width="140" HorizontalAlignment="Left" AutomationProperties.Name="signUpBtn" Click="signUpShowBtn_Click" />
+                <Button x:Name="loginShowBtn" Margin="0" Content="Login" Width="140" HorizontalAlignment="Left" Background="White" Foreground="Black" AutomationProperties.Name="loginBtn" Click="loginShowBtn_Click" TabIndex="11"/>
+                <Button x:Name="signUpShowBtn" Margin="0" Content="Sign up" Width="140" HorizontalAlignment="Left" AutomationProperties.Name="signUpBtn" Click="signUpShowBtn_Click" TabIndex="12" />
             </StackPanel>
 
-            <Border Background="White" Margin="10 10" CornerRadius="5">
+            <Border Background="White" Margin="10 10" CornerRadius="5" Height="440">
                 <Grid>
-                    <StackPanel x:Name="loginPanel" Margin="25">
-                        <TextBox Name="loginMail" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" TabIndex="0" />
 
-                        <PasswordBox Name="loginPassword" Margin="15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" TabIndex="1" KeyDown="loginPassword_KeyDown"/>
-                        <TextBlock HorizontalAlignment="Right" FontSize="10" Cursor="Hand">Forgot password?</TextBlock>
-                        <Button Name="signInBtn" Margin="15 30" Content="Sign in" VerticalAlignment="Bottom" TabIndex="2" Click="signInBtn_Click" KeyDown="signInBtn_KeyDown"/>
+                    <StackPanel x:Name="loginPanel" Margin="15">
+                        <TextBox Name="loginMail" Margin="25" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" TabIndex="0" />
+                        <PasswordBox x:Name="loginPassword" Margin="25,15,24.6,15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" TabIndex="1" KeyDown="loginPassword_KeyDown"/>
+                        <Button Name="forgotPassword" Background="Transparent"  HorizontalAlignment="Right" FontSize="10" Cursor="Hand" Margin="0,15,-0.6,0" Content="Forgot Password?" BorderThickness="0" Click="forgotPassword_Click" TabIndex="2"></Button>
+                        <Button x:Name="signInBtn" Margin="15,30,15.4,30" Content="Sign in" VerticalAlignment="Bottom" TabIndex="3" Click="signInBtn_Click" KeyDown="signInBtn_KeyDown"/>
 
 
-                        <TextBlock Margin="72,10,71.4,10"  HorizontalAlignment="Center" >Or sign up using</TextBlock>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <materialDesign:PackIcon Kind="Facebook" Margin="10 0"  Height="30" Width="30"/>
-                            <materialDesign:PackIcon Kind="Twitter" Margin="10 0"  Height="30" Width="30"/>
-                            <materialDesign:PackIcon Kind="Google" Margin="10 0"  Height="30" Width="30"/>
+                        <TextBlock Margin="72,15,71.4,10"  HorizontalAlignment="Center" >Or sign up using</TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="40,15,39.4,0">
+                            <materialDesign:PackIcon Kind="Facebook" Margin="10 0"  Height="30" Width="30" TabIndex="4"/>
+                            <materialDesign:PackIcon Kind="Twitter" Margin="10 0"  Height="30" Width="30" TabIndex="5"/>
+                            <materialDesign:PackIcon Kind="Google" Margin="10 0"  Height="30" Width="30" TabIndex="6"/>
                         </StackPanel>
 
                     </StackPanel>
 
-                    <StackPanel x:Name="signUpPanel" Margin="25" Visibility="Hidden">
+
+                    <StackPanel x:Name="restorPassPanel" Margin="25,40,25,0" Visibility="Hidden">
+                        <TextBlock Margin="35,40,35,0" FontSize="15">Restoring Password</TextBlock>
+
+                        <!--<ComboBox Margin="0,10,0,5" Name="chooseQsnToRestore" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Select a question" TabIndex="1">
+                            <ComboBoxItem>The name of the first pet you owned</ComboBoxItem>
+                            <ComboBoxItem>The name of the first teacher</ComboBoxItem>
+                            <ComboBoxItem>Your friend name</ComboBoxItem>
+                        </ComboBox>
+-->
+                        <TextBox Name="Questiontxt" Margin="0,20,0,5" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TabIndex="2" IsReadOnly="True"/>
+
+                        <TextBox Name="answertxtToRestore" Margin="0,20,0,5" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Answer" TabIndex="2"/>
+
+                        <PasswordBox Name="newPass" Margin="0,20,0,5" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="New password" TabIndex="3"/>
+
+                        <Button x:Name="confirmbtn" Margin="15,20,15.4,30" Content="Confirm" VerticalAlignment="Bottom" TabIndex="4" Click="confirmbtn_Click" />
+
+                        <Button x:Name="Backbtn" Margin="0,-6,168.4,0" VerticalAlignment="Top" TabIndex="2" Background="Transparent" BorderThickness="0" Click="Backbtn_Click">
+                            <materialDesign:PackIcon Kind="ArrowBackCircle" Height="25" Width="30" TabIndex="5" />
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel x:Name="signUpPanel" Margin="25,25,25,10" Visibility="Hidden" >
 
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                            <TextBox Name="firstNameTxt"  Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="First Name" Width="100"/>
-                            <TextBox Name="secondNameTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Last Name" Width="100"/>
+                            <TextBox Name="firstNameTxt"  Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="First Name" Width="100" TabIndex="0"/>
+                            <TextBox Name="secondNameTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Last Name" Width="100" TabIndex="1"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBox Name="adressTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Address" Width="100"/>
-                            <TextBox Name="phoneTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Phone" Width="100"/>
+                            <TextBox Name="adressTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Address" Width="100" TabIndex="2"/>
+                            <TextBox Name="phoneTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Phone" Width="100" TabIndex="3"/>
                         </StackPanel>
 
 
-                        <TextBox Name="emailSignUpTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email"/>
+                        <TextBox Name="emailSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" TabIndex="4"/>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <PasswordBox Name="passwordSignUpTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" Width="100"/>
-                            <PasswordBox  Name="confPasswordSignUpTxt" Margin="15" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Confirm Password" Width="100"/>
+                            <PasswordBox Name="passwordSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" Width="100" TabIndex="5"/>
+                            <PasswordBox  Name="confPasswordSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Confirm Password" Width="100" TabIndex="6"/>
                         </StackPanel>
-                        <Button Name="signUpBtn" Margin="0" Content="Sign up" Click="SignUpBtn_Click" KeyDown="signUpBtn_KeyDown"/>
+
+
+                        <StackPanel Margin="10">
+                            <ComboBox Name="restoringQuestion" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Question to restore account (optional)" TabIndex="7" FontSize="11">
+                                <ComboBoxItem>The name of the first pet you owned</ComboBoxItem>
+                                <ComboBoxItem>The name of the first teacher</ComboBoxItem>
+                                <ComboBoxItem>Your friend name</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                        <TextBox Name="QuestionAnswering" Margin="5" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Answer" TabIndex="8"/>
+
+
+                        <Button x:Name="signUpBtn" Margin="5,10,5.4,0" Content="Sign up" Click="SignUpBtn_Click" KeyDown="signUpBtn_KeyDown" Height="33" TabIndex="9"/>
 
                     </StackPanel>
                 </Grid>
             </Border>
         </StackPanel>
 
-        <Button x:Name="cancelBtn" Margin="150 10" Content="Cancel" VerticalAlignment="Bottom"  Click="cancelBtn_Click"/>
+        <Button x:Name="cancelBtn" Margin="150 10" Content="Cancel" VerticalAlignment="Bottom"  Click="cancelBtn_Click" TabIndex="10"/>
 
     </Grid>
 </Window>

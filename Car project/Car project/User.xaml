@@ -49,6 +49,7 @@
                 </Button>
             </StackPanel>
         </Grid>
+        
 
         <Grid x:Name="CarsGrid" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1140" Margin="60,70,0,0" Visibility="Hidden">
             <Grid HorizontalAlignment="Left"  Height="30" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
@@ -112,7 +113,21 @@
                 <Button Grid.Column="1" Height="50" Content="send message" VerticalAlignment="Bottom" Margin="202,0,342,65" Click="Button_Click" />
             </Grid>
         </Grid>
-        
+        <Grid Margin="65,70,0,0" x:Name="payment"  Visibility="Hidden" >
+            <Grid HorizontalAlignment="Left"  Height="30" VerticalAlignment="Top" Width="1140"    >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button   Foreground="Black" Grid.Column="0" FontSize="18" Height="38"   Content="Purchase payment" VerticalAlignment="Top" Click="PurchaseButton"  />
+                <Button   Foreground="Black" Grid.Column="1" FontSize="18" Height="Auto"  Content="Sale payment" Click="Salebutton"  />
+            </Grid>
+            <DataGrid AutoGenerateColumns="True" ColumnWidth="200" Background="#FFF0EAEA" x:Name="purchase_table" Margin="0,35,10,0"  />
+            <DataGrid AutoGenerateColumns="True" Visibility="Collapsed" ColumnWidth="200" Background="#FFF0EAEA" x:Name="sales_table" Margin="0,35,10,0"  />
+
+        </Grid>
+
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
             <StackPanel>
                 <Grid Height="200" VerticalAlignment="Top" Background="White">

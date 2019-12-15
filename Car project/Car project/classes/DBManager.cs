@@ -34,6 +34,23 @@ namespace Car_project
             SqlCommand userdata = new SqlCommand(query, con);
             return Convert.ToString(userdata.ExecuteScalar());
         }
+        //-----------------BESH ---------------------//
+
+
+
+        public static string getUserDataByMail(string colname, string mail)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            string query = "select " + colname + " from UserData where Email=@mail"; 
+            SqlCommand userdata = new SqlCommand(query, con);
+            userdata.Parameters.AddWithValue("@mail", mail);
+            return Convert.ToString(userdata.ExecuteScalar());
+        }
+
+        //----------------------------------------//
+
+
         public static byte[] GetImage(string table , string col ,string id)
         {
             if (con.State == System.Data.ConnectionState.Closed)
@@ -327,7 +344,7 @@ namespace Car_project
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
             List<CartProducts> products = new List<CartProducts>();
-            SqlCommand cmd = new SqlCommand("SELECT OrderID,Name,Cart.Quantity,Price "
+            SqlCommand cmd = new SqlCommand("SELECT OrderID,Name,Cart.Quantity,cart.Price "
             +"From Car JOIN Cart on Cart.ProductID = Car.CarID", con);
             try
             {
@@ -375,5 +392,66 @@ namespace Car_project
                 MessageBox.Show(ee.ToString());
             }
         }
+        public static void get_payment(DataTable dt)
+        {
+            dt.Columns.Add("Product Name");
+            dt.Columns.Add("Seller Name");
+            dt.Columns.Add("Quantity");
+            dt.Columns.Add("Date");
+            dt.Columns.Add("Price");
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+
+            string query = "get_payment";
+            SqlCommand sqlcmd = new SqlCommand(query, con);
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.Parameters.AddWithValue("@id", GlobalVars.userid);
+            SqlDataReader rdr = sqlcmd.ExecuteReader();
+            DataRow row;
+            while (rdr.Read())
+            {
+                row = dt.NewRow();
+                row["Product Name"] = rdr["Product_name"];
+                row["Seller Name"] = rdr["seller_name"];
+                row["Quantity"] = rdr["Quantity"];
+                row["Date"] = rdr["Date"];
+                row["price"] = rdr["price"];
+                dt.Rows.Add(row);
+
+            }
+            rdr.Close();
+
+        }
+        public static void get_sales(DataTable dt)
+        {
+            dt.Columns.Add("buyer Name");
+            dt.Columns.Add("Product Name");
+            dt.Columns.Add("Quantity");
+            dt.Columns.Add("Date");
+            dt.Columns.Add("Price");
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+
+            string query = "get_sales";
+            SqlCommand sqlcmd = new SqlCommand(query, con);
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.Parameters.AddWithValue("@id", GlobalVars.userid);
+            SqlDataReader rdr = sqlcmd.ExecuteReader();
+            DataRow row;
+            while (rdr.Read())
+            {
+                row = dt.NewRow();
+                row["Product Name"] = rdr["Product_name"];
+                row["Buyer Name"] = rdr["buyer_name"];
+                row["Quantity"] = rdr["Quantity"];
+                row["Date"] = rdr["Date"];
+                row["price"] = rdr["price"];
+                dt.Rows.Add(row);
+
+            }
+            rdr.Close();
+
+        }
+
     }
 }

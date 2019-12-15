@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions; // for regular expression in email
-
+using Car_project;
 
 namespace Login
 {
@@ -41,6 +41,7 @@ namespace Login
             signUpShowBtn.Foreground = Brushes.White;
             loginPanel.Visibility = Visibility.Visible;
             signUpPanel.Visibility = Visibility.Hidden;
+            restorPassPanel.Visibility = Visibility.Hidden;
         }
 
         private void signUpShowBtn_Click(object sender, RoutedEventArgs e)
@@ -52,45 +53,35 @@ namespace Login
             loginShowBtn.Foreground = Brushes.White;
             loginPanel.Visibility = Visibility.Hidden;
             signUpPanel.Visibility = Visibility.Visible;
+            restorPassPanel.Visibility = Visibility.Hidden;
         }
 
 
-        private int check_Login(string email, string password)
-        {
-            try
-            {
-                if (sqlcon.State == System.Data.ConnectionState.Closed)
-                    sqlcon.Open();
 
-                string query = "select count(1) from UserData where Email=@usermail and UserPassword=@password";
-                SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
-                sqlcmd.Parameters.AddWithValue("@usermail", email);
-                sqlcmd.Parameters.AddWithValue("@password", password);
-                return Convert.ToInt32(sqlcmd.ExecuteScalar());
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            return 0;
-
-        }
-
+        
         private void signInBtn_Function()
         {
-            int count = check_Login(loginMail.Text, loginPassword.Password);
+            int count = DBManager.check_Login(loginMail.Text, loginPassword.Password);
             if (count == 1)
             {
-                string query = "select FirstName from UserData where Email=@usermail and UserPassword=@password";
-                SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
+               
+                string ban = DBManager.getUserDataByMail("banned", loginMail.Text);
+                if (ban == "True")
+                {
+                    MessageBox.Show("You are banned :(");
+                    return;
+                }
+                if(DBManager.getUserDataByMail("isAdmin", loginMail.Text)=="True")
 
-                sqlcmd = new SqlCommand(query, sqlcon);
-                sqlcmd.Parameters.AddWithValue("@usermail", loginMail.Text);
-                sqlcmd.Parameters.AddWithValue("@password", loginPassword.Password);
-                string userName = Convert.ToString(sqlcmd.ExecuteScalar());
-                MessageBox.Show("Welcome " + userName);
+                {
+                    Car_project.MainWindow admin = new Car_project.MainWindow();
+                    this.Close();
+                    admin.Show();
+                    return;
+                }
+                Car_project.User userwindow = new Car_project.User();
+                this.Close();
+                userwindow.Show();
             }
             else MessageBox.Show("Wrong username or password");
 
@@ -101,7 +92,9 @@ namespace Login
 
         private void signUpBtn_Function()
         {
-            if (emailSignUpTxt.Text == "" || firstNameTxt.Text == "" || secondNameTxt.Text == "" || adressTxt.Text == "" || phoneTxt.Text == "" || passwordSignUpTxt.Password == "" || confPasswordSignUpTxt.Password == "")
+            if (emailSignUpTxt.Text == "" || firstNameTxt.Text == "" || secondNameTxt.Text == "" || adressTxt.Text == "" ||
+                phoneTxt.Text == "" || passwordSignUpTxt.Password == "" || confPasswordSignUpTxt.Password == ""
+                || (restoringQuestion.SelectedIndex > -1 && QuestionAnswering.Text==""))
             {
                 MessageBox.Show("You must fill in all fields");
                 return;
@@ -138,14 +131,14 @@ namespace Login
             //------------------------------//
 
 
-            int count = check_Login(emailSignUpTxt.Text, passwordSignUpTxt.Password);
+            int count = DBManager.check_Login(emailSignUpTxt.Text, passwordSignUpTxt.Password);
             if (count == 1)
                 MessageBox.Show("This account is already registered");
 
             else
             {
-                string query = "insert into userdata(Email, UserPassword,  FirstName, SecondName, Phone, Address)" +
-                    "values(@email, @password,  @FirstName, @SecondName, @Phone, @Address)";
+                string query = "insert into userdata(Email, UserPassword,  FirstName, SecondName, Phone, Address,Question, Answer)" +
+                    "values(@email, @password,  @FirstName, @SecondName, @Phone, @Address, @question, @ans)";
 
                 SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
                 sqlcmd.Parameters.AddWithValue("@email", emailSignUpTxt.Text);
@@ -154,6 +147,8 @@ namespace Login
                 sqlcmd.Parameters.AddWithValue("@SecondName", secondNameTxt.Text);
                 sqlcmd.Parameters.AddWithValue("@Phone", phoneTxt.Text);
                 sqlcmd.Parameters.AddWithValue("@Address", adressTxt.Text);
+                sqlcmd.Parameters.AddWithValue("@question", restoringQuestion.Text);
+                sqlcmd.Parameters.AddWithValue("@ans", QuestionAnswering.Text);
 
                 sqlcmd.ExecuteNonQuery();
             }
@@ -220,6 +215,54 @@ namespace Login
         private void loginMail_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void forgotPassword_Click(object sender, RoutedEventArgs e)
+        {
+
+            if(loginMail.Text=="")
+            { MessageBox.Show("Please, insert your mail first"); return; }
+
+            Questiontxt.Text = DBManager.getUserDataByMail("Question", loginMail.Text);
+
+            loginPanel.Visibility = Visibility.Hidden;
+            signUpPanel.Visibility = Visibility.Hidden;
+            restorPassPanel.Visibility = Visibility.Visible;
+        }
+
+        private void confirmbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (answertxtToRestore.Text == ""|| newPass.Password=="" )
+            { MessageBox.Show("You must fill in all fields"); return; }
+
+            string answer = DBManager.getUserDataByMail("Answer", loginMail.Text);
+
+            if (answer != answertxtToRestore.Text || answer=="" || Questiontxt.Text=="") { MessageBox.Show("Wrong answer"); return; }
+
+
+
+            if(sqlcon.State == System.Data.ConnectionState.Closed)
+                sqlcon.Open();
+            string query = "update userdata set UserPassword=@pass where Email=@usermail";
+            SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
+            sqlcmd.Parameters.AddWithValue("@pass", newPass.Password);
+            sqlcmd.Parameters.AddWithValue("@usermail", loginMail.Text);
+            sqlcmd.ExecuteScalar();
+            MessageBox.Show("Your password was updated with successfully");
+
+            answertxtToRestore.Text = newPass.Password = "";
+            loginPanel.Visibility = Visibility.Visible;
+            restorPassPanel.Visibility = Visibility.Hidden;
+
+            sqlcon.Close();
+
+        }
+
+        private void Backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            answertxtToRestore.Text = newPass.Password  = "";
+            loginPanel.Visibility = Visibility.Visible;
+            restorPassPanel.Visibility = Visibility.Hidden;
         }
     }
 }

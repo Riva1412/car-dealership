@@ -177,6 +177,31 @@ namespace Car_project
             
             name_text.Text = "";  email_text.Text = "";     message.Text = "";
         }
+        //---------------------------------------------------Payment--------------------------------------------------------
+        void purchase()
+        {
+            DataTable dt = new DataTable();
+            DBManager.get_payment(dt);
+            purchase_table.ItemsSource = dt.DefaultView;
+        }
+        void sale()
+        {
+            DataTable dt = new DataTable();
+            DBManager.get_sales(dt);
+            sales_table.ItemsSource = dt.DefaultView;
+        }
+
+        private void PurchaseButton(object sender, RoutedEventArgs e)
+        {
+            purchase_table.Visibility = Visibility.Visible;
+            sales_table.Visibility = Visibility.Collapsed;
+        }
+
+        private void Salebutton(object sender, RoutedEventArgs e)
+        {
+            purchase_table.Visibility = Visibility.Collapsed;
+            sales_table.Visibility = Visibility.Visible;
+        }
 
 
         //---------------------------------------------------log out---------------------------------------------------------
