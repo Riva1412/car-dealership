@@ -317,3 +317,5 @@ F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\
 F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\admin_control.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\CartCard.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\CartCard.baml

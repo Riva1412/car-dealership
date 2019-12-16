@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace Car_project
 {
+
     /// <summary>
     /// Interaction logic for Cart.xaml
     /// </summary>
@@ -22,12 +23,46 @@ namespace Car_project
     {
         public Cart()
         {
-            InitializeComponent();
-            var CartProducts = DBManager.CartProducts();
-                ListViewCart.ItemsSource = CartProducts;
-        }
-       
-        
 
+
+            InitializeComponent();
+            var cartproducts = DBManager.Get_CartProducts();
+            if (cartproducts.Count() > 0)
+            {
+
+
+                ListViewProducts.ItemsSource = cartproducts;
+
+            }
+            else
+                MessageBox.Show("No Products");
+
+
+        }
+
+        private void Validate_Click(object sender, RoutedEventArgs e)
+        {
+            DBManager.CCN = CCN.Text;
+            DBManager.CCV = CCV.Text;
+            if (DBManager.CCN == "" || DBManager.CCV == "")
+            {
+                MessageBox.Show("Please fill CCN and CVV Details");
+                DBManager.confirm = false;
+            }
+            else
+            {
+
+                if (DBManager.checkccnccv() == false)
+                {
+                    MessageBox.Show("Please Enter valid CCN and CVV Details");
+                    DBManager.confirm = false;
+                }
+                else
+                {
+                    MessageBox.Show("Correct One");
+                    DBManager.confirm = true;
+                }
+            }
+        }
     }
 }

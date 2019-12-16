@@ -4,43 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Car_project"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid Margin="60,70,0,0" Visibility="Visible" Background="White">
-        <ListView Name="ListViewCart">
-            
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn  Header="" Width="40" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox Cursor="Hand" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding OrderID}" Header="OrderID" Width="80" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" Width="70" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" Width="90" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="500" />
-                    <GridViewColumn  Header="View" Width="100"  >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="View"  Foreground="Black" Background="LightSteelBlue" Cursor="Hand" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn  Header="Remove" Width="100"  >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Remove" Foreground="Black" Background="PaleVioletRed" Cursor="Hand" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Total}" Header="Total" Width="100" />
-                </GridView>
-                
-            </ListView.View>
-            
-        </ListView>
+    <Grid  Margin="60,70,0,0" Visibility="Visible" Background="#FFF0EAEA">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Height="46" >
+
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="90"><Run Text="OrderID"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="120"><Run Text="Name"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="100"><Run Text="Quantity"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="200"><Run Text="Price"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="120"><Run Text="View"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="165"><Run Text="Remove"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="230"><Run Text="Confirm"/></TextBlock>
+                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="70"><Run Text="Total"/></TextBlock>
+            </StackPanel>
+            <Border BorderBrush="Black" BorderThickness="3" Height="3"/>
+        </StackPanel>
+        <ScrollViewer Margin="0,51,0,269">
+            <StackPanel>
+                <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Product}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:CartCard />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBox Name="CCN" Margin="37,414,935,168" Foreground="Black" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Credit Card No."  FontSize="20" TabIndex="0" />
+        <TextBox Name="CCV" Margin="37,493,935,90" Foreground="Black" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="CCV" FontSize="20"  TabIndex="0" />
+        <Button Margin="261,462,718,119" Content="Enter" Click="Validate_Click" Height="Auto" ></Button>
+
     </Grid>
+
 </UserControl>

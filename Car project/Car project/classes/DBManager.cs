@@ -22,6 +22,9 @@ namespace Car_project
 {
     public static class DBManager
     {
+        public static string CCN;
+        public static string CCV;
+        public static bool confirm = false;
         public static SqlConnection con = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
 
 
@@ -391,24 +394,25 @@ namespace Car_project
             SqlCommand sqlcmd = new SqlCommand(query, con);
             sqlcmd.ExecuteNonQuery();
         }
-        // cart 
-        public static List<CartProducts> CartProducts()
+        //-----------------------------------------------Cart-------------------------------------------------------------
+
+        public static List<CartProducts> Get_CartProducts()
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
             List<CartProducts> products = new List<CartProducts>();
-            SqlCommand cmd = new SqlCommand("SELECT OrderID,Name,Cart.Quantity,cart.TotalPrice "
-            + "From Car JOIN Cart on Cart.ProductID = Car.CarID", con);
+            SqlCommand cmd = new SqlCommand("Select * from Cart inner join car on Cart.ProductID = Car.CarID where UserID =" + GlobalVars.userid + "and Cart.carPartOrNot=0", con);
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                          
+
                     products.Add(new CartProducts(
                         reader["OrderID"].ToString(), reader["Name"].ToString(),
-                        reader["Quantity"].ToString(), reader["TotalPrice"].ToString()));
+                        reader["Quantity"].ToString(), reader["Price"].ToString(), reader["TotalPrice"].ToString(),
+                        reader["ProductID"].ToString(), reader["carPartOrNot"].ToString()));
                 }
                 reader.Close();
 
@@ -418,7 +422,198 @@ namespace Car_project
                 MessageBox.Show(e.ToString());
             }
 
+            SqlCommand cmd1 = new SqlCommand("Select * from Cart  join CarPart on Cart.ProductID = CarPart.ProductID where UserID =" + GlobalVars.userid + "and Cart.carPartOrNot=1", con);
+            try
+            {
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    products.Add(new CartProducts(
+                        reader["OrderID"].ToString(), reader["Name"].ToString(),
+                        reader["Quantity"].ToString(), reader["Price"].ToString(), reader["TotalPrice"].ToString(),
+                        reader["ProductID"].ToString(), reader["carPartOrNot"].ToString()));
+                }
+                reader.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
             return products;
+        }
+        public static void removeFromCart(string id, string carorpart)
+        {
+            try
+            {
+                MessageBox.Show(carorpart.ToString());
+                if (con.State == System.Data.ConnectionState.Closed)
+                    con.Open();
+                string query = "delete from Cart where ProductID = " + id + " and carPartOrNot = ";
+                if (carorpart == "True")
+                    query += "1";
+                else
+                    query += "0";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        public static List<CarProduct> viewFromCart(string id, string Carorpart)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            List<CarProduct> products = new List<CarProduct>();
+            string query = "select * from Car  join UserData on Car.SellerID = UserData.UserID";
+            if (id != "")
+                query = query + " where Car.CarID = " + id;
+
+            try
+            {
+                MessageBox.Show("here");
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    byte[] data = (byte[])reader["Image"];
+                    /*
+                     UPDATE Car 
+                     SET [Image] = (SELECT MyImage.* from Openrowset(Bulk 'C:\Delete\B.bmp', Single_Blob) MyImage) 
+                     where CarID = 1 
+                     */
+                    products.Add(new CarProduct(data,
+                        reader["CarID"].ToString(), reader["Price"].ToString(),
+                        reader["Speed"].ToString(), reader["ExtreriorColor"].ToString(),
+                        reader["InteriorColor"].ToString(), reader["TankCapacity"].ToString(),
+                        reader["Model"].ToString(), reader["Warranty"].ToString(),
+                         reader["FirstName"].ToString() + " " + reader["SecondName"].ToString(), reader["Quantity"].ToString()
+                        , reader["Name"].ToString()));
+                }
+                reader.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return products;
+        }
+        public static bool checkccnccv()
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            string query = "select * from Bank";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                if ((reader["CardNumber"]).ToString() == CCN && (reader["CVV"]).ToString() == CCV)
+                {
+                    reader.Close();
+                    return true;
+                }
+
+            }
+            reader.Close();
+            return false;
+
+        }
+        public static bool Check(string total_price)
+        {
+            if (total_price == null)
+            {
+                return false;
+            }
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+
+            try
+            {
+                string query = "select Credits from Bank where CardNumber= " + CCN + " AND CVV=" + CCV;
+                SqlCommand cmd = new SqlCommand(query, con);
+                string credits = cmd.ExecuteScalar().ToString();
+                int tp = Convert.ToInt32(total_price);
+                if (Convert.ToInt32(credits) > tp)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+
+            }
+            return false;
+
+        }
+        public static void UpdateProducts(string id, string Carorpart, string quantity)
+        {
+
+            if (Carorpart == "False")
+            {
+                if (con.State == System.Data.ConnectionState.Closed)
+                    con.Open();
+
+                string query = "select Quantity from Car where CarID= " + id + "AND carPartOrNot=" + 0;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                int newQuantity = Convert.ToInt32(reader["Quantity"]) - Convert.ToInt32(quantity);
+                reader.Close();
+                if (newQuantity == 0)
+                {
+                    if (con.State == System.Data.ConnectionState.Closed)
+                        con.Open();
+                    string query2 = "delete from Car where CarID = " + id;
+                    SqlCommand cmd1 = new SqlCommand(query2, con);
+                    cmd1.ExecuteNonQuery();
+                    return;
+
+                }
+                else
+                {
+                    string query1 = "update Car set Quantity = " + Convert.ToString(newQuantity) + " where CarID = " + id;
+                    SqlCommand updatecmd = new SqlCommand(query1, con);
+                    updatecmd.ExecuteNonQuery();
+                }
+            }
+            if (Carorpart == "True")
+            {
+                if (con.State == System.Data.ConnectionState.Closed)
+                    con.Open();
+                string query = "select Quantity from CarPart where ProductID= " + id + "AND carPartOrNot=" + 1;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                int newQuantity = Convert.ToInt32(reader["Quantity"]) - Convert.ToInt32(quantity);
+                reader.Close();
+                if (newQuantity == 0)
+                {
+                    if (con.State == System.Data.ConnectionState.Closed)
+                        con.Open();
+                    string query2 = "delete from CarPart where ProductID = " + id;
+                    SqlCommand cmd1 = new SqlCommand(query2, con);
+                    cmd1.ExecuteNonQuery();
+                    return;
+
+                }
+                else
+                {
+                    string query1 = "update CarPart set Quantity = " + Convert.ToString(newQuantity) + " where ProductID = " + id;
+                    SqlCommand updatecmd = new SqlCommand(query1, con);
+                    updatecmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void AddtoPayment(string orderid, string name)
+        {
+
         }
 
         // feedback

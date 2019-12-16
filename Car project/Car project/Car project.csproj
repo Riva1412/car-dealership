@@ -137,6 +137,9 @@
     <Compile Include="UserWindow_Classes\Cart\Cart.xaml.cs">
       <DependentUpon>Cart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserWindow_Classes\Cart\CartCard.xaml.cs">
+      <DependentUpon>CartCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow_Classes\Profile\UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow_Classes\Cart\Cart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow_Classes\Cart\CartCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
