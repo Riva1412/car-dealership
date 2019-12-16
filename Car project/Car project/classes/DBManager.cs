@@ -34,9 +34,31 @@ namespace Car_project
             SqlCommand userdata = new SqlCommand(query, con);
             return Convert.ToString(userdata.ExecuteScalar());
         }
+
         //-----------------BESH ---------------------//
 
+        public static void addNewUser(TextBox emailSignUpTxt, PasswordBox passwordSignUpTxt,
+        TextBox firstNameTxt, TextBox secondNameTxt, TextBox phoneTxt, TextBox adressTxt,
+         ComboBox restoringQuestion, TextBox QuestionAnswering, TextBox accNumtxt)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            string query = "insert into userdata(Email, UserPassword,  FirstName, SecondName, Phone, Address,Question, Answer, AccountNumber)" +
+                    "values(@email, @password,  @FirstName, @SecondName, @Phone, @Address, @question, @ans, @accNum)";
 
+            SqlCommand sqlcmd = new SqlCommand(query, con);
+            sqlcmd.Parameters.AddWithValue("@email", emailSignUpTxt.Text);
+            sqlcmd.Parameters.AddWithValue("@password", passwordSignUpTxt.Password);
+            sqlcmd.Parameters.AddWithValue("@FirstName", firstNameTxt.Text);
+            sqlcmd.Parameters.AddWithValue("@SecondName", secondNameTxt.Text);
+            sqlcmd.Parameters.AddWithValue("@Phone", phoneTxt.Text);
+            sqlcmd.Parameters.AddWithValue("@Address", adressTxt.Text);
+            sqlcmd.Parameters.AddWithValue("@question", restoringQuestion.Text);
+            sqlcmd.Parameters.AddWithValue("@ans", QuestionAnswering.Text);
+            sqlcmd.Parameters.AddWithValue("@accNum", accNumtxt.Text);
+
+            sqlcmd.ExecuteNonQuery();
+        }
 
         public static string getUserDataByMail(string colname, string mail)
         {
@@ -244,6 +266,15 @@ namespace Car_project
             }
         }
 
+        public static void deleteCar_Byid(string id)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            SqlCommand sqlcmd = new SqlCommand("exec deleteCar_byID " + id, con);
+            sqlcmd.ExecuteNonQuery();
+
+        }
+        
         //-----------------------------------------------Parts-------------------------------------------------------------
         public static List<PartProduct> Get_CarParts(string id)
         {
@@ -337,15 +368,33 @@ namespace Car_project
             }
 
         }
+
+        public static void deleteCarPart_Byid(string id)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            SqlCommand sqlcmd = new SqlCommand("exec deleteCarPart_byID " + id, con);
+            sqlcmd.ExecuteNonQuery();
+        }
         //
+        public static void MoveToCart(string quantity, string userid, int totalprice,
+             string productid, string carorpart)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            string query = "exec MoveToCart " + quantity + "," + userid + "," +
+                totalprice.ToString() + "," + productid + "," + carorpart;
+            SqlCommand sqlcmd = new SqlCommand(query, con);
+            sqlcmd.ExecuteNonQuery();
+        }
         // cart 
         public static List<CartProducts> CartProducts()
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
             List<CartProducts> products = new List<CartProducts>();
-            SqlCommand cmd = new SqlCommand("SELECT OrderID,Name,Cart.Quantity,cart.Price "
-            +"From Car JOIN Cart on Cart.ProductID = Car.CarID", con);
+            SqlCommand cmd = new SqlCommand("SELECT OrderID,Name,Cart.Quantity,cart.TotalPrice "
+            + "From Car JOIN Cart on Cart.ProductID = Car.CarID", con);
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -355,7 +404,7 @@ namespace Car_project
                           
                     products.Add(new CartProducts(
                         reader["OrderID"].ToString(), reader["Name"].ToString(),
-                        reader["Quantity"].ToString(), reader["Price"].ToString()));
+                        reader["Quantity"].ToString(), reader["TotalPrice"].ToString()));
                 }
                 reader.Close();
 
@@ -394,64 +443,91 @@ namespace Car_project
         }
         public static void get_payment(DataTable dt)
         {
-            dt.Columns.Add("Product Name");
-            dt.Columns.Add("Seller Name");
-            dt.Columns.Add("Quantity");
-            dt.Columns.Add("Date");
-            dt.Columns.Add("Price");
-            if (con.State == System.Data.ConnectionState.Closed)
-                con.Open();
-
-            string query = "get_payment";
-            SqlCommand sqlcmd = new SqlCommand(query, con);
-            sqlcmd.CommandType = CommandType.StoredProcedure;
-            sqlcmd.Parameters.AddWithValue("@id", GlobalVars.userid);
-            SqlDataReader rdr = sqlcmd.ExecuteReader();
-            DataRow row;
-            while (rdr.Read())
+            try
             {
-                row = dt.NewRow();
-                row["Product Name"] = rdr["Product_name"];
-                row["Seller Name"] = rdr["seller_name"];
-                row["Quantity"] = rdr["Quantity"];
-                row["Date"] = rdr["Date"];
-                row["price"] = rdr["price"];
-                dt.Rows.Add(row);
+                dt.Columns.Add("Product Name");
+                dt.Columns.Add("Seller Name");
+                dt.Columns.Add("Quantity");
+                dt.Columns.Add("Date");
+                dt.Columns.Add("Price");
+                if (con.State == System.Data.ConnectionState.Closed)
+                    con.Open();
 
+                string query = "get_payment";
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.Parameters.AddWithValue("@id", GlobalVars.userid);
+                SqlDataReader rdr = sqlcmd.ExecuteReader();
+                DataRow row;
+                while (rdr.Read())
+                {
+                    row = dt.NewRow();
+                    row["Product Name"] = rdr["Product_name"];
+                    row["Seller Name"] = rdr["seller_name"];
+                    row["Quantity"] = rdr["Quantity"];
+                    row["Date"] = rdr["Date"];
+                    row["price"] = rdr["TotalPrice"];
+                    dt.Rows.Add(row);
+
+                }
+                rdr.Close();
             }
-            rdr.Close();
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
 
         }
         public static void get_sales(DataTable dt)
         {
-            dt.Columns.Add("buyer Name");
-            dt.Columns.Add("Product Name");
-            dt.Columns.Add("Quantity");
-            dt.Columns.Add("Date");
-            dt.Columns.Add("Price");
+            try
+            {
+                dt.Columns.Add("buyer Name");
+                dt.Columns.Add("Product Name");
+                dt.Columns.Add("Quantity");
+                dt.Columns.Add("Date");
+                dt.Columns.Add("Price");
+                if (con.State == System.Data.ConnectionState.Closed)
+                    con.Open();
+
+                string query = "get_sales";
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.Parameters.AddWithValue("@id", GlobalVars.userid);
+                SqlDataReader rdr = sqlcmd.ExecuteReader();
+                DataRow row;
+                while (rdr.Read())
+                {
+                    row = dt.NewRow();
+                    row["Product Name"] = rdr["Product_name"];
+                    row["Buyer Name"] = rdr["buyer_name"];
+                    row["Quantity"] = rdr["Quantity"];
+                    row["Date"] = rdr["Date"];
+                    row["price"] = rdr["TotalPrice"];
+                    dt.Rows.Add(row);
+
+                }
+                rdr.Close();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+        }
+        public static bool get_admin(int id)
+        {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
 
-            string query = "get_sales";
+            string query = "select isAdmin from UserData where UserID=@id";
             SqlCommand sqlcmd = new SqlCommand(query, con);
-            sqlcmd.CommandType = CommandType.StoredProcedure;
-            sqlcmd.Parameters.AddWithValue("@id", GlobalVars.userid);
-            SqlDataReader rdr = sqlcmd.ExecuteReader();
-            DataRow row;
-            while (rdr.Read())
-            {
-                row = dt.NewRow();
-                row["Product Name"] = rdr["Product_name"];
-                row["Buyer Name"] = rdr["buyer_name"];
-                row["Quantity"] = rdr["Quantity"];
-                row["Date"] = rdr["Date"];
-                row["price"] = rdr["price"];
-                dt.Rows.Add(row);
 
-            }
-            rdr.Close();
+            sqlcmd.Parameters.AddWithValue("@id", id);
+            bool bannedOrNot = Convert.ToBoolean(sqlcmd.ExecuteScalar());
+            return bannedOrNot;
+
 
         }
-
     }
 }

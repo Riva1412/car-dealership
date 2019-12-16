@@ -82,6 +82,7 @@ namespace Car_project
         {
             all_users.Visibility = Visibility.Visible;
             banned_users.Visibility = Visibility.Collapsed;
+            refresh_all();
 
         }
 
@@ -89,6 +90,7 @@ namespace Car_project
         {
             all_users.Visibility = Visibility.Collapsed;
             banned_users.Visibility = Visibility.Visible;
+            refresh_banned();
 
 
         }
@@ -134,6 +136,55 @@ namespace Car_project
         {
             ban_page.Visibility = Visibility.Collapsed;
             feedback.Visibility = Visibility.Visible;
+        }
+        public void refresh_banned()
+        {
+            here.Children.Remove(banned_users);
+            one_banned_user_control one_banned = new one_banned_user_control();
+
+            one_banned.Name = "banned_users";
+            here.Children.Add(one_banned);
+
+        }
+        public void refresh_all()
+        {
+            here.Children.Remove(all_users);
+            one_user_control one_all_users = new one_user_control();
+            one_all_users.Name = "all_users";
+            here.Children.Add(one_all_users);
+
+        }
+        public void refresh_admins()
+        {
+            here.Children.Remove(admin);
+            one_for_all_admin new_admin = new one_for_all_admin();
+            new_admin.Name = "admin";
+            here.Children.Add(new_admin);
+
+        }
+
+        private void all_users_button_Click(object sender, RoutedEventArgs e)
+        {
+            all_users.Visibility = Visibility.Visible;
+            admin.Visibility = Visibility.Collapsed;
+            banned_users.Visibility = Visibility.Collapsed;
+            refresh_all();
+        }
+
+        private void admin_button_Click(object sender, RoutedEventArgs e)
+        {
+            all_users.Visibility = Visibility.Collapsed;
+            admin.Visibility = Visibility.Visible;
+            banned_users.Visibility = Visibility.Collapsed;
+            refresh_admins();
+        }
+
+        private void banned_button_Click(object sender, RoutedEventArgs e)
+        {
+            all_users.Visibility = Visibility.Collapsed;
+            admin.Visibility = Visibility.Collapsed;
+            banned_users.Visibility = Visibility.Visible;
+            refresh_banned();
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_project
+namespace Car_project.UserWindow_Classes.Cars.MyCars
 {
     /// <summary>
     /// Interaction logic for MyCarsProducts.xaml

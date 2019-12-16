@@ -72,11 +72,14 @@
                             <TextBox Name="phoneTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Phone" Width="100" TabIndex="3"/>
                         </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="-5,0,5.4,0" Width="230">
+                            <TextBox x:Name="emailSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" TabIndex="4" Width="100"/>
+                            <TextBox x:Name="accNumtxt" Margin="10"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Account Number (optional)" Width="100" TabIndex="2"/>
+                        </StackPanel>
 
-                        <TextBox Name="emailSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Email" TabIndex="4"/>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <PasswordBox Name="passwordSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" Width="100" TabIndex="5"/>
+                            <PasswordBox Name="passwordSignUpTxt"  Margin="10" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Password" Width="100" TabIndex="5"/>
                             <PasswordBox  Name="confPasswordSignUpTxt" Margin="10" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialDesign:HintAssist.Hint="Confirm Password" Width="100" TabIndex="6"/>
                         </StackPanel>
 

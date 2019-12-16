@@ -95,6 +95,12 @@
     <Compile Include="user control\feedback_control.xaml.cs">
       <DependentUpon>feedback_control.xaml</DependentUpon>
     </Compile>
+    <Compile Include="user control\ِAdmin\admin_control.xaml.cs">
+      <DependentUpon>admin_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="user control\ِAdmin\one_for_all_admin.xaml.cs">
+      <DependentUpon>one_for_all_admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
@@ -175,6 +181,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="user control\feedback_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user control\ِAdmin\admin_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="user control\ِAdmin\one_for_all_admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_project
+namespace Car_project.UserWindow_Classes.Profile
 {
     /// <summary>
     /// Interaction logic for UserProfile.xaml
@@ -37,6 +37,7 @@ namespace Car_project
             PhoneText.Text = DBManager.getUserData("Phone", GlobalVars.userid);
             EmailText.Text = DBManager.getUserData("Email", GlobalVars.userid);
             AddressText.Text = DBManager.getUserData("Address", GlobalVars.userid);
+            AccNumbText.Text = DBManager.getUserData("AccountNumber", GlobalVars.userid);
         }
         // name expander
         private void Nameconfirm_click(object sender, RoutedEventArgs e)

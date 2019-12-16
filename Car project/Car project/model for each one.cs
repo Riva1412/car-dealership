@@ -38,8 +38,5 @@ namespace Car_project
         public string email { get; set; }
         public string message { get; set; }
         public string feedback_time { get; set; }
-
-
-
     }
 }

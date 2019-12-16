@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_project
+namespace Car_project.UserWindow_Classes.Cars.Add_Car
 {
     /// <summary>
     /// Interaction logic for Add_Car.xaml

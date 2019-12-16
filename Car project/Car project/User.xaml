@@ -113,7 +113,7 @@
                 <Button Grid.Column="1" Height="50" Content="send message" VerticalAlignment="Bottom" Margin="202,0,342,65" Click="Button_Click" />
             </Grid>
         </Grid>
-        <Grid Margin="65,70,0,0" x:Name="payment"  Visibility="Hidden" >
+        <Grid Margin="60,70,0,0" x:Name="payment"  Visibility="Hidden" >
             <Grid HorizontalAlignment="Left"  Height="30" VerticalAlignment="Top" Width="1140"    >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -175,10 +175,15 @@
                     <ListViewItem Height="60" Selected="write_feedback">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Feedback" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Cart" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
+                            <TextBlock Text="Feedback" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>
-
+                    <ListViewItem Height="60" Selected="ListViewItem_Selected" >
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon  Margin="10" Kind="Money" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <TextBlock Text="Payment" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
+                        </StackPanel>
+                    </ListViewItem>
                     <ListViewItem Height="60" Selected="Logout_clcik">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Logout" Foreground="DarkGray" VerticalAlignment="Center"/>

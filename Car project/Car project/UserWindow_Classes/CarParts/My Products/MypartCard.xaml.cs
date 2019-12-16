@@ -54,5 +54,10 @@ namespace Car_project.UserWindow_Classes.CarParts.My_Products
             DBManager.Upate_CarPart(PartImage, bFCPPrice.Text, bFCPName.Text, bFCPColour.Text, bFCPQuantity.Text,
                 bFCPWarranty.Text , partid.Text);
         }
+        private void Delete_click(object sender, RoutedEventArgs e)
+        {
+            DBManager.deleteCarPart_Byid(partid.Text);
+            GlobalGrids.updateviewitems();
+        }
     }
 }

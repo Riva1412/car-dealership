@@ -20,29 +20,51 @@ namespace Car_project
 {
     public partial class User : Window
     {
-        UserProfile userprofile_obj = new UserProfile();
-        Cart cart_obj = new Cart() ;
+        
         public User()
         {
+
             InitializeComponent();
+
+            purchase();
+            sale();
+
             // add profile object
-            UserWindow.Children.Insert(1,userprofile_obj);
-            userprofile_obj.Visibility = Visibility.Hidden;
-            // add cart
-            UserWindow.Children.Insert(1, cart_obj);
-            cart_obj.Visibility = Visibility.Hidden;
+            UserWindow.Children.Insert(1, GlobalGrids.userprofile_obj);
+
             // add all cars object
-            CarsGrid.Children.Add(new All_Car_Products());
+            CarsGrid.Children.Add(GlobalGrids.allCar_obj);
+            CarsGrid.Children.Add(GlobalGrids.mycars_obj);
+            CarsGrid.Children.Add(GlobalGrids.addcar_obj);
+
             // add all car parts object
-            PartsGrid.Children.Add(new AllParts());
+            PartsGrid.Children.Add(GlobalGrids.allparts_obj);
+            PartsGrid.Children.Add(GlobalGrids.myparts_obj);
+            PartsGrid.Children.Add(GlobalGrids.addPart_obg);
+
+            // add cart
+            UserWindow.Children.Insert(1, GlobalGrids.cart_obj);
+            hideGrids();
         }
         void hideGrids()
         {
-            userprofile_obj.Visibility = Visibility.Hidden;
+            GlobalGrids.userprofile_obj.Visibility = Visibility.Hidden;
+
             CarsGrid.Visibility = Visibility.Hidden;
+            GlobalGrids.allCar_obj.Visibility = Visibility.Hidden;
+            GlobalGrids.mycars_obj.Visibility = Visibility.Hidden;
+            GlobalGrids.addcar_obj.Visibility = Visibility.Hidden;
+
             PartsGrid.Visibility = Visibility.Hidden;
-            cart_obj.Visibility = Visibility.Hidden;
+            GlobalGrids.allparts_obj.Visibility = Visibility.Hidden;
+            GlobalGrids.myparts_obj.Visibility = Visibility.Hidden;
+            GlobalGrids.addPart_obg.Visibility = Visibility.Hidden;
+
+            GlobalGrids.cart_obj.Visibility = Visibility.Hidden;
+
             feedback.Visibility = Visibility.Hidden;
+            payment.Visibility = Visibility.Hidden;
+
         }
 
         //---------------------------------------------Top Menu---------------------------------------------------------
@@ -97,7 +119,7 @@ namespace Car_project
         private void ProfileBtn_Click(object sender, RoutedEventArgs e)
         {
             hideGrids();
-            userprofile_obj.Visibility = Visibility.Visible;
+            GlobalGrids.userprofile_obj.Visibility = Visibility.Visible;
         }
 
         //-----------------------------------------------Cars---------------------------------------------------------
@@ -106,23 +128,27 @@ namespace Car_project
         {
             hideGrids();
             CarsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.allCar_obj.Visibility = Visibility.Visible;
         }
 
         private void AllCars_Products(object sender, RoutedEventArgs e)
         {
-            CarsGrid.Children.RemoveAt(1);
-            CarsGrid.Children.Add (new All_Car_Products());
+            hideGrids();
+            CarsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.allCar_obj.Visibility = Visibility.Visible;
         }
 
         private void MyCars_Products(object sender, RoutedEventArgs e)
         {
-            CarsGrid.Children.RemoveAt(1);
-            CarsGrid.Children.Add(new MyCarsProducts());
+            hideGrids();
+            CarsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.mycars_obj.Visibility = Visibility.Visible;
         }
         private void AddCar_Products(object sender, RoutedEventArgs e)
         {
-            CarsGrid.Children.RemoveAt(1);
-            CarsGrid.Children.Add(new Add_Car());
+            hideGrids();
+            CarsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.addcar_obj.Visibility = Visibility.Visible;
         }
 
         //-------------------------------------------Car Parts---------------------------------------------------------
@@ -131,22 +157,26 @@ namespace Car_project
         {
             hideGrids();
             PartsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.allparts_obj.Visibility = Visibility.Visible;
         }
         private void AllParts_Products(object sender, RoutedEventArgs e)
         {
-            PartsGrid.Children.RemoveAt(1);
-            PartsGrid.Children.Add(new AllParts());
+            hideGrids();
+            PartsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.allparts_obj.Visibility = Visibility.Visible;
         }
         private void MyParts_Products(object sender, RoutedEventArgs e)
         {
-            PartsGrid.Children.RemoveAt(1);
-            PartsGrid.Children.Add(new UserWindow_Classes.CarParts.My_Products.MyPartsProducts());
+            hideGrids();
+            PartsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.myparts_obj.Visibility = Visibility.Visible;
         }
 
         private void AddPart_Products(object sender, RoutedEventArgs e)
         {
-            PartsGrid.Children.RemoveAt(1);
-            PartsGrid.Children.Add(new AddCarPart());
+            hideGrids();
+            PartsGrid.Visibility = Visibility.Visible;
+            GlobalGrids.addPart_obg.Visibility = Visibility.Visible;
         }
 
         //---------------------------------------------------Cart---------------------------------------------------------
@@ -154,7 +184,7 @@ namespace Car_project
         private void Cart_click(object sender, RoutedEventArgs e)
         {
                 hideGrids();
-            cart_obj.Visibility = Visibility.Visible;
+                GlobalGrids.cart_obj.Visibility = Visibility.Visible;
         }
         //---------------------------------------------------Feedback ---------------------------------------------------------
 
@@ -213,6 +243,10 @@ namespace Car_project
             loginwinow.Show();
         }
 
-
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            hideGrids();
+            payment.Visibility = Visibility.Visible;
+        }
     }
 }

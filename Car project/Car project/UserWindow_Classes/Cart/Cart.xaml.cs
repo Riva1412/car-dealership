@@ -24,12 +24,7 @@ namespace Car_project
         {
             InitializeComponent();
             var CartProducts = DBManager.CartProducts();
-            if (CartProducts.Count > 0)
                 ListViewCart.ItemsSource = CartProducts;
-            else
-                MessageBox.Show("No Avaiable Products");
-
-
         }
        
         

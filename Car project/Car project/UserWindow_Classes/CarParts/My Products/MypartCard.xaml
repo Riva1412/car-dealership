@@ -15,7 +15,7 @@
                         <RowDefinition Height="300" />
                         <RowDefinition Height="200" />
                     </Grid.RowDefinitions>
-                    <Image x:Name="imagebox" Grid.Row="0" Source="{Binding Image}" Width="366" Margin="0 20 0 0"/>
+                    <Image x:Name="imagebox" Grid.Row="0" Source="{Binding Image}" Width="300" Margin="0 20 0 0"/>
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Click="EditImage_click" Content="Edit Image" />
                         <Button Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 30 0 0" Content="See More"/>
@@ -76,6 +76,7 @@
                                     <TextBox Name="bFCPPrice" FontSize="30" Grid.Column="1" MinWidth="280" Text="{Binding Price}" />
                                 </StackPanel>
                                 <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 20 0 0" Content="Done" Click="Done_click"/>
+                                <Button HorizontalAlignment="Center" Foreground="Black" FontSize="20" Style="{StaticResource MaterialDesignFlatButton}"  Margin="0 20 0 0" Content="Delete" Click="Delete_click"/>
                                 <TextBlock x:Name="partid" Text="{Binding PartID}" Visibility="Hidden" />
                             </StackPanel>
                         </Grid>

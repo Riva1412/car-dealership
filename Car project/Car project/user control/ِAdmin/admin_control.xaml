@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Car_project.admin_control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             xmlns:local="clr-namespace:Car_project"
+             mc:Ignorable="d" 
+             d:DesignHeight="90" d:DesignWidth="700">
+    <Grid d:DataContext="{x:Static local:UserDesignModel.instance}" Background="#FFF0EAEA">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="bannedOrNot" Visibility="Collapsed" Text="{Binding isbanned, FallbackValue=lm}"/>
+        <Border Padding="5" Grid.Column="0">
+            <Border Background="Black" Width="{Binding ActualHeight,RelativeSource={RelativeSource self}}" CornerRadius="60">
+                <TextBlock FontSize="24" Text="{Binding initials}" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+
+        </Border>
+        <materialDesign:PackIcon Foreground="Black" Kind="star" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="16" Grid.Column="1"/>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" >
+
+            <TextBlock Foreground="Black" Text="Admin" Height="22" Margin="24,0,80,0"/>
+            <TextBlock  Text="{Binding name}" FontSize="20" Foreground="#FF444546" Height="30" HorizontalAlignment="Left" Width="119"/>
+            <TextBlock Text="{Binding email}" Foreground="DarkGray" Padding="4" />
+
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,-72,0" Width="213">
+
+            <TextBlock x:Name="get_id" Visibility="Collapsed" Text="{Binding button_id}"/>
+
+            <Button x:Name="button" Foreground="#FF444546" Content="Remove from admin" Grid.Column="2" HorizontalAlignment="Right" Margin="0,34,0,24" Width="174" Click="Button_Click"/>
+
+        </StackPanel>
+    </Grid>
+
+
+
+</UserControl>

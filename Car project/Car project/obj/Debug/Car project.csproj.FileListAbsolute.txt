@@ -313,3 +313,7 @@ F:\University\Projects\Second Year\Beshooooo\car-dealershipBesho\car-dealership\
 F:\University\Projects\Second Year\Beshooooo\car-dealershipBesho\car-dealership\Car project\Car project\obj\Debug\Car project.csproj.CopyComplete
 F:\University\Projects\Second Year\Beshooooo\car-dealershipBesho\car-dealership\Car project\Car project\obj\Debug\Car project.exe
 F:\University\Projects\Second Year\Beshooooo\car-dealershipBesho\car-dealership\Car project\Car project\obj\Debug\Car project.pdb
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\admin_control.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.g.cs
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\admin_control.baml
+F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.baml

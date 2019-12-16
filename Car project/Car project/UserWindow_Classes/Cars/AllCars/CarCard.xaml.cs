@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_project
+namespace Car_project.UserWindow_Classes.Cars.AllCars
 {
     /// <summary>
     /// Interaction logic for CarCard.xaml
@@ -39,6 +39,9 @@ namespace Car_project
                 MessageBox.Show("Not Enough amounts");
                 return;
             }
+            DBManager.MoveToCart(required_quantity.Text, GlobalVars.userid.ToString(), Convert.ToInt32(price.Text) * re
+                , Carid.Text, "0");
+            MessageBox.Show("Done");
         }
     }
 }

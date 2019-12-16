@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Car_project
+namespace Car_project.UserWindow_Classes.Cars.MyCars
 {
     /// <summary>
     /// Interaction logic for MyCarCard.xaml
@@ -57,6 +57,11 @@ namespace Car_project
             }
             DBManager.UpdateCarProduct(CarImage , Price.Text, Speed.Text, ExColour.Text,
                 InColour.Text, TankCapacity.Text, Model.Text, Warranty.Text, quantity.Text ,CarName.Text, Carid.Text);
+        }
+        private void Delete_click(object sender, RoutedEventArgs e)
+        {
+            DBManager.deleteCar_Byid(Carid.Text);
+            GlobalGrids.updateviewitems();
         }
     }
 }

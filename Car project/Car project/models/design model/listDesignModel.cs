@@ -18,12 +18,12 @@ using System.Data;
 
 namespace Car_project
 {
-   public partial class listDesignModel:listforUsers
+    public partial class listDesignModel : listforUsers
     {
         SqlConnection sqlcon = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
         //getter
-        
-        public static listDesignModel instance=>new listDesignModel();
+
+        public static listDesignModel instance => new listDesignModel();
         //constructor
         public listDesignModel()
         {
@@ -35,6 +35,7 @@ namespace Car_project
 
                 items = new List<model_for_each_one>();
                 BannedItems = new List<model_for_each_one>();
+                admins = new List<model_for_each_one>();
                 string query = "get_data";
                 SqlCommand cmd = new SqlCommand(query, sqlcon);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -46,7 +47,7 @@ namespace Car_project
                     var item = new model_for_each_one();
                     string fn = (string)rdr["FirstName"], sn = (string)rdr["SecondName"];
                     item.name = fn + ' ' + sn;
-                   
+
 
                     item.email = (string)rdr["Email"];
                     item.button_id = (int)rdr["UserID"];
@@ -55,8 +56,12 @@ namespace Car_project
                     if (item.isbanned)
                     {
                         BannedItems.Add(item);
-                        
-                        
+
+
+                    }
+                    else if (DBManager.get_admin(item.button_id))
+                    {
+                        admins.Add(item);
                     }
 
                     else
@@ -64,7 +69,7 @@ namespace Car_project
                         items.Add(item);
 
                     }
-                     
+
                 }
 
 
@@ -86,7 +91,7 @@ namespace Car_project
 
 
         }
-        
+
 
 
 

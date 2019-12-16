@@ -54,6 +54,33 @@
                 <local:one_for_all_feedback_version/>
             </Grid>
         </Grid>
+        <Grid x:Name="ban_page" Visibility="Collapsed" HorizontalAlignment="Center" Background="#FFF0EAEA" Width="1140" Margin="60,70,0,0">
+            <Grid HorizontalAlignment="Left"  Height="30" VerticalAlignment="Top" Width="1140"   Visibility="Visible"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="admin_button"   Foreground="Black" Grid.Column="0" FontSize="18" Height="Auto"   Content="Admins" Click="admin_button_Click"  />
+                <Button x:Name="all_users_button"  Foreground="Black" Grid.Column="1" FontSize="18" Height="Auto"  Content="All users" Click="all_users_button_Click"  />
+                <Button x:Name="banned_button"   Foreground="Black" Grid.Column="2" FontSize="18" Height="Auto"   Content="Banned users" Click="banned_button_Click"  />
+            </Grid>
+
+
+
+
+
+            <Grid Margin="172,35,0,0" x:Name="here" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <local:one_user_control x:Name="all_users" Visibility="Collapsed"  />
+                <local:one_banned_user_control x:Name="banned_users"  Visibility="Collapsed"/>
+                <local:one_for_all_admin x:Name="admin"/>
+            </Grid>
+
+        </Grid>
+
         <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="Black" >
             <StackPanel>
                 <Grid Height="200" VerticalAlignment="Top" Background="White">
@@ -82,7 +109,7 @@
                     <ListViewItem Height="60" Selected="ListViewItem_Selected_3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Ban" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Ban a user" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
+                            <TextBlock Text="manage users" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>
 
@@ -112,34 +139,6 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="ban_page" Visibility="Collapsed" HorizontalAlignment="Center" Background="#FFF0EAEA" Width="800" Margin="0,70,0,0">
-
-            <TextBox Margin="20,10,566,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="76" VerticalAlignment="Top" TextChanged="TextBox_TextChanged" >
-                <materialDesign:HintAssist.Hint >
-                    <TextBlock Foreground="Gray" FontSize="18" Width="66"  >Search</TextBlock>
-                </materialDesign:HintAssist.Hint>
-            </TextBox>
-            <Grid Margin="0,119,566,0" Height="44" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-
-
-                </Grid.ColumnDefinitions>
-                <Button Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="0" Click="Button_Click_4" Margin="0,6">
-                    <materialDesign:PackIcon Kind="People" Height="22" Width="69" Foreground="Black" />
-                </Button>
-                <Button Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="1" Click="Button_Click_5" Margin="0,6">
-                    <materialDesign:PackIcon Kind="Ban" Height="22" Width="69" Foreground="Black"/>
-                </Button>
-            </Grid>
-            <Grid Margin="0,168,0,0" x:Name="here" >
-                <local:one_user_control x:Name="all_users"  />
-                <local:one_banned_user_control x:Name="banned_users"  Visibility="Collapsed"/>
-            </Grid>
-
-        </Grid>
 
     </Grid>
 
