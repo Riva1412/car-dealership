@@ -24,10 +24,9 @@ namespace Car_project.UserWindow_Classes.Cars.AllCars
         {
             InitializeComponent();
             var CarProducts = DBManager.getCar_Products("");
-            if (CarProducts.Count > 0)
+
                 ListViewProducts.ItemsSource = CarProducts;
-            else
-                MessageBox.Show("No Avaiable Products");
+
         }
       
     }

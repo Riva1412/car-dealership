@@ -157,7 +157,9 @@ namespace Car_project
             string query = "select * from Car  join UserData on Car.SellerID = UserData.UserID";
             if (id != "")
                 query = query + " where Car.SellerID = " + id;
-           
+            else
+                query = query + " where Car.SellerID != " + GlobalVars.userid.ToString();
+
             try
             {
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -286,6 +288,8 @@ namespace Car_project
             string query = "select * from CarPart join UserData on CarPart.SellerID=UserData.UserID ";
             if (id != "")
                 query =query + "where CarPart.SellerID = " + id;
+            else
+                query = query + "where CarPart.SellerID != " + GlobalVars.userid.ToString();
             try
             {
                 SqlCommand  sqlcmd = new SqlCommand(query, con);
