@@ -56,6 +56,8 @@ namespace Car_project.UserWindow_Classes.CarParts.Add_Product
             }
             DBManager.Add_CarPart_Fn(PartImage , bFCPPrice.Text, bFCPName.Text, bFCPColour.Text, bFCPQuantity.Text, bFCPWarranty.Text);
             bFCPPrice.Text = ""; bFCPColour.Text = ""; bFCPQuantity.Text = ""; bFCPWarranty.Text = "";
+            GlobalGrids.updateviewitems();
+
         }
     }
 }

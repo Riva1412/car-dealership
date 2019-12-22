@@ -15,7 +15,7 @@
                 <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="120"><Run Text="Name"/></TextBlock>
                 <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="100"><Run Text="Quantity"/></TextBlock>
                 <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="200"><Run Text="Price"/></TextBlock>
-                <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="120"><Run Text="View"/></TextBlock>
+                <!--<TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="120"><Run Text="View"/></TextBlock>-->
                 <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="165"><Run Text="Remove"/></TextBlock>
                 <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="230"><Run Text="Confirm"/></TextBlock>
                 <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" TextAlignment="Center" VerticalAlignment="Center" Width="70"><Run Text="Total"/></TextBlock>

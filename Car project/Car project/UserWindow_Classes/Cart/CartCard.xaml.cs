@@ -31,6 +31,7 @@ namespace Car_project
             string Carorpart = carpartornot.Text;
             string id = ProductID.Text;
             DBManager.removeFromCart(id, Carorpart);
+            GlobalGrids.updateviewitems();
 
         }
 
@@ -63,8 +64,9 @@ namespace Car_project
 
                     MessageBox.Show("you can buy it :)");
                     DBManager.UpdateProducts(id, Carorpart, quantity);
-
-                    //DBManager.removeFromCart(id, Carorpart);
+                    DBManager.AddtoPayment(orderid, name);
+                    DBManager.IsConfirmed( orderid);
+                    GlobalGrids.updateviewitems();
 
                 }
                 else { MessageBox.Show("you can't buy it :("); }

@@ -165,7 +165,6 @@ F:\University\Projects\Second Year\car-dealership\Car project\Car project\bin\De
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\bin\Debug\MaterialDesignColors.pdb
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\bin\Debug\MaterialDesignThemes.Wpf.xml
-F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.g.cs
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add Car\Add_Car.g.cs
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\All_Car_Products.g.cs
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\CarCard.g.cs
@@ -181,7 +180,6 @@ F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\De
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\all users\one user control.baml
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\all users\UserControl1.baml
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\User.baml
-F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Carpart\AddCarPart.baml
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\Add Car\Add_Car.baml
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\All_Car_Products.baml
 F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cars\AllCars\CarCard.baml
@@ -319,3 +317,24 @@ F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\
 F:\Github\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.baml
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\CartCard.g.cs
 F:\Github\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\CartCard.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\all_for_one_feedback_version.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\feedback_control.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\admin_control.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Product\AddCarPart.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\AllParts.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\PartCard.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MypartCard.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MyPartsProducts.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\CartCard.g.cs
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\button_dictionary.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\all_for_one_feedback_version.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\feedback_control.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\admin_control.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\user control\ِAdmin\one_for_all_admin.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\Add Product\AddCarPart.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\AllParts.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\All Products\PartCard.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MypartCard.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\CarParts\My Products\MyPartsProducts.baml
+F:\University\Projects\Second Year\car-dealership\Car project\Car project\obj\Debug\UserWindow_Classes\Cart\CartCard.baml

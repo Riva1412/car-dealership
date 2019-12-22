@@ -42,6 +42,7 @@ namespace Car_project.UserWindow_Classes.Cars.AllCars
             DBManager.MoveToCart(required_quantity.Text, GlobalVars.userid.ToString(), Convert.ToInt32(price.Text) * re
                 , Carid.Text, "0");
             MessageBox.Show("Done");
+            GlobalGrids.updateviewitems();
         }
     }
 }

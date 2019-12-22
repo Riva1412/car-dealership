@@ -34,7 +34,31 @@ namespace Car_project
             sqlcmd.Parameters.AddWithValue("@id", id);
             banSign.Foreground =new SolidColorBrush(Colors.Red);
             sqlcmd.ExecuteNonQuery();
+            MainWindow wnd = (MainWindow)Application.Current.MainWindow;
+            wnd.refresh_all();
+
+        }
+
+        private void profile_Click(object sender, RoutedEventArgs e)
+        {
+            if (sqlcon.State == System.Data.ConnectionState.Closed)
+                sqlcon.Open();
+            int id = Convert.ToInt32(get_id.Text);
+            string query = "update UserData set isAdmin = 1 where UserID = @id";
+            SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
+            sqlcmd.Parameters.AddWithValue("@id", id);
+            banSign.Foreground = new SolidColorBrush(Colors.Red);
+            sqlcmd.ExecuteNonQuery();
             
+            try
+            {
+                MainWindow wnd = (MainWindow)Application.Current.MainWindow;
+                wnd.refresh_all();
+            }
+            catch(Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
         }
     }
 }

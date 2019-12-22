@@ -25,11 +25,38 @@ namespace Car_project
         {
 
             InitializeComponent();
-
+            if (GlobalVars.firsttime == 0)
+            {
+                GlobalVars.firsttime++;
+                Login.MainWindow loginwinow = new Login.MainWindow();
+                this.Close();
+                loginwinow.Show();
+            }
+                
             purchase();
             sale();
 
-            // add profile object
+            //------------------------Profile---------------------------
+
+        GlobalGrids.userprofile_obj = new UserWindow_Classes.Profile.UserProfile();
+
+            //------------------------Cars---------------------------
+
+            GlobalGrids.allCar_obj = new UserWindow_Classes.Cars.AllCars.All_Car_Products();
+            GlobalGrids.mycars_obj = new UserWindow_Classes.Cars.MyCars.MyCarsProducts();
+            GlobalGrids.addcar_obj = new UserWindow_Classes.Cars.Add_Car.Add_Car();
+
+            //------------------------CarParts---------------------------
+
+            GlobalGrids.allparts_obj = new UserWindow_Classes.CarParts.All_Products.AllParts();
+            GlobalGrids.myparts_obj = new UserWindow_Classes.CarParts.My_Products.MyPartsProducts();
+            GlobalGrids.addPart_obg = new UserWindow_Classes.CarParts.Add_Product.AddCarPart();
+
+            //--------------------------------------------------------------------
+            GlobalGrids.cart_obj = new Cart();
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // add profile object
             UserWindow.Children.Insert(1, GlobalGrids.userprofile_obj);
 
             // add all cars object
@@ -45,6 +72,11 @@ namespace Car_project
             // add cart
             UserWindow.Children.Insert(1, GlobalGrids.cart_obj);
             hideGrids();
+            CarsGrid.Visibility = Visibility.Visible;
+
+            GlobalGrids.allCar_obj.Visibility = Visibility.Visible;
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
         void hideGrids()
         {
@@ -64,6 +96,7 @@ namespace Car_project
 
             feedback.Visibility = Visibility.Hidden;
             payment.Visibility = Visibility.Hidden;
+            GlobalGrids.cart_obj.Visibility = Visibility.Hidden;
 
         }
 
@@ -106,13 +139,9 @@ namespace Car_project
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
         }
 
-        //---------------------------------------------Home---------------------------------------------------------
+      
 
-        private void Home(object sender, RoutedEventArgs e)
-        {
-            hideGrids();
-            MessageBox.Show("Home");
-        }
+       
 
         //-------------------------------------------Profile---------------------------------------------------------
 
@@ -246,6 +275,8 @@ namespace Car_project
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
             hideGrids();
+            purchase();
+            sale();
             payment.Visibility = Visibility.Visible;
         }
     }

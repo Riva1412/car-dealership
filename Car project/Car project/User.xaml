@@ -41,9 +41,7 @@
                 <Button Click="ButtonMinimize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Click="ButtonMaximize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="WindowMaximize"/>
-                </Button>
+                
                 <Button Click="Buttonclose_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" >
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
@@ -139,12 +137,7 @@
                     </Button>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60" Selected="Home">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Margin="10" Kind="Home" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Home" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-                        </StackPanel>
-                    </ListViewItem>
+                    
 
                     <ListViewItem   Height="60" Selected="ProfileBtn_Click">
                         <StackPanel Orientation="Horizontal">

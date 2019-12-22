@@ -12,9 +12,9 @@
         <TextBlock x:Name="Name"  Foreground="Gray" FontSize="20" FontFamily="Arial" VerticalAlignment="Center" Width="120"><Run Text="{Binding Name}"/></TextBlock>
         <TextBlock x:Name="Quantity" Foreground="Gray" FontSize="20" FontFamily="Arial" VerticalAlignment="Center" Width="135"><Run Text="{Binding Quantity}"/></TextBlock>
         <TextBlock Foreground="Gray" FontSize="20" FontFamily="Arial" VerticalAlignment="Center" Width="130"><Run Text="{Binding Price}"/></TextBlock>
-        <Button Background="AliceBlue" Foreground="Gray" FontSize="20" FontFamily="Arial" VerticalAlignment="Center" Width="90" Click="View_Click">
+        <!--<Button Background="AliceBlue" Foreground="Gray" FontSize="20" FontFamily="Arial" VerticalAlignment="Center" Width="90" Click="View_Click">
             <Run Text="View"/>
-        </Button>
+        </Button>-->
         <TextBlock  Width="22" Margin="0,0,30,0"></TextBlock>
         <Button Click="remove_click" Foreground="Gray" Background="PaleVioletRed" FontSize="20" FontFamily="Arial" VerticalAlignment="Center" Width="130" Content="Remove"/>
         <TextBlock  Width="50" Margin="0,0,5,0"></TextBlock>

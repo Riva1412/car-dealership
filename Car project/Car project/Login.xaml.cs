@@ -29,7 +29,7 @@ namespace Login
         public MainWindow()
         {
             InitializeComponent();
-            loginMail.Focus();
+           loginMail.Focus();
         }
 
         private void loginShowBtn_Click(object sender, RoutedEventArgs e)
@@ -57,34 +57,29 @@ namespace Login
         }
 
 
-        void check_SignUp_Constraints()
+         bool check_SignUp_Constraints()
         {
             if (emailSignUpTxt.Text == "" || firstNameTxt.Text == "" || secondNameTxt.Text == "" || adressTxt.Text == "" ||
                 phoneTxt.Text == "" || passwordSignUpTxt.Password == "" || confPasswordSignUpTxt.Password == ""
                 || (restoringQuestion.SelectedIndex > -1 && QuestionAnswering.Text == ""))
             {
                 MessageBox.Show("You must fill in all fields");
-                return;
+                return false;
             }
             if (passwordSignUpTxt.Password.Length < 8)  //check password length
             {
                 MessageBox.Show("Password Minimum is 8 Characters");
 
-                return;
+                return false;
             }
 
-            if (accNumtxt.Text.Length < 14)  //check Account number length
-            {
-                MessageBox.Show("Password Minimum is 8 Characters");
-
-                return;
-            }
+            
 
             if (passwordSignUpTxt.Password != confPasswordSignUpTxt.Password)
             {
                 MessageBox.Show("Password does not match");
 
-                return;
+                return false;
             }
 
 
@@ -92,14 +87,14 @@ namespace Login
             {
 
                 MessageBox.Show("Invalid phone number");
-                return;
+                return false;
             }
 
-            if (!Regex.IsMatch(accNumtxt.Text, @"^([0-9]{11})$")) // Validate Phone Number
+            if (!Regex.IsMatch(accNumtxt.Text, @"^([0-9]{14})$")&& accNumtxt.Text!="") // Validate account Number
             {
 
                 MessageBox.Show("Invalid account number");
-                return;
+                return false;
             }
 
 
@@ -109,8 +104,9 @@ namespace Login
             if (!isValid)
             {
                 System.Windows.MessageBox.Show("Invalid Email.");
-                return;
+                return false;
             }
+            return true;
         }
 
 
@@ -123,26 +119,33 @@ namespace Login
             int count = DBManager.check_Login(loginMail.Text, loginPassword.Password);
             if (count == 1)
             {
-
-                string ban = DBManager.getUserDataByMail("banned", loginMail.Text);
-                if (ban == "True")
+                try 
                 {
-                    MessageBox.Show("You are banned :(");
-                    return;
-                }
-                GlobalVars.userid = Convert.ToInt32(DBManager.getUserDataByMail("UserID", loginMail.Text));
+                    string ban = DBManager.getUserDataByMail("banned", loginMail.Text);
+                    if (ban == "True")
+                    {
+                        MessageBox.Show("You are banned :(");
+                        return;
+                    }
+                    GlobalVars.userid = Convert.ToInt32(DBManager.getUserDataByMail("UserID", loginMail.Text));
 
-                if (DBManager.getUserDataByMail("isAdmin", loginMail.Text) == "True")
+                    if (DBManager.getUserDataByMail("isAdmin", loginMail.Text) == "True")
 
-                {
-                    Car_project.MainWindow admin = new Car_project.MainWindow();
+                    {
+                        Car_project.MainWindow admin = new Car_project.MainWindow();
+                        this.Close();
+                        admin.Show();
+                        return;
+                    }
+
+                    Car_project.User userwindow = new Car_project.User();
                     this.Close();
-                    admin.Show();
-                    return;
+                    userwindow.Show();
                 }
-                Car_project.User userwindow = new Car_project.User();
-                this.Close();
-                userwindow.Show();
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
             }
             else MessageBox.Show("Wrong username or password");
 
@@ -154,7 +157,9 @@ namespace Login
         private void signUpBtn_Function()
         {
 
-            check_SignUp_Constraints();
+            if (!check_SignUp_Constraints()) {
+                return;
+            }
 
 
             int count = DBManager.check_Login(emailSignUpTxt.Text, passwordSignUpTxt.Password);

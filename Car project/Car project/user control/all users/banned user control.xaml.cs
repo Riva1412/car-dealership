@@ -39,6 +39,8 @@ namespace Car_project
             sqlcmd.ExecuteNonQuery();
             undo.Foreground = new SolidColorBrush(Colors.Blue);
             listDesignModel ob = new listDesignModel();
+            MainWindow wnd = (MainWindow)Application.Current.MainWindow;
+            wnd.refresh_banned();
         }
     }
     }

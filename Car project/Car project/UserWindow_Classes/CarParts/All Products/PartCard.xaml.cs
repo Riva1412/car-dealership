@@ -40,8 +40,10 @@ namespace Car_project.UserWindow_Classes.CarParts.All_Products
                 return;
             }
             DBManager.MoveToCart(required_quantity.Text, GlobalVars.userid.ToString(), Convert.ToInt32(price.Text) * re
-    , partid.Text, "1");
+             , partid.Text, "1");
             MessageBox.Show("Done");
+            GlobalGrids.updateviewitems();
+
         }
     }
 }

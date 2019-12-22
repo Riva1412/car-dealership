@@ -39,9 +39,7 @@
                 <Button Click="ButtonMinimize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Click="ButtonMaximize_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="WindowMaximize"/>
-                </Button>
+                
                 <Button Click="Buttonclose_Click" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" >
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
@@ -92,20 +90,13 @@
                     </Button>
                 </Grid>
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60" Selected="ListViewItem_Selected_2">
+                    <!--<ListViewItem Height="60" Selected="ListViewItem_Selected_2">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Margin="10" Kind="ViewDashboard" Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Home" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60" Selected="ListViewItem_Selected_1">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Margin="10" Kind="PersonAdd" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Add a user" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-                        </StackPanel>
+                    </ListViewItem>-->
 
-
-                    </ListViewItem>
                     <ListViewItem Height="60" Selected="ListViewItem_Selected_3">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon  Margin="10" Kind="Ban" Foreground="DarkGray" VerticalAlignment="Center"/>
@@ -113,12 +104,7 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon   Margin="10" Kind="Pencil" Foreground="DarkGray" VerticalAlignment="Center"/>
-                            <TextBlock Text="Manage products" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
-                        </StackPanel>
-                    </ListViewItem>
+
 
                     <ListViewItem Height="60" Selected="ListViewItem_Selected_4">
                         <StackPanel Orientation="Horizontal">
@@ -128,7 +114,7 @@
                     </ListViewItem>
                     <ListViewItem Height="60" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon  Margin="10" Kind="Logout" Foreground="DarkGray" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon  Margin="10" Kind="Logout"  Foreground="DarkGray" VerticalAlignment="Center"/>
                             <TextBlock Text="Logout" Margin=" 20 10" VerticalAlignment="Center" Foreground="LightGray"/>
                         </StackPanel>
                     </ListViewItem>

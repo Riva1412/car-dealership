@@ -38,9 +38,16 @@ namespace Car_project
             SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
             sqlcmd.Parameters.AddWithValue("@id", id);
             sqlcmd.ExecuteNonQuery();
-
-            MainWindow wnd = (MainWindow)Application.Current.MainWindow;
+            try
+            {
+             MainWindow wnd =(MainWindow)Application.Current.MainWindow;
             wnd.refresh_admins();
+            }
+          catch(Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
+            
 
         }
     }

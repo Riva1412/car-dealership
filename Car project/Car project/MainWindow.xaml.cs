@@ -54,7 +54,9 @@ namespace Car_project
         {
             ban_page.Visibility = Visibility.Collapsed;
             feedback.Visibility = Visibility.Collapsed;
-
+            Login.MainWindow loginwinow = new Login.MainWindow();
+            this.Close();
+            loginwinow.Show();
         }
 
         private void ListViewItem_Selected_1(object sender, RoutedEventArgs e)

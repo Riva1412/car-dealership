@@ -30,9 +30,9 @@
 
         </StackPanel>
         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0">
-            <Button x:Name="profile" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray">
+            <Button x:Name="profile" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="30" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Gray" Click="profile_Click">
                 
-                <materialDesign:PackIcon Kind="Person"/>
+                <materialDesign:PackIcon Kind="Star"/>
                 
             </Button>
             <TextBlock x:Name="get_id" Visibility="Collapsed" Text="{Binding button_id}"/>

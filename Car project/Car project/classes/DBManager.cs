@@ -25,6 +25,7 @@ namespace Car_project
         public static string CCN;
         public static string CCV;
         public static bool confirm = false;
+
         public static SqlConnection con = new SqlConnection(@"Data Source=(local);Initial Catalog=Cars_db;Integrated Security=SSPI");
 
 
@@ -401,7 +402,7 @@ namespace Car_project
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
             List<CartProducts> products = new List<CartProducts>();
-            SqlCommand cmd = new SqlCommand("Select * from Cart inner join car on Cart.ProductID = Car.CarID where UserID =" + GlobalVars.userid + "and Cart.carPartOrNot=0", con);
+            SqlCommand cmd = new SqlCommand("Select * from Cart inner join car on Cart.ProductID = Car.CarID where UserID =" + GlobalVars.userid + "and Cart.carPartOrNot=0 and IsConfirmed= 0", con);
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -422,7 +423,7 @@ namespace Car_project
                 MessageBox.Show(e.ToString());
             }
 
-            SqlCommand cmd1 = new SqlCommand("Select * from Cart  join CarPart on Cart.ProductID = CarPart.ProductID where UserID =" + GlobalVars.userid + "and Cart.carPartOrNot=1", con);
+            SqlCommand cmd1 = new SqlCommand("Select * from Cart  join CarPart on Cart.ProductID = CarPart.ProductID where UserID =" + GlobalVars.userid + "and Cart.carPartOrNot=1 and IsConfirmed= 0", con);
             try
             {
                 SqlDataReader reader = cmd1.ExecuteReader();
@@ -551,14 +552,23 @@ namespace Car_project
             return false;
 
         }
+        public static void IsConfirmed(string orderid)
+        {
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            string query = "update Cart set IsConfirmed= 1 where OrderID = "+orderid ;
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            
+        }
         public static void UpdateProducts(string id, string Carorpart, string quantity)
         {
-
+            try { 
             if (Carorpart == "False")
             {
                 if (con.State == System.Data.ConnectionState.Closed)
                     con.Open();
-
+                
                 string query = "select Quantity from Car where CarID= " + id + "AND carPartOrNot=" + 0;
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -609,10 +619,40 @@ namespace Car_project
                     updatecmd.ExecuteNonQuery();
                 }
             }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+
         }
 
-        public static void AddtoPayment(string orderid, string name)
+        public static void AddtoPayment(string orderid,string name)
         {
+            DateTime localDate = DateTime.Now;
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            try
+            {
+                string query = "select * from Cart where OrderID= " + orderid;
+                SqlCommand cmd1 = new SqlCommand(query, con);
+                SqlDataReader reader = cmd1.ExecuteReader();
+                reader.Read();
+                string Name = name;
+                string sellerid = reader["UserID"].ToString();
+                reader.Close();
+                string query1 = "Insert into Payment (BuyerID,SellerID,Product_name,Date,orderID) values (@buyer,@seller,@name,@date,@order)";
+                SqlCommand cmd = new SqlCommand(query1, con);
+
+                cmd.Parameters.AddWithValue("@buyer", GlobalVars.userid.ToString());
+                cmd.Parameters.AddWithValue("@seller", sellerid);
+                cmd.Parameters.AddWithValue("@name", Name);
+                cmd.Parameters.AddWithValue("@date", localDate);
+                cmd.Parameters.AddWithValue("@order", orderid);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e) { MessageBox.Show(e.ToString()); }
 
         }
 

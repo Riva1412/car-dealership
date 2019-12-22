@@ -53,6 +53,8 @@ namespace Car_project.UserWindow_Classes.Cars.Add_Car
             DBManager.AddCarProduct(CarImage, Price.Text, Speed.Text, ExColour.Text, 
                 InColour.Text, TankCapacity.Text, Model.Text, Warranty.Text, quantity.Text, CarName.Text);
            quantity.Text= Price.Text = Speed.Text = ExColour.Text =  InColour.Text = TankCapacity.Text =  Model.Text =  Warranty.Text = "";
+            GlobalGrids.updateviewitems();
+
         }
     }
 }
